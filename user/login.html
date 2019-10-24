@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Madimgz</title>
-	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 	<!-- <link rel="stylesheet" href="../css/debug.css"> -->
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 			<div class="navbar-brand">
 			  <a class="navbar-item" href="home_page.html"> 
-				<img src="./imgs/logo_rec.png" width="112" height="30" title="MadImgz">
+				<img src="./../imgs/logo_rec.png" width="112" height="30" title="MadImgz">
 			  </a>
 		  
 			  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -39,7 +39,7 @@
 					<a class="navbar-item">
 					  About
 					</a>
-					<a class="navbar-item" href="contact_us.html">
+					<a class="navbar-item" href="./../contact_us.html">
 					  Contact Us
 					</a>
 				  </div>
@@ -49,10 +49,10 @@
 			  <div class="navbar-end">
 				<div class="navbar-item">
 				  <div class="buttons">
-					<a class="button is-primary" href="./user/sign_up.html">
+					<a class="button is-primary" href="sign_up.html">
 					  <strong>Sign up</strong>
 					</a>
-					<a class="button is-light" href="./user/login.html">
+					<a class="button is-light" href="login.html">
 					  Log in
 					</a>
 				  </div>
@@ -71,12 +71,38 @@
   <body class="purp_body">
   <section class="hero is-fullheight">
 	<div class="hero-body">
-    	<div class="container">
-			<figure class="image center">
-				<img src="./imgs/welcome.png" style="max-height: 900px; max-width:900px;">
-			</figure>
+    	<div class="container has-text-centered">
+			<div class="title">
+					Login
+				</div>
+				<section class="section">
+						<div class="container has-text-centered">
+						  <div class="columns is-centered">
+							<div class="column is-5 is-4-desktop">
+							  <form>
+								<div class="field">
+								  <div class="control">
+									<input class="input" type="text" placeholder="Username">
+								  </div>
+								</div>
+								<div class="field">
+								  <div class="control">
+									<input class="input" type="password" placeholder="Password">
+								  </div>
+								</div>
+								<div class="field">
+								  <button class="button is-primary is-fullwidth">Sign in!</button>
+								</div><a href="#">Forgot Password</a>
+							  </form>
+							</div>
+						  </div>
+						</div>
+					  </section>
 		</div>
 	</div>
   </section>
   </body>
 </html>
+
+
+  
