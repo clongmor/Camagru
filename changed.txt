@@ -1,0 +1,8 @@
+Wouter:
+
+    29 Oct sign_up.html ->  Moved <nav> between 12 and 64 into <body>.
+                            Added 'method="post" to <form>'
+
+
+
+Chloe:
