@@ -1,7 +1,10 @@
 Wouter:
 
-    29 Oct sign_up.html ->  Moved <nav> between 12 and 64 into <body>.
-                            Added 'method="post" to <form>'
+    29 Oct 
+        *.html ->   Renamed all ".html" files to ".php", because ".html" files cannot execute PHP Code.
+                    Removed all <nav> tags and rather included a 'templates/header.php' at the top of each file. Makes files less bulky.
+        sign_up.php ->  Added 'method="post"' to <form> tag.
+        index.php ->    Created this file, it is a requirement and it only redirects the user to home_page.php.
 
 
 

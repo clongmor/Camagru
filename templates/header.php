@@ -4,12 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+		.center {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
 </head>
 
-<body>
+<body class="purp_body">
     <header>
         <nav class="navbar" aria-label="main navigation">
             <div class="navbar-brand">
@@ -64,6 +71,3 @@
             </div>
         </nav>
     </header>
-</body>
-
-</html>
