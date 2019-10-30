@@ -33,7 +33,7 @@
                     <div class="container has-text-centered">
                         <div class="columns is-centered">
                             <div class="column is-5 is-4-desktop">
-                                <form>
+                                <form method="post">
                                     <div class="field">
                                         <div class="control">
                                             <input class="input" type="text" placeholder="Username">
