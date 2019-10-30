@@ -2,7 +2,6 @@
     include "templates/header.php";
 ?>
 
-
 <!DOCTYPE html>
 <html>
   <head>

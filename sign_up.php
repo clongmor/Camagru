@@ -23,25 +23,29 @@ include "templates/header.php";
                     <div class="container has-text-centered">
                         <div class="columns is-centered">
                             <div class="column is-5 is-4-desktop">
-                                <form method="post" action="functions/signup.php">
+                                <form method="post" action="forms/signup.php">
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input" type="text" name="username" placeholder="Username">
+                                            <!-- REMOVE THE value="" -->
+                                            <input class="input" type="text" name="username" placeholder="Username" value="Hallocoos">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input" type="text" name="email" placeholder="Email">
+                                            <!-- REMOVE THE value="" -->
+                                            <input class="input" type="text" name="email" placeholder="Email" value="wdv@live.co.za">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input" type="password" name="password" placeholder="Password">
+                                            <!-- REMOVE THE value="" -->
+                                            <input class="input" type="password" name="password" placeholder="Password" value="12345678">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input" type="password" name="repeatpassword" placeholder="Repeat Password">
+                                            <!-- REMOVE THE value="" -->
+                                            <input class="input" type="password" name="repeatpassword" placeholder="Repeat Password" value="12345678">
                                         </div>
                                     </div>
                                     <div class="field is-grouped">
@@ -51,11 +55,11 @@ include "templates/header.php";
                                     </div>
                                     <span>
                                         <?php
-                                            echo $_SESSION['error'];
-                                            $_SESSION['error'] = null;
-                                            if (isset($_SESSION['signup_success'])) {
+                                            if ($_SESSION['signup_success'] == TRUE) {
                                                 echo "Signup success please check your email.";
                                                 $_SESSION['signup_success'] = null;
+                                            } else {
+                                                echo " Signup failed. ".$_SESSION['error'];
                                             }
                                         ?>
                                     </span>
