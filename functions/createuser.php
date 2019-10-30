@@ -7,7 +7,7 @@
         //Checks whether username already exists.
         $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `username`=?");
         $stmt->execute([$username]);
-        if ($count = $stmt->rowCount()) {
+        if ($stmt->rowCount()) {
             $_SESSION['error'] = "User already exists.";
             $_SESSION['signup_success'] = FALSE;
             $stmt = null;
@@ -17,7 +17,7 @@
         //Checks whether email is already in use.
         $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `email`=?");
         $stmt->execute([$email]);
-        if ($count = $stmt->rowCount()) {
+        if ($stmt->rowCount()) {
             $_SESSION['error'] = "Email is already in use.";
             $_SESSION['signup_success'] = FALSE;
             $stmt = null;
