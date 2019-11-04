@@ -2,7 +2,7 @@
     session_start();
 	include "templates/header.php";
 ?>
-<!--
+
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +23,7 @@
 	</style>
 </head>
 
-<body class="purp_body"> -->
+<body class="purp_body">
 	<section class="hero is-fullheight">
 		<div class="hero-body">
 			<div class="container">

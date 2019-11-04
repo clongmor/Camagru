@@ -1,7 +1,7 @@
 <?php
     include "config/database.php";
     include "validation.php";
-    include "../functions/createuser.php";
+    include "../functions/storeUserDetails.php";
     session_start();
 
     $username = $_POST['username'];

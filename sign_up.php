@@ -5,9 +5,11 @@ include "templates/header.php";
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Sign Up</title>
 </head>
+
 <body class="purp_body">
     <section class="hero is-fullheight">
         <div class="hero-body">
@@ -55,15 +57,15 @@ include "templates/header.php";
                                     </div>
                                     <span>
                                         <?php
-                                            if ($_SESSION['signup_success'] == TRUE) {
-                                                echo "Signup success please check your email.";
-                                                $_SESSION['signup_success'] = null;
-                                            } else {
-                                                echo " Signup failed. ".$_SESSION['error'];
-                                            }
+                                        if ($_SESSION['signup_success'] == TRUE) {
+                                            echo "Signup success please check your email.";
+                                            $_SESSION['signup_success'] = NULL;
+                                        } else {
+                                            echo " Signup failed. " . $_SESSION['error'];
+                                        }
                                         ?>
                                     </span>
-                                    </form>
+                                </form>
                             </div>
                         </div>
                     </div>

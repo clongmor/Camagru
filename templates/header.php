@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="./css/styles.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <style>
-		.center {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-	</style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body class="purp_body">
@@ -55,19 +55,33 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary" href="sign_up.php">
-                                <strong>Sign up</strong>
-                            </a>
-                            <a class="button is-light" href="login.php">
-                                Log in
-                            </a>
+                <?php if (($_SESSION['username'] == NULL)) : ?>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-primary" href="sign_up.php">
+                                    <strong>Sign up</strong>
+                                </a>
+                                <a class="button is-light" href="login.php">
+                                    Log in
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
+                <?php if ($_SESSION['username'] !== NULL) : ?>
+                    <form action="forms/sign_out.php">
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a class="button is-primary" href="">
+                                        <strong>Sign Out</strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                <?php endif; ?>
             </div>
         </nav>
     </header>
