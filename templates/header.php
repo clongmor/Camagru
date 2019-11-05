@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <?php if (($_SESSION['username'] == NULL)) : ?>
+                <?php if (!isset($_SESSION['username'])) : ?>
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
@@ -69,12 +69,12 @@
                         </div>
                     </div>
                 <?php endif; ?>
-                <?php if ($_SESSION['username'] !== NULL) : ?>
-                    <form action="forms/sign_out.php">
+                <?php if (isset($_SESSION['username'])) : ?>
+                    <form action="signout.php">
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="buttons">
-                                    <a class="button is-primary" href="">
+                                    <a class="button is-primary" href="signout.php">
                                         <strong>Sign Out</strong>
                                     </a>
                                 </div>
