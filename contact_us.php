@@ -48,6 +48,7 @@ include "templates/header.php";
 										<div class="control">
 											<button class="button is-primary is-fullwidth" type="submit">Submit</button>
 										</div>
+										<!-- this should potentially store the comment in the database with email address so it can be replied to -->
 									</div>
 								</form>
 							</div>
