@@ -1,5 +1,6 @@
 <!-- this is just the basic layout to copy to each new page -->
 <?php
+    session_start();
     include "templates/header.php";
 ?>
 <!DOCTYPE html>
