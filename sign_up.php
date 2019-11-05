@@ -1,5 +1,6 @@
 <?php
 session_start();
+use PHPMailer\PHPMailer\PHPMailer;
 include "templates/header.php";
 ?>
 
@@ -57,6 +58,20 @@ include "templates/header.php";
                                     </div>
                                     <span>
                                         <?php
+                                        if ($_SESSION['signup_success'] == TRUE){
+                                        $mail = new PHPMailer;
+                                        $mail->setFrom('camagru@test.com', 'Cama Gru');
+                                        $mail->addAddress('xcamagru_user@mailinator.com', '$_POST[username]');
+                                        $mail->Subject = 'emailtest';
+                                        $mail->AltBody = 'This is a test message';
+                                        
+                                        if (!$mail->send()){
+                                                echo 'Mailer Error: '. $mail->ErrorInfo;
+                                            }
+                                        else{
+                                            echo 'Message sent!';
+                                        }
+                                    }
                                         if ($_SESSION['signup_success'] == TRUE) {
                                             echo "Signup success please check your email.";
                                             $_SESSION['error'] = NULL;
