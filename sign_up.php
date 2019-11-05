@@ -1,10 +1,10 @@
 <?php
-session_start();
-include "templates/header.php";
+    session_start();
+    include "templates/header.php";
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Sign Up</title>

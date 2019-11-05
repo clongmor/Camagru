@@ -1,6 +1,6 @@
 <?php
     include "config/database.php";
-    include "validation.php";
+    include "../functions/validation.php";
     include "../functions/verifyLoginDetails.php";
     session_start();
 
