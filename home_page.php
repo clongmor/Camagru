@@ -33,6 +33,9 @@
 			</div>
 		</div>
 	</section>
+	<?php
+	include "templates/footer.php";
+?>
 </body>
 
 </html>
