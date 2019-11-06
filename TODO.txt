@@ -1,2 +1,8 @@
 Need a page that verifies that the user has sucessfully signed up.
 Verify wether email actually exists.
+
+need to make page that offers to resend confirmation email and password reset emails.
+need to add content to editor and gallery pages
+need to create account settings page
+
+need to make editor page in nav bar but only visible when logged in. same with account settings.

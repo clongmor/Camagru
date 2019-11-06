@@ -1,4 +1,5 @@
-<?php
+<?php 
+	session_start();
 	include "templates/header.php";
 ?>
 
@@ -43,7 +44,7 @@
                                         </div>
                                     </div>
                                     <div class="field">
-                                        <button class="button is-primary is-fullwidth" href="###">Give me a new password!</button>
+                                        <button class="button is-primary is-fullwidth" href="">Give me a new password!</button>
                                     </div>
                                     </span>
                                 </form>
