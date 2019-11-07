@@ -1,4 +1,5 @@
 <?php
+
     function storeUserDetails($username, $password, $email) {
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -24,14 +25,99 @@
             return (0);
         }
 
-        //Inserts details if username and email does not exist.
-        $stmt = $dbh->prepare("INSERT INTO `user` (`username`, `password`, `email`) VALUES (?, ?, ?);");
-        if ($stmt->execute([$username, $password, $email])) {
+        insertPassword($username);
+        insertUsername($password);
+        insertEmail($email);
+    }
+    
+    function insertUsername($username) {
+        include "../config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $dbh->prepare("INSERT INTO `user` (`username`) VALUES (?);");
+        if ($stmt->execute([$username])) {
             $stmt = null;
             return (1);
         } else {
-            $_SESSION['error'] = "Error storing users data to database.";
+            $_SESSION['error'] = "Error storing username to database.";
             return (0);
         }
     }
+
+    function insertPassword($password) {
+        include "../config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $dbh->prepare("INSERT INTO `user` (`password`) VALUES (?);");
+        if ($stmt->execute([$password])) {
+            $stmt = null;
+            return (1);
+        } else {
+            $_SESSION['error'] = "Error storing password to database.";
+            return (0);
+        }  
+    }
+    
+    function insertEmail($email) {
+        include "../config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $dbh->prepare("INSERT INTO `user` (`email`) VALUES (?);");
+        if ($stmt->execute([$email])) {
+            $stmt = null;
+            return (1);
+        } else {
+            $_SESSION['error'] = "Error storing email to database.";
+            return (0);
+        }
+    }
+    
+    function insertPictureSource($picturesource) {
+        include "../config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $dbh->prepare("INSERT INTO `user` (`picturesource`) VALUES (?);");
+        if ($stmt->execute([$picturesource])) {
+            $stmt = null;
+            return (1);
+        } else {
+            $_SESSION['error'] = "Error storing picturesource to database.";
+            return (0);
+        }
+    }
+
+    function insertVerified($verified) {
+        include "../config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $dbh->prepare("INSERT INTO `user` (`verified`) VALUES (?);");
+        if ($stmt->execute([$verified])) {
+            $stmt = null;
+            return (1);
+        } else {
+            $_SESSION['error'] = "Error storing verified to database.";
+            return (0);
+        }
+    }
+
+    function insertToken($token) {
+        include "../config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $dbh->prepare("INSERT INTO `user` (`token`) VALUES (?);");
+        if ($stmt->execute([$token])) {
+            $stmt = null;
+            return (1);
+        } else {
+            $_SESSION['error'] = "Error storing token to database.";
+            return (0);
+        }
+    }
+
 ?>
