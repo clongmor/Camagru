@@ -30,13 +30,13 @@ include "templates/header.php";
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username" value="TestUser">
+                                            <input class="input" type="text" name="username" placeholder="Username" value="Hallocoos">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="email" placeholder="Email" value="xcamagru_user@mailinator.com">
+                                            <input class="input" type="text" name="email" placeholder="Email" value="wdv@live.co.za">
                                         </div>
                                     </div>
                                     <div class="field">

@@ -1,19 +1,19 @@
 <?php
 
-function email_verification($user, $email){
-        $to = $email;
-        $subject = 'Madimgz email verification';
-        $message = '
-        Welcome '.$user.'
+    function email_verification($user, $email){
+            $to = $email;
+            $subject = 'Madimgz email verification';
+            $message = '
+            Welcome '.$user.'
 
-        Please click on the link below to verify your account:
-        http://127.0.0.1:8080/teamCamagru/email_verification.php?email='.$email.'&token='.$_SESSION['token'].'';
+            Please click on the link below to verify your account:
+            http://127.0.0.1:8080/teamCamagru/email_verification.php?email='.$email.'&token='.$_SESSION['token'].'';
+            
+            $headers = 'From: lady.xerena@gmail.com';
         
-        $headers = 'From: lady.xerena@gmail.com';
-    
-        mail($to, $subject, $message, $headers);
-        return (0);
-}
+            mail($to, $subject, $message, $headers);
+            return (0);
+    }
 
     function verifyLoginDetails($username, $password) {
         include "../config/database.php";
