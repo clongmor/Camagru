@@ -6,15 +6,19 @@
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //Checks whether username already exists.
-        $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `username`=?");
-        $stmt->execute([$username]);
-        if ($stmt->rowCount()) {
-            $_SESSION['error'] = "User already exists.";
-            $_SESSION['signup_success'] = FALSE;
-            $stmt = null;
-            return (0);
+        try {
+            $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `username`=?");
+            $stmt->execute([$username]);
+            if ($stmt->rowCount()) {
+                $_SESSION['error'] = "User already exists.";
+                $_SESSION['signup_success'] = FALSE;
+                $stmt = null;
+                return (0);
+            }
+        } catch (PDOException $e) {
+            echo "ERROR  DB: \n".$e->getMessage()."\nAborting process\n";
+            exit(-1);
         }
-
         //Checks whether email is already in use.
         $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `email`=?");
         $stmt->execute([$email]);
