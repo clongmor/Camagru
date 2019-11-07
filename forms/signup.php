@@ -1,14 +1,14 @@
 <?php
-    include "config/database.php";
+    include "../config/database.php";
     include "validation.php";
     include "../functions/storeUserDetails.php";
+    include "../functions/verifyLoginDetails.php";
     session_start();
 
     $username = $_POST['username'];
     $password = $_POST['password'];
     $repeatpassword = $_POST['repeatpassword'];
     $email = $_POST['email'];
-
     $_SESSION['signup_success'] = FALSE;
 
     if (validateUsername($username) == 1) {
@@ -19,6 +19,9 @@
             }
         }
     }
-    
+    if ($_SESSION['signup_success'] == TRUE) {
+        email_verification($username, $email);
+    }
+
     header("Location: ../sign_up.php");
 ?>
