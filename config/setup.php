@@ -24,6 +24,7 @@
             `username` VARCHAR(25) NOT NULL,
             `password` VARCHAR(255) NOT NULL,
             `email` VARCHAR(100) NOT NULL,
+            `token` VARCHAR(32) NOT NULL,
             `verified` BIT(1) NOT NULL DEFAULT 0,
             `picturesource` VARCHAR(255)
             )";
