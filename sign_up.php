@@ -59,7 +59,7 @@
                                     <span>
                                         <?php
                                         if ($_SESSION['signup_success'] == TRUE) {
-                                            echo "Signup success please check your email.";
+                                            echo "Signup success please check your email to verify your account. After account verification, you can set you account details in the settings section.";
                                             $_SESSION['error'] = NULL;
                                             $_SESSION['signup_success'] = NULL;
                                         } else if ($_SESSION['error'] !== NULL) {

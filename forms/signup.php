@@ -20,5 +20,6 @@
         }
     }
     
-    header("Location: ../sign_up.php");
+    header("Location: localhost:8080/camagru/sign_up.php");
+    exit();
 ?>
