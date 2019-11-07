@@ -6,5 +6,3 @@ need to add content to editor and gallery pages
 need to create account settings page
 
 need to make editor page in nav bar but only visible when logged in. same with account settings.
-
-gotta fix footer sizing and image and add to all pages
