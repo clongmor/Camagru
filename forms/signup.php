@@ -1,5 +1,5 @@
 <?php
-    include "config/database.php";
+    include "../config/database.php";
     include "validation.php";
     include "../functions/storeUserDetails.php";
     session_start();
@@ -8,7 +8,6 @@
     $password = $_POST['password'];
     $repeatpassword = $_POST['repeatpassword'];
     $email = $_POST['email'];
-
     $_SESSION['signup_success'] = FALSE;
 
     if (validateUsername($username) == 1) {

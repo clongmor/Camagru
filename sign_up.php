@@ -1,7 +1,8 @@
 <?php
 session_start();
-use PHPMailer\PHPMailer\PHPMailer;
+
 include "templates/header.php";
+include "./functions/verifyLoginDetails.php";
 ?>
 
 <!DOCTYPE html>
@@ -30,13 +31,13 @@ include "templates/header.php";
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username" value="Hallocoos">
+                                            <input class="input" type="text" name="username" placeholder="Username" value="TestUser">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="email" placeholder="Email" value="wdv@live.co.za">
+                                            <input class="input" type="text" name="email" placeholder="Email" value="xcamagru_user@mailinator.com">
                                         </div>
                                     </div>
                                     <div class="field">
@@ -58,21 +59,10 @@ include "templates/header.php";
                                     </div>
                                     <span>
                                         <?php
-                                        if ($_SESSION['signup_success'] == TRUE){
-                                        $mail = new PHPMailer;
-                                        $mail->setFrom('camagru@test.com', 'Cama Gru');
-                                        $mail->addAddress('xcamagru_user@mailinator.com', '$_POST[username]');
-                                        $mail->Subject = 'emailtest';
-                                        $mail->AltBody = 'This is a test message';
-                                        
-                                        if (!$mail->send()){
-                                                echo 'Mailer Error: '. $mail->ErrorInfo;
-                                            }
-                                        else{
-                                            echo 'Message sent!';
-                                        }
-                                    }
                                         if ($_SESSION['signup_success'] == TRUE) {
+                                            $user = $_POST['username'];
+                                            $email = $_POST['email'];
+                                            email_verification($user, $email);
                                             echo "Signup success please check your email.";
                                             $_SESSION['error'] = NULL;
                                             $_SESSION['signup_success'] = NULL;
