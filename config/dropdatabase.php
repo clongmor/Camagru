@@ -10,7 +10,7 @@
         $dbh->exec($sql);
         echo "Database dropped successfully\n";
     } catch (PDOException $e) {
-        echo "ERROR DROPpING DB: \n".$e->getMessage()."\nAborting process\n";
+        echo "ERROR DROPPING DB: \n".$e->getMessage()."\nAborting process\n";
         exit(-1);
     }
 ?>
