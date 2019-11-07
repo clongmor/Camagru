@@ -9,11 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Madimgz</title>
-	<link rel="stylesheet" href="./css/styles.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	<link rel="stylesheet" href="../css/debug.css">
+	<title>Madimgz - You are Verified!</title>
 	<style>
 		.center {
 			display: flex;
@@ -26,13 +22,18 @@
 <body class="purp_body">
 	<section class="hero is-fullheight">
 		<div class="hero-body">
-			<div class="container">
+			<div class="container has-text-centered">
+			<h1 class="title">Congratulations!</h1>
+			<h2 class="subtitle">You are now verified and can login to start you Madimgz journey to stardom</h2>
 				<figure class="image center">
 					<img src="./imgs/welcome.png" alt="Welcome" style="max-height: 600px; max-width:600px;">
                 </figure>
 			</div>
 		</div>
 	</section>
+	<?php
+	include "templates/footer.php";
+?>
 </body>
 <?php
 include './config/database.php';

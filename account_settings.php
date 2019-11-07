@@ -1,5 +1,5 @@
 <?php
-	session_start();
+    session_start();
 	include "templates/header.php";
 ?>
 
@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Madimgz - Editor</title>
+	<title>Madimgz - Account Settings</title>
 	<style>
 		.center {
 			display: flex;
@@ -22,10 +22,9 @@
 <body class="purp_body">
 	<section class="hero is-fullheight">
 		<div class="hero-body">
-  			<div class="container">
-    			<h2 class="title has-text-centered">Editor</h2>
-				<!-- will deisgn something here still -->
-  			</div>
+			<div class="container">
+			to be confirmed
+			</div>
 		</div>
 	</section>
 	<?php
