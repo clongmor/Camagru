@@ -1,4 +1,4 @@
-<?phpd
+<?php
     include 'database.php';
 
     // CREATE DATABASE
