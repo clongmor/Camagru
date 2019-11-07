@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	include "templates/header.php";
+session_start();
+include "templates/header.php";
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,9 @@
 						<h2 class="title has-text-centered">Contact Madimgz</h2>
 						<subtitle class="subtitle center">Let us know if you have any suggestions, comments or feeback to give</subtitle>
 						<div class="columns">
-							<div class="column is-6"><img class="center" src="./imgs/logo_sq.png" style="max-height:400px;" alt=""></div>
+							<div class="column is-6">
+								<img class="center" src="./imgs/logo_sq.png" style="max-height:400px;" alt="">
+							</div>
 							<div class="column is-6">
 								<form>
 									<div class="field">

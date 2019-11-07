@@ -1,6 +1,6 @@
 <?php
     include "../config/database.php";
-    include "../validation.php";
+    include "validation.php";
     include "../functions/verifyLoginDetails.php";
     session_start();
 
@@ -16,6 +16,7 @@
     } else {
         if (verifyLoginDetails($username, $password)) {
             $_SESSION['username'] = $username;
+            $_SESSION['password'] = FALSE;
             $_SESSION['login_success'] = TRUE;
             header("Location: ../home_page.php");
         } else {
