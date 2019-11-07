@@ -1,5 +1,5 @@
 Need a page that verifies that the user has sucessfully signed up.
-Verify wether email actually exists.
+prettify divs in email_verification.php
 
 need to make page that offers to resend confirmation email and password reset emails.
 need to add content to editor and gallery pages
