@@ -28,11 +28,8 @@
 		<div class="hero-body">
 			<div class="container">
 				<figure class="image center">
-					<img src="./imgs/welcome.png" alt="Welcome" style="max-height: 900px; max-width:900px;">
+					<img src="./imgs/welcome.png" alt="Welcome" style="max-height: 600px; max-width:600px;">
                 </figure>
-                <div class="field">
-                <button class="button is-primary is-fullwidth" href="login.php">Verify Email</button>
-                </div>
 			</div>
 		</div>
 	</section>
@@ -48,13 +45,11 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['token']) && 
     $token = ($_GET['token']); // Set token variable
 }
 
-$search = $dbh->prepare("SELECT email, token, verified FROM users WHERE email='".$email."' AND token='".$token."' AND verified='0'"); 
-$search->execute([$email, $token]);
-$match  = mysql_num_rows($search);
-
-if($match > 0){
+$search = $dbh->prepare("SELECT `email`, `token`, `verified` FROM `user` WHERE (`email`=? AND `token`=? AND `verified`=0)"); 
+if($search->execute([$email, $token]))
+{
     // We have a match, activate the account
-    $stmt = $dbh->prepare("UPDATE users SET verified='1' WHERE email='".$email."' AND token='".$token."' AND verified='0'");
+    $stmt = $dbh->prepare("UPDATE `user` SET `verified`=1 WHERE (`email`=? AND `token`=? AND `verified`=0)");
     $stmt->execute([$email, $token]);
     echo '<div class="statusmsg">Your account has been activated, you can now login</div>';
 }else{

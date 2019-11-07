@@ -1,8 +1,7 @@
 <?php
 
 function email_verification($user, $email){
-
-        $to = 'xcamagru_user@mailinator.com';
+        $to = $email;
         $subject = 'Madimgz email verification';
         $message = '
         Welcome '.$user.'

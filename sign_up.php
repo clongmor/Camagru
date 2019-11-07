@@ -2,7 +2,6 @@
 session_start();
 
 include "templates/header.php";
-include "./functions/verifyLoginDetails.php";
 ?>
 
 <!DOCTYPE html>
@@ -60,9 +59,6 @@ include "./functions/verifyLoginDetails.php";
                                     <span>
                                         <?php
                                         if ($_SESSION['signup_success'] == TRUE) {
-                                            $user = $_POST['username'];
-                                            $email = $_POST['email'];
-                                            email_verification($user, $email);
                                             echo "Signup success please check your email.";
                                             $_SESSION['error'] = NULL;
                                             $_SESSION['signup_success'] = NULL;
