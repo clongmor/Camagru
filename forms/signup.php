@@ -1,5 +1,5 @@
 <?php
-    include "config/database.php";
+    include "../config/database.php";
     include "../functions/validation.php";
     include "../functions/storeUserDetails.php";
     session_start();
