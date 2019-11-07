@@ -1,7 +1,8 @@
 <?php
-    include "config/database.php";
+    include "../config/database.php";
     include "validation.php";
     include "../functions/storeUserDetails.php";
+    include "../functions/verifyLoginDetails.php";
     session_start();
 
     $username = $_POST['username'];
@@ -18,6 +19,9 @@
                 storeUserDetails($username, $password, $email);
             }
         }
+    }
+    if ($_SESSION['signup_success'] == TRUE) {
+        email_verification($username, $email);
     }
     
     header("Location: ../sign_up.php");
