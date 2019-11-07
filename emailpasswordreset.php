@@ -22,7 +22,7 @@
                     <div class="container has-text-centered">
                         <div class="columns is-centered">
                             <div class="column is-5 is-4-desktop">
-                                <form method="post">
+                                <form method="post" action="passwordreset.php">
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="field">
                                         <!-- The href needs a value, not sure what Xandra is planning for the email functions, so it's empty atm. -->
-                                        <button class="button is-primary is-fullwidth" href="">Reset Password!</button>
+                                        <button class="button is-primary is-fullwidth">Reset Password!</button>
                                     </div>
                                     <?php
                                         // Remove the following line to implement the code

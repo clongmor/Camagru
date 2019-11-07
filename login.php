@@ -1,6 +1,6 @@
 <?php
-session_start();
-include "templates/header.php";
+    session_start();
+    include "templates/header.php";
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ include "templates/header.php";
                                         </div>
                                     </div>
                                     <div class="field">
-                                        <button class="button is-primary is-fullwidth" href="login.php">Sign in!</button>
+                                        <button class="button is-primary is-fullwidth" type="Submit">Sign in!</button>
                                     </div>
                                     <?php
                                         if ($_SESSION['login_success'] == FALSE) {
@@ -60,7 +60,7 @@ include "templates/header.php";
                                         }
                                     ?>
                                     <!-- We still need a password reset page. -->
-                                    <a href="passwordreset.php">Forgot Password</a>
+                                    <a href="emailpasswordreset.php">Forgot Password</a>
                                     </span>
                                 </form>
                             </div>

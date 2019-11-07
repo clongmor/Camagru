@@ -1,17 +1,20 @@
 <?php
+    session_start();
     include "config/database.php";
     include "../functions/validation.php";
     include "../functions/storeUserDetails.php";
-    session_start();
 
-    $password = $_SESSION['password'];
-    $repeatpassword = $_SESSION['repeatpassword'];
+    $password = $_POST['password'];
+    $repeatpassword = $_POST['repeatpassword'];
 
     if (validatePassword($password, $repeatpassword)) {
         resetPassword($password);
-        $_SESSION['resetpassword'] = TRUE;
         unset($_SESSION['error']);
+        $_SESSION['resetpasswordsuccess'] = TRUE;
+        header("Location: localhost:8080/camagru/passwordreset.php");
+    } else {
+        $_SESSION['resetpasswordsuccess'] = FALSE;
+        header("Location: localhost:8080/camagru/passwordreset.php");
     }
 
-    header("Location: ../passwordreset.php");
 ?>

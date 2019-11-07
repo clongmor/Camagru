@@ -22,7 +22,7 @@
                     <div class="container has-text-centered">
                         <div class="columns is-centered">
                             <div class="column is-5 is-4-desktop">
-                                <form method="post">
+                                <form method="post" action="forms/resetpassword.php">
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
@@ -36,12 +36,11 @@
                                         </div>
                                     </div>
                                     <div class="field">
-                                        <button class="button is-primary is-fullwidth" href="forms/resetpassword.php">Change Password!</button>
+                                        <button class="button is-primary is-fullwidth" href="forms/resetpassword.php" type="Submit">Change Password!</button>
                                     </div>
                                     <?php
                                         // If $_SESSION['error'] is set, then it'll display the error, else it's display that the password has been successfully reset.
-                                        echo $_SESSION['error'];
-                                        if ($_SESSION['resetpassword'] == TRUE) {
+                                        if ($_SESSION['resetpasswordsuccess'] == TRUE) {
                                             echo "Password reset is successfull. Please login with new password.";
                                         } else if (isset($_SESSION['error'])) {
                                             echo "Password reset error: ".$_SESSION['error'];
