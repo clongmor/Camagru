@@ -61,7 +61,7 @@ include "templates/header.php";
                                             echo "Signup success please check your email.";
                                             $_SESSION['error'] = NULL;
                                             $_SESSION['signup_success'] = NULL;
-                                        } else {
+                                        } else if ($_SESSION['error'] !== NULL) {
                                             echo " Signup failed. " . $_SESSION['error'];
                                             $_SESSION['error'] = NULL;
                                         }
