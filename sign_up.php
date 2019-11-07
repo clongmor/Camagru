@@ -29,13 +29,13 @@ include "templates/header.php";
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username" value="Hallocoos">
+                                            <input class="input" type="text" name="username" placeholder="Username" value="TestUser">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="email" placeholder="Email" value="wdv@live.co.za">
+                                            <input class="input" type="text" name="email" placeholder="Email" value="xcamagru_user@mailinator.com">
                                         </div>
                                     </div>
                                     <div class="field">
@@ -58,7 +58,8 @@ include "templates/header.php";
                                     <span>
                                         <?php
                                         if ($_SESSION['signup_success'] == TRUE) {
-                                            echo "Signup success please check your email.";
+											echo "Signup success please check your email.";
+											// we need to create a new page for this I think - so we can add a resend confirmation email link - C
                                             $_SESSION['error'] = NULL;
                                             $_SESSION['signup_success'] = NULL;
                                         } else if ($_SESSION['error'] !== NULL) {

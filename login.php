@@ -60,7 +60,8 @@ include "templates/header.php";
                                         }
                                     ?>
                                     <!-- We still need a password reset page. -->
-                                    <a href="#">Forgot Password</a>
+									<!-- I added one - C -->
+                                    <a href="./forgot_password.php">Forgot Password</a>
                                     </span>
                                 </form>
                             </div>
