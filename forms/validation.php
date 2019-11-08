@@ -27,6 +27,8 @@
             $_SESSION['error'] = "Minimum length for a password is 8.";
         } else if ($password !== $repeatpassword) {
             $_SESSION['error'] = "Passwords did not match.";
+        } else if (!preg_match('/[A-Z]/', $password) || !preg_match('/[0-9]/', $password) || !preg_match('/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/', $password) ) {
+            $_SESSION['error'] = "Password needs to contain atleast one non-lowercase character.";
         }
         if (isset($_SESSION['error'])) {
             return (0);
