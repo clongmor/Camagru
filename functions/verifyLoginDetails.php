@@ -22,7 +22,7 @@
         $_SESSION['error'] = NULL;
         //Checks whether username already exists.
         $stmt = $dbh->prepare("SELECT * FROM `user` WHERE (`username`=? AND `password`=?  AND `verified`=1);");
-        $stmt->execute([$username, $password]);
+        $stmt->execute([$username, hash('whirlpool', $password)]);
         if ($stmt->rowCount() == 1) {
             $stmt = NULL;
             return (1);
