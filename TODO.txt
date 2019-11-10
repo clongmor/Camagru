@@ -1,2 +1,1 @@
 Need a page that verifies that the user has sucessfully signed up.
-Verify wether email actually exists.

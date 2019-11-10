@@ -1,6 +1,7 @@
 <?php
 session_start();
 	include "templates/header.php";
+	include_once "../config/database.php"
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +25,23 @@ session_start();
 </head>
 
 <body class="purp_body">
-	<section class="hero is-fullheight">
-		<div class="hero-body">
-  			<div class="container">
-    			<h2 class="title has-text-centered">Gallery</h2>
-				<!-- will design soemething here still -->
-  			</div>
-		</div>
-	</section>
+<div class="columns" style="margin-top: 2rem" style="padding-left: 0; padding-right: 0;">
+        <div  class="column is-offset-2 is-two-thirds box" style="padding: 1.5rem">
+            
+        <section class="hero is-small" >
+            <div class="hero-body">
+				<div class="container" style="margin-top: -1rem;">
+				<?php
+				// Select all from images orderby creationdate desc
+
+				while($row = mysqli_fetch_assoc($result)){
+					echo '<a href="#">
+					<div style="background-image: url(/gallery/'.$row["imgFullNameGallery"].');"></div>';
+				}
+				?>
+				</div>
+            </div>
+
 </body>
 
 </html>
