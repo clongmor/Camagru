@@ -8,3 +8,5 @@ need to make editor page in nav bar but only visible when logged in. same with a
 one gallery php file with commenst permissions changing? or two files, one with allowed(logged in only) and one with not allowed to comment (public)?? not sure which is easier to do.
 
 need to make a checkbox type system to choose an image from preset list to add touploaded image.
+
+adding an update to check here!
