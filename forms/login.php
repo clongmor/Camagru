@@ -17,10 +17,11 @@
             $_SESSION['username'] = $username;
             $_SESSION['password'] = FALSE;
             $_SESSION['login_success'] = TRUE;
+            header("Location: ../home_page.php");
         } else {
             $_SESSION['login_success'] = FALSE;
+            header("Location: ../login.php");
         }
     }
-    header("Location: ../login.php");
 
 ?>
