@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Madimgz</title>
+	<title>Madimgz - Account Settings</title>
 	<style>
 		.center {
 			display: flex;
@@ -23,9 +23,7 @@
 	<section class="hero is-fullheight">
 		<div class="hero-body">
 			<div class="container">
-				<figure class="image center">
-					<img src="./imgs/welcome.png" alt="Welcome" style="max-height: 900px; max-width:900px;">
-				</figure>
+			to be confirmed
 			</div>
 		</div>
 	</section>
