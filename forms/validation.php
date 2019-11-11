@@ -27,6 +27,8 @@
             $_SESSION['error'] = "Minimum length for a password is 8.";
         } else if ($password !== $repeatpassword) {
             $_SESSION['error'] = "Passwords did not match.";
+        } else if (ctype_lower($password)) {
+            $_SESSION['error'] = "Password has to contain atleast one non-lowercase character.";
         }
         if (isset($_SESSION['error'])) {
             return (0);
