@@ -1,5 +1,5 @@
 <?php
-    require_once("verifyLoginDetails.php");
+    require_once("galleryFunctions.php");
 
-    verifyLoginDetails("Hallocoos", "12345678");
+    uploadUserImage("");
 ?>
