@@ -1,5 +1,5 @@
 <?php
-session_start();
+	session_start();
     include "templates/header.php";
     include "./config/database.php";
     include "./functions/galleryFunctions.php";
@@ -12,10 +12,6 @@ session_start();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Madimgz - Editor</title>
-	<link rel="stylesheet" href="./css/styles.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	<link rel="stylesheet" href="../css/debug.css">
 	<style>
 		.center {
 			display: flex;
@@ -26,53 +22,74 @@ session_start();
 </head>
 
 <body class="purp_body">
-<div class="columns" style="margin-top: 2rem" style="padding-left: 0; padding-right: 0;">
-        <div  class="column is-offset-2 is-two-thirds box" style="padding: 1.5rem">
-            
-        <section class="hero is-small" >
-            <div class="hero-body">
-                <div class="container" style="margin-top: -1rem;">
-                <h1 class="title">
-                    Upload Image
-                </h1>
-                <h2 class="subtitle">
-                    Upload an Image here.
-                </h2>
-                </div>
-            </div>
-            </section>
-           <?php if (isset($_SESSION['username'])){
-            echo '<form action="./functions/galleryFunctions.php" method ="post" enctype="multipart/form-data" id="update-handle-form">
+  <section class="hero">
+  <div class="hero-body">
+    	<div class="section">
+			<h1 class="title">
+				Editor
+			  </h1>
+			  <h2 class="subtitle">
+				Creating your own Madimgz starts here!
+			  </h2>
+		</div>
+		<div class="section has-background-primary">
+			<h1 class="subtitle">
+				Upload an image from your computer or take a picture with your webcam.
+				PRO TIP: make sure you click submit if uploading from your computer!
+              </h1>
+              <?php if (isset($_SESSION['username'])){
+                echo'  
+				<form action="editor.php" method="post">
+				  <div class="field">
+				  <div class="control">
+					  <input class="input" type="file" name="upload_image">
+				  </div>
+			  	</div>
+			  	<div class="field">
+				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Upload My Image!</strong></button>
+			 	</div>
+			  </form>
+			  <?php
+				// need to check an image is uploaded here when submit is clicked
+			  ?>
+		</div>
+		<div class="section has-background-primary">
+			<h1 class="subtitle">
+				Select an image from the provided images to decorate your chosen photo with:
+			  </h1>
+			  <img></img>
+		</div>
+		<div class="section has-text-white has-background-primary">
+			<h1 class="subtitle">
+				Once you have done both of the above, click on create and watch the magic happen!
+			  </h1>
+			  <form action="editor.php" method="post">
+			  <div class="field">
+				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Create My Image!</strong></button>
+			 	</div>
+			  </form>
+			  <?php
+			//   need to check both an image is uploaded and an image is selected to superimpose with
+			  ?>
+		</div>
+		<div class="section">
+			<h1 class="subtitle">
+				Here\'s your photo:
+			  </h1>
+			  need to insert live view of photo/not-live view of photo here.
+			  <p> to view your previously uploaded photos, please <a href="./user_images.php">click here</a>.
+			  </p>
+		</div>
+	</div>
+  </section>';
+}
+else
+echo 'Please log in to access this page';
+//redirect on timer
+?>
+  <?php
+	include "templates/footer.php";
+?>
+  </body>
 
-            <div class="field is-horizontal">
-					<div class="field-label grow-1 is-normal">
-						<label class="label">New Image</label>
-					</div>
-					<div class="field-body">
-						<div class="field has-addons">
-							<p class="control">
-								<a class="button is-static">@</a>
-							</p>
-							<p class="control is-expanded">
-                                <input type="file" name="image" id="image-selecter" accept="image/*">
-                                <input type="submit" name="submit" value="Upload Image">
-							</p>
-						</div>
-					</div>
-				</div>
-
-                <div class="buttons" id="uploading-text" style="display:none;">
-                    <button id="update-handle" class="button is-primary">Upload</button>
-                    Uploading...
-                </div>
-            </div>
-            </form>
-            <img id="preview">
-        </div>';
-           }
-           else
-           echo 'Please log in to access this page';
-           //redirect on timer
-           ?>
-</body>
 </html>

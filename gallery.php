@@ -11,10 +11,6 @@ session_start();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Madimgz - Gallery</title>
-	<link rel="stylesheet" href="./css/styles.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	<link rel="stylesheet" href="../css/debug.css">
 	<style>
 		.center {
 			display: flex;
@@ -25,12 +21,11 @@ session_start();
 </head>
 
 <body class="purp_body">
-<div class="columns" style="margin-top: 2rem" style="padding-left: 0; padding-right: 0;">
-        <div  class="column is-offset-2 is-two-thirds box" style="padding: 1.5rem">
-            
-        <section class="hero is-small" >
-            <div class="hero-body">
-				<div class="container" style="margin-top: -1rem;">
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+  			<div class="container">
+    			<h2 class="title has-text-centered">Gallery</h2>
+				<!-- will design soemething here still -->
 				<?php
 				// Select all from images orderby creationdate desc
 
@@ -39,9 +34,12 @@ session_start();
 					<div style="background-image: url(/gallery/'.$row["imgFullNameGallery"].');"></div>';
 				}
 				?>
-				</div>
-            </div>
-
+  			</div>
+		</div>
+	</section>
+	<?php
+	include "templates/footer.php";
+?>
 </body>
 
 </html>
