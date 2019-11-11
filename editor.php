@@ -42,7 +42,7 @@
 				  	</div>
 			  	  </div>
 			  	<div class="control">
-				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Upload My Image!</strong></button>
+				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="./editor.php"><strong>Upload My Image!</strong></button>
 			 	</div>
 			  </form>
 			  <?php
@@ -90,9 +90,9 @@
 				Once you have done both of the above, click on create and watch the magic happen!
 			</p>
 			  <form action="editor.php" method="post">
-			  	<div class="field is-grouped">
+			  	<div class="field">
 					<div class="control">
-						<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Create My Image!</strong></button>
+						<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="./editor.php"><strong>Create My Image!</strong></button>
 					</div>
 			 	</div>
 			  </form>
@@ -103,10 +103,12 @@
 		<div class="section">
 			<h1 class="subtitle">
 				Here's your photo:
-			  </h1>
+			</h1>
 			  need to insert live view of photo/not-live view of photo here.
+			<div class="section center">
 			  <p> to view your previously uploaded photos, please <a href="./user_images.php">click here</a>.
 			  </p>
+			</div>
 		</div>
 	</div>
   </section>
@@ -114,5 +116,21 @@
 	include "templates/footer.php";
 ?>
   </body>
+
+<!-- for xandra to add the "gentle rejection" for unauthorised access -->
+<body class="purp_body">
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title center">
+					Hi, you don't seem to have access to this page. Please login and then try again.
+				</h1>
+			</div>
+		</div>
+	</section>
+	<?php
+	include "templates/footer.php";
+?>
+</body>
 
 </html>
