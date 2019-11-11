@@ -14,10 +14,16 @@
     if (validateUsername($username) == 1) {
         if (validateEmail($email) == 1) {
             if (validatePassword($password, $repeatpassword) == 1) {
+<<<<<<< HEAD
                if(storeUserDetails($username, $password, $email)){
                 email_verification($username, $email);
                 $_SESSION['signup_success'] = TRUE;
                }
+=======
+                if (storeUserDetails($username, $password, $email))
+                    $_SESSION['signup_success'] = TRUE;
+                email_verification($username, $email);
+>>>>>>> 5eeed0d3cb049162e63552402cf32bf3324d80df
             }
         }
     }

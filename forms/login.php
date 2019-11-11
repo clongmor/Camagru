@@ -17,12 +17,11 @@
             $_SESSION['username'] = $username;
             $_SESSION['password'] = FALSE;
             $_SESSION['login_success'] = TRUE;
-            echo "<script>window.open('../home_page.php','_self')</script>";
+            header("Location: ../home_page.php");
         } else {
             $_SESSION['login_success'] = FALSE;
+            header("Location: ../login.php");
         }
     }
-        echo "<script>window.open('../login.php','_self')</script>";
-        
 
 ?>
