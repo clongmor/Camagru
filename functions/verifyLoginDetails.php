@@ -9,7 +9,7 @@
         Please click on the link below to verify your account:
         http://127.0.0.1:8080/teamCamagru/email_verification.php?email='.$email.'&token='.$_SESSION['token'].'';
         
-        $headers = 'From: lady.xerena@gmail.com';
+        $headers = 'From: admin@madimgz.com';
 
         mail($to, $subject, $message, $headers);
         return (0);

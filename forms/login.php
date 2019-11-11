@@ -17,27 +17,12 @@
             $_SESSION['username'] = $username;
             $_SESSION['password'] = FALSE;
             $_SESSION['login_success'] = TRUE;
+            echo "<script>window.open('../home_page.php','_self')</script>";
         } else {
             $_SESSION['login_success'] = FALSE;
         }
     }
-        echo "asdf";
-        echo "<script>window.open('../home_page.php','_self')</script>";
+        echo "<script>window.open('../login.php','_self')</script>";
+        
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    ls;dknjkldfhsjkl;dfgs;ljkdfghsabr
-</body>
-
-</html>

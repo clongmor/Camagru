@@ -39,19 +39,17 @@
               </h1>
               <?php if (isset($_SESSION['username'])){
                 echo'  
-				<form action="editor.php" method="post">
+                <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="uploadUserImage">
 				  <div class="field">
 				  <div class="control">
-					  <input class="input" type="file" name="upload_image">
+					  <input class="input" type="file" name="image">
 				  </div>
 			  	</div>
 			  	<div class="field">
 				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Upload My Image!</strong></button>
 			 	</div>
 			  </form>
-			  <?php
-				// need to check an image is uploaded here when submit is clicked
-			  ?>
 		</div>
 		<div class="section has-background-primary">
 			<h1 class="subtitle">
@@ -63,14 +61,11 @@
 			<h1 class="subtitle">
 				Once you have done both of the above, click on create and watch the magic happen!
 			  </h1>
-			  <form action="editor.php" method="post">
+			  <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data>
 			  <div class="field">
 				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Create My Image!</strong></button>
 			 	</div>
 			  </form>
-			  <?php
-			//   need to check both an image is uploaded and an image is selected to superimpose with
-			  ?>
 		</div>
 		<div class="section">
 			<h1 class="subtitle">
@@ -79,16 +74,14 @@
 			  need to insert live view of photo/not-live view of photo here.
 			  <p> to view your previously uploaded photos, please <a href="./user_images.php">click here</a>.
 			  </p>
-		</div>
-	</div>
+        </div>
+        </div>
   </section>';
-}
+              }
 else
 echo 'Please log in to access this page';
 //redirect on timer
-?>
-  <?php
-	include "templates/footer.php";
+include "templates/footer.php";
 ?>
   </body>
 
