@@ -10,3 +10,5 @@ one gallery php file with commenst permissions changing? or two files, one with 
 need to make a checkbox type system to choose an image from preset list to add touploaded image.
 
 adding an update to check here!
+
+need to check that you can correctly upload a picture or take a webcam pic, one or the other has to be done for "create my image button" to work
