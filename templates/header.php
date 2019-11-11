@@ -4,9 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+	<link rel="stylesheet" href="./css/mystyles.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <style>
         .center {
             display: flex;
@@ -33,7 +32,7 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item">
+                    <a class="navbar-item" href="./gallery.php">
                         Gallery
                     </a>
 
@@ -68,6 +67,16 @@
                             </div>
                         </div>
                     </div>
+                <?php endif; ?>
+				<?php if (isset($_SESSION['username'])) : ?>
+				<div class="navbar-dropdown">
+                            <a class="navbar-item" href="./account_settings.php">
+                                Account Settings
+                            </a>
+                            <a class="navbar-item" href="./editor.php">
+                                Create An Image
+                            </a>
+                        </div>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['username'])) : ?>
                     <form action="signout.php">
