@@ -16,6 +16,14 @@
 			justify-content: center;
 			align-items: center;
 		}
+		.overflow_pics {
+			overflow-x: scroll;
+			overflow-y: hidden;
+		}
+		.pics_box {
+			width: 100%;
+			height: 750px:
+		}
 	</style>
 </head>
 <!-- need to make sure a user is logged in when trying to access this page e.g. if they type the web address directly, it should display access denied -->
@@ -101,13 +109,18 @@
 			  ?>
 		</div>
 		<div class="section">
-			<h1 class="subtitle">
+			<h1 class="subtitle center">
 				Here's your photo:
 			</h1>
 			  need to insert live view of photo/not-live view of photo here.
-			<div class="section center">
-			  <p> to view your previously uploaded photos, please <a href="./user_images.php">click here</a>.
-			  </p>
+		</div>
+		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
+			<div class="subtitle"> Here are your previously uploaded pictures:</div>
+			  <div class="field">
+			  	<div class="control">
+					  <!-- need to pull user specific images from database and display them here, I'm thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
+				</div>
+			  </div>
 			</div>
 		</div>
 	</div>
