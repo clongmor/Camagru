@@ -21,23 +21,6 @@
             $_SESSION['login_success'] = FALSE;
         }
     }
-        echo "asdf";
-        echo "<script>window.open('../home_page.php','_self')</script>";
+    header("Location: ../login.php");
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    ls;dknjkldfhsjkl;dfgs;ljkdfghsabr
-</body>
-
-</html>
