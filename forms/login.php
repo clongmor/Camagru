@@ -1,5 +1,5 @@
 <?php
-    include "config/database.php";
+
     include "validation.php";
     include "../functions/verifyLoginDetails.php";
     session_start();
@@ -12,16 +12,32 @@
     if (empty($username)) {
         $_SESSION['error'] = "Please insert a username.";
     } else if (empty($password)) {
-        $_SESSION['error'] = "Please insert a password."; 
+        $_SESSION['error'] = "Please insert a password.";
     } else {
         if (verifyLoginDetails($username, $password)) {
             $_SESSION['username'] = $username;
             $_SESSION['login_success'] = TRUE;
-            header("Location: ../home_page.php");
         } else {
             $_SESSION['login_success'] = FALSE;
-            header("Location: ../login.php");
         }
     }
-    
+        echo "asdf";
+        echo "<script>window.open('../home_page.php','_self')</script>";
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    ls;dknjkldfhsjkl;dfgs;ljkdfghsabr
+</body>
+
+</html>

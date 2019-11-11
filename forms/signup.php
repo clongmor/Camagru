@@ -14,13 +14,11 @@
     if (validateUsername($username) == 1) {
         if (validateEmail($email) == 1) {
             if (validatePassword($password, $repeatpassword) == 1) {
-                $_SESSION['signup_success'] = TRUE;
                 storeUserDetails($username, $password, $email);
+                email_verification($username, $email);
+                $_SESSION['signup_success'] = TRUE;
             }
         }
-    }
-    if ($_SESSION['signup_success'] == TRUE) {
-        email_verification($username, $email);
     }
     
     header("Location: ../sign_up.php");

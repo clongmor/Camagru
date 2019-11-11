@@ -16,6 +16,7 @@
     }
 
     function verifyLoginDetails($username, $password) {
+        //The following line should not contain /homes/username/..., but rather be directed out of the current directory to the required one.
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
