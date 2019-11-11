@@ -60,7 +60,7 @@ if (isset($_POST['submit'])){
 		}
 	}
 		else{
-			echo "Please upload a jpg or png file";
+			echo "Please upload a jpeg or png file";
 			exit();
 		}
 

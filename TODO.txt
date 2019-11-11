@@ -1,1 +1,8 @@
 Need a page that verifies that the user has sucessfully signed up.
+
+Finish user upload image function
+Send to editor view
+
+Gallery pagination display
+
+Adding image overlays
