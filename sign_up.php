@@ -60,7 +60,6 @@ include "templates/header.php";
                                         <?php
                                         if ($_SESSION['signup_success'] == TRUE) {
 											echo "Signup success please check your email.";
-											// we need to create a new page for this I think - so we can add a resend confirmation email link - C
                                             $_SESSION['error'] = NULL;
                                             $_SESSION['signup_success'] = NULL;
                                         } else if ($_SESSION['error'] !== NULL) {
