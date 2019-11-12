@@ -30,25 +30,25 @@ include "templates/header.php";
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username" value="Hallocoos">
+                                            <input class="input" type="text" name="username" placeholder="Username" value="">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="email" placeholder="Email" value="wdv@live.co.za">
+                                            <input class="input" type="text" name="email" placeholder="Email" value="">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="password" name="password" placeholder="Password" value="12345678">
+                                            <input class="input" type="password" name="password" placeholder="Password" value="">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- REMOVE THE value="" -->
-                                            <input class="input" type="password" name="repeatpassword" placeholder="Repeat Password" value="12345678">
+                                            <input class="input" type="password" name="repeatpassword" placeholder="Repeat Password" value="">
                                         </div>
                                     </div>
                                     <div class="field is-grouped">
