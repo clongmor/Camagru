@@ -1,5 +1,4 @@
 <?php
-    include "../config/database.php";
     include "validation.php";
     include "../functions/verifyLoginDetails.php";
     session_start();
@@ -12,7 +11,7 @@
     if (empty($username)) {
         $_SESSION['error'] = "Please insert a username.";
     } else if (empty($password)) {
-        $_SESSION['error'] = "Please insert a password."; 
+        $_SESSION['error'] = "Please insert a password.";
     } else {
         if (verifyLoginDetails($username, $password)) {
             $_SESSION['username'] = $username;
@@ -24,5 +23,5 @@
             header("Location: ../login.php");
         }
     }
-    
+
 ?>

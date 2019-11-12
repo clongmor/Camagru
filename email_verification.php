@@ -1,6 +1,6 @@
 <?php
-session_start();
-include "templates/header.php";
+    session_start();
+	include "templates/header.php";
 ?>
 
 <!DOCTYPE html>

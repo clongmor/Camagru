@@ -44,7 +44,7 @@ include "templates/header.php";
                                         </div>
                                     </div>
                                     <div class="field">
-                                        <button class="button is-primary is-fullwidth" href="login.php">Sign in!</button>
+                                        <button class="button is-primary is-fullwidth" type="Submit">Sign in!</button>
                                     </div>
                                     <?php
                                         if ($_SESSION['login_success'] == FALSE) {
