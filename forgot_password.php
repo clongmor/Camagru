@@ -45,7 +45,6 @@
                                         </div>
 									</div>
                                     <div class="field">
-                                        <!-- The href needs a value, not sure what Xandra is planning for the email functions, so it's empty atm. -->
                                         <button class="button is-primary is-fullwidth" type="Submit">Reset Password!</button>
                                     </div>
                                     <?php

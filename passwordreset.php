@@ -22,7 +22,9 @@
                     <div class="container has-text-centered">
                         <div class="columns is-centered">
                             <div class="column is-5 is-4-desktop">
-                                <form method="post" action="forms/resetpassword.php">
+                                <?php 
+                                echo "<form method='post' action='forms/resetpassword.php?username=".$_GET['username']."&token=".$_GET['token']."'>";
+                                ?>
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
@@ -36,7 +38,7 @@
                                         </div>
                                     </div>
                                     <div class="field">
-                                        <button class="button is-primary is-fullwidth" href="forms/resetpassword.php" type="Submit">Change Password!</button>
+                                        <button class="button is-primary is-fullwidth" href="forms/resetpassword.php" value="submit" type="Submit">Change Password!</button>
                                     </div>
                                     <?php
                                         // If $_SESSION['error'] is set, then it'll display the error, else it's display that the password has been successfully reset.
@@ -44,7 +46,7 @@
                                             echo "Password reset is successfull. Please login with new password.";
                                         } else if ($_SESSION['error'] !== NULL) {
                                             echo "Password reset error: ".$_SESSION['error'];
-                                            unset($_SESSION['error']);
+                                            $_SESSION['error'] = NULL;
                                         }
                                     ?>
                                     </span>
