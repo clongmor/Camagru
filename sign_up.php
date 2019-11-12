@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="field is-grouped">
                                         <div class="control is-expanded">
-                                            <button type="submit" value="Submit" class="button is-primary is-fullwidth">Sign up!</button>
+                                            <button type="Submit" value="Submit" class="button is-primary is-fullwidth">Sign up!</button>
                                         </div>
                                     </div>
                                     <span>

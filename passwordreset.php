@@ -42,7 +42,7 @@
                                         // If $_SESSION['error'] is set, then it'll display the error, else it's display that the password has been successfully reset.
                                         if ($_SESSION['resetpasswordsuccess'] == TRUE) {
                                             echo "Password reset is successfull. Please login with new password.";
-                                        } else if (isset($_SESSION['error'])) {
+                                        } else if ($_SESSION['error'] !== NULL) {
                                             echo "Password reset error: ".$_SESSION['error'];
                                             unset($_SESSION['error']);
                                         }
