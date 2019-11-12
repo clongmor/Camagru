@@ -29,6 +29,10 @@ session_start();
 				<?php
 				// Select all from images orderby creationdate desc
 
+				for ($x = 1; $x <= $pages; $x++): ?>
+				<a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
+	<?php endfor; ?>
+				<?php
 				while($row = mysqli_fetch_assoc($result)){
 					echo '<a href="#">
 					<div style="background-image: url(/gallery/'.$row["imgFullNameGallery"].');"></div>';
