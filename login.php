@@ -34,7 +34,7 @@ include "templates/header.php";
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username" value="Hallocoos">
+                                            <input class="input" type="text" name="username" placeholder="Username" value="BlueberryPie">
                                         </div>
                                     </div>
                                     <div class="field">
@@ -55,8 +55,6 @@ include "templates/header.php";
                                             $_SESSION['username'] = NULL;
                                         }
                                     ?>
-                                    <!-- We still need a password reset page. -->
-									<!-- I added one - C -->
                                     <a href="./forgot_password.php">Forgot Password</a>
                                     </span>
                                 </form>
