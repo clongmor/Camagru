@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 	include "templates/header.php";
 ?>
 
@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Madimgz</title>
+	<title>Madimgz - Gallery</title>
 	<style>
 		.center {
 			display: flex;
@@ -22,11 +22,10 @@
 <body class="purp_body">
 	<section class="hero is-fullheight">
 		<div class="hero-body">
-			<div class="container">
-				<figure class="image center">
-					<img src="./imgs/welcome.png" alt="Welcome" style="max-height: 900px; max-width:900px;">
-				</figure>
-			</div>
+  			<div class="container">
+    			<h2 class="title has-text-centered">Gallery</h2>
+				<!-- will design soemething here still -->
+  			</div>
 		</div>
 	</section>
 	<?php

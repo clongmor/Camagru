@@ -15,7 +15,8 @@
     <?php
         unset($_SESSION['username']);
         session_destroy();
-        header("Location: home_page.php");
+		header("Location: home_page.php");
+		include "templates/footer.php";
     ?> 
 </body>
 </html>
