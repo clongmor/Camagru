@@ -50,7 +50,6 @@
                 <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="uploadUserImage">
 				  <div class="field">
-<<<<<<< HEAD
 				  <div class="control">
 					  <input class="input" type="file" name="image">
 				  </div>
@@ -59,26 +58,6 @@
 				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Upload My Image!</strong></button>
 			 	</div>
 			  </form>
-=======
-				  	<div class="control">
-					  <input class="input" type="file" name="upload_image" required>
-				  	</div>
-			  	  </div>
-			  	<div class="control">
-				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="./editor.php"><strong>Upload My Image!</strong></button>
-			 	</div>
-			  </form>
-			  <?php
-				// need to store image that is submitted
-			  ?>
-			<h1 class="title center">
-				OR
-			</h1>
-			<h1 class="subtitle">
-				directly take a picture with your webcam below:
-			</h1>
-			insert webcam to take a picture here
->>>>>>> b8dd07c3337ec53eb7507c1d3a26a031db756167
 		</div>
 		<div class="section has-background-primary">
 			<h1 class="subtitle">
@@ -112,74 +91,43 @@
 		<div class="section has-background-primary">
 			<p>
 				Once you have done both of the above, click on create and watch the magic happen!
-<<<<<<< HEAD
 			  </h1>
 			  <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data>
 			  <div class="field">
 				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Create My Image!</strong></button>
-=======
-			</p>
-			  <form action="editor.php" method="post">
-			  	<div class="field">
-					<div class="control">
-						<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="./editor.php"><strong>Create My Image!</strong></button>
-					</div>
->>>>>>> b8dd07c3337ec53eb7507c1d3a26a031db756167
 			 	</div>
 			  </form>
 		</div>
 		<div class="section">
-<<<<<<< HEAD
-			<h1 class="subtitle">
+			<h1 class="subtitle center">
 				Here\'s your photo:
 			  </h1>
-			  need to insert live view of photo/not-live view of photo here.
-			  <p> to view your previously uploaded photos, please <a href="./user_images.php">click here</a>.
-			  </p>
-        </div>
-        </div>
-  </section>';
-              }
-else
-echo 'Please log in to access this page';
-//redirect on timer
-include "templates/footer.php";
-=======
-			<h1 class="subtitle center">
-				Here's your photo:
-			</h1>
-			  need to insert live view of photo/not-live view of photo here.
-		</div>
+			  </div>
 		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
 			  <div class="field">
 			  	<div class="control">
-					  <!-- need to pull user specific images from database and display them here, I'm thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
+					  <!-- need to pull user specific images from database and display them here, I\'m thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
 				</div>
 			  </div>
 			</div>
 		</div>
 	</div>
-  </section>
-  <?php
-	include "templates/footer.php";
->>>>>>> b8dd07c3337ec53eb7507c1d3a26a031db756167
-?>
-  </body>
-
-<!-- for xandra to add the "gentle rejection" for unauthorised access -->
-<body class="purp_body">
-	<section class="hero is-fullheight">
-		<div class="hero-body">
-			<div class="container">
-				<h1 class="title center">
-					Hi, you don't seem to have access to this page. Please login and then try again.
-				</h1>
-			</div>
+  </section>';
+              }
+else
+echo '<body class="purp_body">
+<section class="hero is-fullheight">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title center">
+				Hi, you don\'t seem to have access to this page. Please login and then try again.
+			</h1>
 		</div>
-	</section>
-	<?php
-	include "templates/footer.php";
+	</div>
+</section>';
+
+include "templates/footer.php";
 ?>
 </body>
 
