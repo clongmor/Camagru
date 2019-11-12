@@ -1,7 +1,8 @@
 <?php
 session_start();
 	include "templates/header.php";
-	include_once "../config/database.php"
+	include_once "./config/database.php";
+	//include "./functions/galleryFunctions.php"
 ?>
 
 <!DOCTYPE html>
@@ -24,26 +25,28 @@ session_start();
 	<section class="hero is-fullheight">
 		<div class="hero-body">
   			<div class="container">
-    			<h2 class="title has-text-centered">Gallery</h2>
-				<!-- will design soemething here still -->
-				<?php
-				// Select all from images orderby creationdate desc
+				<h2 class="title has-text-centered">Gallery</h2>
+				
+				<div class="gallery-container">
+					<?php
 
-				for ($x = 1; $x <= $pages; $x++): ?>
-				<a href="?page=<?php echo $x; ?>&per-page=<?php echo $perPage; ?>"<?php if($page === $x) {echo ' class="selected"'; } ?>><?php echo $x; ?></a>
-	<?php endfor; ?>
-				<?php
-				while($row = mysqli_fetch_assoc($result)){
-					echo '<a href="#">
-					<div style="background-image: url(/gallery/'.$row["imgFullNameGallery"].');"></div>';
-				}
-				?>
+						$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+						$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+						
+						$stmnt = $dbh->prepare("SELECT * FROM `image` ORDER BY `creationdate` DESC");
+						$stmnt->execute();
+						$result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+						foreach($result as $image){
+							echo "<img src=\"./gallery/".$image['source']."\" alt=\"error\">";
+						}
+					?>
+				</div>
   			</div>
 		</div>
 	</section>
 	<?php
 	include "templates/footer.php";
-?>
+	?>
 </body>
 
 </html>

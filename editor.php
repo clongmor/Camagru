@@ -2,7 +2,7 @@
 	session_start();
     include "templates/header.php";
     include "./config/database.php";
-    include "./functions/galleryFunctions.php";
+    include "./functions/editorFunctions.php";
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,6 @@
 		}
 	</style>
 </head>
-<!-- need to make sure a user is logged in when trying to access this page e.g. if they type the web address directly, it should display access denied -->
 <body class="purp_body">
   <section class="hero">
   <div class="hero-body">
