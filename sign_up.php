@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include "templates/header.php";
 ?>
 
@@ -76,6 +77,9 @@ include "templates/header.php";
             </div>
         </div>
     </section>
+	<?php
+	include "templates/footer.php";
+?>
 </body>
 
 </html>

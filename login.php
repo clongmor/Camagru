@@ -10,10 +10,6 @@ include "templates/header.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Madimgz - Login</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link rel="stylesheet" href="../css/debug.css">
     <style>
         .center {
             display: flex;
@@ -48,7 +44,7 @@ include "templates/header.php";
                                         </div>
                                     </div>
                                     <div class="field">
-                                        <button class="button is-primary is-fullwidth" href="login.php">Sign in!</button>
+                                        <button class="button is-primary is-fullwidth" type="Submit">Sign in!</button>
                                     </div>
                                     <?php
                                         if ($_SESSION['login_success'] == FALSE) {
@@ -71,6 +67,9 @@ include "templates/header.php";
             </div>
         </div>
     </section>
+	<?php
+	include "templates/footer.php";
+?>
 </body>
 
 </html>

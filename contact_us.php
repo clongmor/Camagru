@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	include "templates/header.php";
+session_start();
+include "templates/header.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,10 +10,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Madimgz - Contact Us</title>
-	<link rel="stylesheet" href="./css/styles.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	<!-- <link rel="stylesheet" href="../css/debug.css"> -->
 	<style>
 		.center {
 			display: flex;
@@ -32,7 +28,9 @@
 						<h2 class="title has-text-centered">Contact Madimgz</h2>
 						<subtitle class="subtitle center">Let us know if you have any suggestions, comments or feeback to give</subtitle>
 						<div class="columns">
-							<div class="column is-6"><img class="center" src="./imgs/logo_sq.png" style="max-height:400px;" alt=""></div>
+							<div class="column is-6">
+								<img class="center" src="./imgs/logo_sq.png" style="max-height:400px;" alt="">
+							</div>
 							<div class="column is-6">
 								<form>
 									<div class="field">
@@ -59,6 +57,9 @@
 			</div>
 		</div>
 	</section>
+	<?php
+	include "templates/footer.php";
+?>
 </body>
 
 </html>
