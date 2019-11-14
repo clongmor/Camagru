@@ -109,10 +109,7 @@
 			  ?>
 		</div>
 		<div class="section">
-			<h1 class="subtitle center">
-				Here's your photo:
-			</h1>
-			  need to insert live view of photo/not-live view of photo here.
+		
 		</div>
 		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
