@@ -4,58 +4,51 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Madimgz - Login</title>
-    <style>
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <title>Password Reset</title>
 </head>
 
 <body class="purp_body">
-    <section class="hero is-fullheight">
+
+<section class="hero is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="title">
-                    Login
+                    Reset Password
                 </div>
                 <section class="section">
                     <div class="container has-text-centered">
                         <div class="columns is-centered">
                             <div class="column is-5 is-4-desktop">
-                                <form method="post" action="forms/login.php">
+                                <?php 
+                                echo "<form method='post' action='forms/resetpassword.php?username=".$_GET['username']."&token=".$_GET['token']."'>";
+                                ?>
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username" value="BlueberryPie">
+                                            <input class="input" type="text" name="password" placeholder="Password" value="123456789">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="password" name="password" placeholder="Password" value="12345678">
+                                            <input class="input" type="text" name="repeatpassword" placeholder="Repeat Password" value="123456789">
                                         </div>
                                     </div>
                                     <div class="field">
-                                        <button class="button is-primary is-fullwidth" type="Submit">Sign in!</button>
+                                        <button class="button is-primary is-fullwidth" href="forms/resetpassword.php" value="submit" type="Submit">Change Password!</button>
                                     </div>
                                     <?php
-                                        if ($_SESSION['login_success'] == FALSE) {
-                                            if ($_SESSION['error'] !== NULL)
-                                                echo "<p style='color:Black'>Login failed. " . $_SESSION['error'] . "</p>";
-                                            $_SESSION['login_success'] = NULL;
+                                        // If $_SESSION['error'] is set, then it'll display the error, else it's display that the password has been successfully reset.
+                                        if ($_SESSION['resetpasswordsuccess'] == TRUE) {
+                                            echo "Password reset is successfull. Please login with new password.";
+                                        } else if ($_SESSION['error'] !== NULL) {
+                                            echo "Password reset error: ".$_SESSION['error'];
                                             $_SESSION['error'] = NULL;
-                                            $_SESSION['username'] = NULL;
                                         }
                                     ?>
-                                    <a href="./forgot_password.php">Forgot Password</a>
                                     </span>
                                 </form>
                             </div>
@@ -65,9 +58,7 @@
             </div>
         </div>
     </section>
-	<?php
-	include "templates/footer.php";
-?>
+
 </body>
 
 </html>

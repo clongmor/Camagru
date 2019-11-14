@@ -1,7 +1,8 @@
 <?php
-    include "validation.php";
-    include "../functions/verifyLoginDetails.php";
     session_start();
+    include "config/database.php";
+    include "../functions/validation.php";
+    include "../functions/verifyLoginDetails.php";
 
     $username = $_POST['username'];
     $password = $_POST['password'];
