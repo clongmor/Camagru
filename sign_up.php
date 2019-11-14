@@ -1,11 +1,11 @@
 <?php
-session_start();
-
-include "templates/header.php";
+    session_start();
+    include "templates/header.php";
+    include "./functions/verifyLoginDetails.php";
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Sign Up</title>
@@ -53,13 +53,13 @@ include "templates/header.php";
                                     </div>
                                     <div class="field is-grouped">
                                         <div class="control is-expanded">
-                                            <button type="submit" value="Submit" class="button is-primary is-fullwidth">Sign up!</button>
+                                            <button type="Submit" value="Submit" class="button is-primary is-fullwidth">Sign up!</button>
                                         </div>
                                     </div>
                                     <span>
                                         <?php
                                         if ($_SESSION['signup_success'] == TRUE) {
-											echo "Signup success please check your email.";
+                                            echo "Signup success please check your email to verify your account. After account verification, you can set you account details in the settings section.";
                                             $_SESSION['error'] = NULL;
                                             $_SESSION['signup_success'] = NULL;
                                         } else if ($_SESSION['error'] !== NULL) {

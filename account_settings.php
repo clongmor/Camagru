@@ -89,6 +89,36 @@
 							</div>
 				</div>
 			</section>
+			<section class="section">
+				<div class="columns is-centered">
+                            <div class="column is-5 is-4-desktop">
+								<form method="post" action="##">
+									<div class="field">
+										<h1>Your email notifications are currently set to: </h1>
+										<?php
+										// need to put a field in the user DB for notifications and based on that value - display yes or no here in text
+										?>	
+									</div>
+									<div class="field">
+										<label class="radio">
+      										<input type="radio" name="notif">
+							  				Yes
+										</label>
+										<label class="radio">
+      										<input type="radio" name="notif">
+							  				No
+										</label>
+									</div>
+									<div class="field">
+                                        <div class="control">
+                                            <button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Change my notifications</button>
+                                        </div>
+									</div>
+									<!-- need to post details to update DB here ^^ -->
+								</form>
+							</div>
+				</div>
+			</section>
                             </div>
                         </div>
                     </div>

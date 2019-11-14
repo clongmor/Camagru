@@ -98,10 +98,8 @@
 			  </form>
 		</div>
 		<div class="section">
-			<h1 class="subtitle center">
-				Here\'s your photo:
-			  </h1>
-			  </div>
+		
+		</div>
 		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
 			  <div class="field">
