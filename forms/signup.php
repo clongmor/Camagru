@@ -20,6 +20,9 @@
             }
         }
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 2c6f1835e9eb16dcd8727e6769002c4438c9cbbb
     header("Location: ../sign_up.php");
 ?>
