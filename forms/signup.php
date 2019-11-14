@@ -20,5 +20,5 @@
             }
         }
     }
-    header("Location: ../sign_up.php");
-?> 
+ header("Location: ../sign_up.php");
+?> git 

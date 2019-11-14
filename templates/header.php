@@ -53,6 +53,22 @@
                             </a>
                         </div>
                     </div>
+                    <?php
+                    if(isset($_SESSION['username'])){
+                    echo '<div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                            My Account
+                        </a>
+                    <div class="navbar-dropdown">
+                            <a class="navbar-item" href="./account_settings.php">
+                                Account Settings
+                            </a>
+                            <a class="navbar-item" href="./editor.php">
+                                Create An Image
+                            </a>
+                        </div>
+                    </div>';
+                    } ?>
                 </div>
                 <?php if (!isset($_SESSION['username'])) : ?>
                     <div class="navbar-end">
@@ -67,16 +83,6 @@
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
-				<?php if (isset($_SESSION['username'])) : ?>
-				<div class="navbar-dropdown">
-                            <a class="navbar-item" href="./account_settings.php">
-                                Account Settings
-                            </a>
-                            <a class="navbar-item" href="./editor.php">
-                                Create An Image
-                            </a>
-                        </div>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['username'])) : ?>
                     <form action="signout.php">

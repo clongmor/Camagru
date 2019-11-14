@@ -8,7 +8,8 @@
         Please click on the link below to verify your account:
         http://localhost:8081/camagru/email_verification.php?email='.$email.'&token='.$_SESSION['token'].'';
         
-        $headers = 'From: lady.xerena@gmail.com';
+        $headers = 'From: admin@madimgz.com';
+
         mail($to, $subject, $message, $headers);
         return (0);
     }
