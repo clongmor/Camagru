@@ -1,5 +1,5 @@
 Need a page that verifies that the user has sucessfully signed up.
-Verify wether email actually exists.
+prettify divs in email_verification.php
 
 
 one gallery php file with commenst permissions changing, need to do, but not sure how to write the html for varying amounts of images that could be stored.
@@ -7,3 +7,4 @@ one gallery php file with commenst permissions changing, need to do, but not sur
 need to add displays for user specific images from db
 
 need to check that you can correctly upload a picture or take a webcam pic, one or the other has to be done for "create my image button" to work
+need to make a checkbox type system to choose an image from preset list to add touploaded image.
