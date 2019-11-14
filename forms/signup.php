@@ -20,8 +20,5 @@
             }
         }
     }
-    if ($_SESSION['signup_success'] == TRUE) {
-        email_verification($username, $email);
-    }
     header("Location: ../sign_up.php");
 ?> 
