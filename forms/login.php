@@ -11,8 +11,10 @@
 
     if (empty($username)) {
         $_SESSION['error'] = "Please insert a username.";
+        header("Location: ../login.php");
     } else if (empty($password)) {
         $_SESSION['error'] = "Please insert a password.";
+        header("Location: ../login.php");
     } else {
         if (verifyLoginDetails($username, $password)) {
             $_SESSION['username'] = $username;
