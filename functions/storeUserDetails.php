@@ -42,49 +42,84 @@
         }
     }
     
-    function updatePictureSource($picturesource) {
-        include "../config/database.php";
+    // This is a template for any need queries.
+    // function Query($picturesource) {
+    //     include "../config/database.php";
+    //     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+    //     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    //     $stmt = $dbh->prepare("Query;");
+    //     if ($stmt->execute([$variable])) {
+    //         $stmt = null;
+    //         return (1);
+    //     } else {
+    //         $_SESSION['error'] = "Error message.";
+    //         return (0);
+    //     }
+    // }
+
+    function updateUsername($newusername) {
+        include "/homes/hde-vos/Documents/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $dbh->prepare("UPDATE `user` (`picturesource`) VALUES (?);");
-        if ($stmt->execute([$picturesource])) {
+        $stmt = $dbh->prepare("SELECT `id` FROM `user` WHERE (`username`=?);");
+        if ($stmt->execute([$_SESSION['username']])) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result['id'])
+                $_SESSION['error'] = "Could not find user.";
+            $id = $result['id'];
+        }
+
+        $stmt = $dbh->prepare("UPDATE `user` SET `username`=? WHERE (`id` = ?);");
+        if ($stmt->execute([$newusername, $id])) {
+            $_SESSION['username'] = $newusername;
             $stmt = null;
+            $stmt = $dbh->prepare("SELECT `username` FROM `user` WHERE (`id`=?);");
+            if ($stmt->execute([$id])) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (!$result['username']) {
+                    $_SESSION['error'] = "Could not find user.";
+                    return (0);
+                }
+            }
+            $_SESSION['usernamereset'] = TRUE;
             return (1);
         } else {
-            $_SESSION['error'] = "Error storing picturesource to database.";
+            $_SESSION['error'] = "Could not update username.";
             return (0);
         }
     }
 
-    function updateVerified($verified) {
-        include "../config/database.php";
+    function updateEmail($newEmail) {
+        include "/homes/hde-vos/Documents/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $dbh->prepare("UPDATE `user` (`verified`) VALUES (?);");
-        if ($stmt->execute([$verified])) {
+        $stmt = $dbh->prepare("SELECT `id` FROM `user` WHERE (`username`=?);");
+        if ($stmt->execute([$_SESSION['username']])) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result['id'])
+                $_SESSION['error'] = "Could not find user.";
+            $id = $result['id'];
+        }
+
+        $stmt = $dbh->prepare("UPDATE `user` SET `email`=? WHERE (`id` = ?);");
+        if ($stmt->execute([$newEmail, $id])) {
+            $_SESSION['email'] = $newEmail;
             $stmt = null;
+            $stmt = $dbh->prepare("SELECT `email` FROM `user` WHERE (`id`=?);");
+            if ($stmt->execute([$id])) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (!$result['email']) {
+                    $_SESSION['error'] = "Could not find user.";
+                    return (0);
+                }
+            }
+            $_SESSION['emailreset'] = TRUE;
             return (1);
         } else {
-            $_SESSION['error'] = "Error storing verified to database.";
+            $_SESSION['error'] = "Could not update email.";
             return (0);
         }
     }
-
-    function updateToken($token) {
-        include "../config/database.php";
-        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $stmt = $dbh->prepare("UPDATE `user` (`token`) VALUES (?);");
-        if ($stmt->execute([$token])) {
-            $stmt = null;
-            return (1);
-        } else {
-            $_SESSION['error'] = "Error storing token to database.";
-            return (0);
-        }
-    }
-
-?>

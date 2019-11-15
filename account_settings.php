@@ -30,7 +30,7 @@ include "templates/header.php";
 						<div class="container">
 							<div class="columns is-centered">
 								<div class="column is-5 is-4-desktop">
-									<form method="post" action="##">
+									<form method="post" action="forms/resetaccountdetails/resetUsername.php">
 										<!-- need to post details to update DB here ^^ -->
 										<div class="field">
 											<div class="control">
@@ -43,6 +43,15 @@ include "templates/header.php";
 												<button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Confirm Username Change</button>
 											</div>
 										</div>
+										<?php
+											if (isset($_SESSION['error'])) {
+												echo "Error setting new username: ".$_SESSION['error'];
+											} else if ($_SESSION['usernamereset']) {
+												echo "Username reset is successful. Please remember to log in with new username after signing out.";
+											}
+											unset($_SESSION['usernamereset']);
+											unset($_SESSION['error']);
+										?>
 									</form>
 								</div>
 							</div>
@@ -51,11 +60,11 @@ include "templates/header.php";
 					<section class="section">
 						<div class="columns is-centered">
 							<div class="column is-5 is-4-desktop">
-								<form method="post" action="##">
+								<form method="post" action="forms/resetaccountdetails/resetEmail.php">
 									<!-- need to post details to update DB here ^^ -->
 									<div class="field">
 										<div class="control">
-											change your email:
+											Change your email:
 											<input class="input" type="text" name="email" placeholder="Email" value="">
 										</div>
 									</div>
@@ -64,6 +73,15 @@ include "templates/header.php";
 											<button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Confirm Email Change</button>
 										</div>
 									</div>
+										<?php
+											if (isset($_SESSION['error'])) {
+												echo "Error setting new email: ".$_SESSION['error'];
+											} else if ($_SESSION['emailreset']) {
+												echo "Email reset is successful.";
+											}
+											unset($_SESSION['emailreset']);
+											unset($_SESSION['error']);
+										?>
 								</form>
 							</div>
 						</div>
