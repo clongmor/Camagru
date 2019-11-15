@@ -1,8 +1,10 @@
 <?php
+    
     session_start();
-    include "config/database.php";
-    include "../functions/validation.php";
+    include "../config/database.php";
+    include "./validation.php";
     include "../functions/verifyLoginDetails.php";
+    
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -10,9 +12,11 @@
     $_SESSION['error'] = NULL;
 
     if (empty($username)) {
-        $_SESSION['error'] = "Please insert a username.";
+        $_SESSION['error'] = "Please insert both a username and a password.";
+        header("Location: ../login.php");
     } else if (empty($password)) {
-        $_SESSION['error'] = "Please insert a password.";
+        $_SESSION['error'] = "Please insert both a username and a password.";
+        header("Location: ../login.php");
     } else {
         if (verifyLoginDetails($username, $password)) {
             $_SESSION['username'] = $username;

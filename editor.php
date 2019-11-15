@@ -2,7 +2,7 @@
 	session_start();
     include "templates/header.php";
     include "./config/database.php";
-    include "./functions/editorFunctions.php";
+	include "./functions/editorFunctions.php";
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +24,16 @@
 		}
 		.pics_box {
 			width: 100%;
-			height: 750px:
+			height: 750px;
 		}
 	</style>
 </head>
 <body class="purp_body">
+
   <section class="hero">
   <div class="hero-body">
+  
+
     	<div class="section">
 			<h1 class="title">
 				Editor
@@ -38,15 +41,23 @@
 			  <h2 class="subtitle">
 				Creating your own Madimgz starts here!
 			  </h2>
-		</div>
+			  
+			  <div> <canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;"></canvas> </div>
+			  
+			  <script> 
+				getCanvasImage();
+
+				</script>
+			</div>
 		<div class="section has-background-primary">
-			<h1 class="subtitle">
+		
+		<h1 class="subtitle">
 				Upload an image from your computer or take a picture with your webcam.
 				PRO TIP: make sure you click submit if uploading from your computer!
-              </h1>
-              <?php if (isset($_SESSION['username'])){
-                echo'  
-                <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+			  </h1>
+			  <?php if (isset($_SESSION['username'])) : ?>  
+			  
+			 <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="uploadUserImage">
 				  <div class="field">
 				  <div class="control">
@@ -91,7 +102,7 @@
 			<p>
 				Once you have done both of the above, click on create and watch the magic happen!
 			  </h1>
-			  <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data>
+			  <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
 			  <div class="field">
 				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Create My Image!</strong></button>
 			 	</div>
@@ -110,10 +121,10 @@
 			</div>
 		</div>
 	</div>
-  </section>';
-              }
-else
-echo '<body class="purp_body">
+  </section>
+              <?php endif ?>
+<?php if (!(isset($_SESSION['username']))): ?>
+<body class="purp_body">
 <section class="hero is-fullheight">
 	<div class="hero-body">
 		<div class="container">
@@ -122,8 +133,9 @@ echo '<body class="purp_body">
 			</h1>
 		</div>
 	</div>
-</section>';
-
+</section>
+	<?php endif; ?>
+<?php 
 include "templates/footer.php";
 ?>
 </body>
