@@ -7,6 +7,7 @@
     // $_POST['email'] = "wdv@live.co.za";
     // echo $_SESSION['username'];
     // echo $_POST['email'];
+    $_SESSION['emailcheck'] = TRUE;
     if (validateEmail($_POST['email'])) {
         updateEmail($_POST['email']);
     }

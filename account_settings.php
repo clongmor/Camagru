@@ -44,13 +44,16 @@ include "templates/header.php";
 											</div>
 										</div>
 										<?php
-											if (isset($_SESSION['error'])) {
-												echo "Error setting new username: ".$_SESSION['error'];
-											} else if ($_SESSION['usernamereset']) {
-												echo "Username reset is successful. Please remember to log in with new username after signing out.";
+											if ($_SESSION['usernamecheck']) {
+												if (isset($_SESSION['error'])) {
+													echo "Error setting new username: ".$_SESSION['error'];
+												} else if ($_SESSION['usernamereset']) {
+													echo "Username reset is successful. Please remember to log in with new username after signing out.";
+												}
+												unset($_SESSION['usernamereset']);
+												unset($_SESSION['error']);
+												$_SESSION['usernamecheck'] = FALSE;
 											}
-											unset($_SESSION['usernamereset']);
-											unset($_SESSION['error']);
 										?>
 									</form>
 								</div>
@@ -74,13 +77,16 @@ include "templates/header.php";
 										</div>
 									</div>
 										<?php
-											if (isset($_SESSION['error'])) {
-												echo "Error setting new email: ".$_SESSION['error'];
-											} else if ($_SESSION['emailreset']) {
-												echo "Email reset is successful.";
+											if ($_SESSION['emailcheck']) {
+												if (isset($_SESSION['error'])) {
+													echo "Error setting new email: ".$_SESSION['error'];
+												} else if ($_SESSION['emailreset']) {
+													echo "Email reset is successful.";
+												}
+												unset($_SESSION['emailreset']);
+												unset($_SESSION['error']);
+												$_SESSION['emailcheck'] = FALSE;
 											}
-											unset($_SESSION['emailreset']);
-											unset($_SESSION['error']);
 										?>
 								</form>
 							</div>

@@ -7,6 +7,7 @@
     // $_POST['username'] = "Hallocoos";
     // echo $_SESSION['username'];
     // echo $_POST['username'];
+    $_SESSION['usernamecheck'] = TRUE;
     if (validateUsername($_POST['username'])) {
         updateUsername($_POST['username']);
     }
