@@ -42,7 +42,7 @@
 			  <h2 class="subtitle">
 				Creating your own Madimgz starts here!
 			  </h2>
-			  
+			  <?php if (isset($_SESSION['username'])) : ?>  
 			  <div> <canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;"></canvas> </div>
 			  
 			  <script> 
@@ -56,7 +56,7 @@
 				Upload an image from your computer or take a picture with your webcam.
 				PRO TIP: make sure you click submit if uploading from your computer!
 			  </h1>
-			  <?php if (isset($_SESSION['username'])) : ?>  
+			  
 			  
 			 <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="uploadUserImage">
@@ -116,6 +116,19 @@
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
 			  <div class="field">
 			  	<div class="control">
+					  <?php
+	
+						include "../config/database.php";
+						$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+						$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					
+						$stmnt = $dbh->prepare("SELECT * FROM `image` ORDER BY `creationdate` DESC");
+						$stmnt->execute();
+						$result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+						foreach($result as $image){
+							echo "<img src=\"./gallery/".$image['source']."\">";
+						}
+					  ?>
 					  <!-- need to pull user specific images from database and display them here, I\'m thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
 				</div>
 			  </div>
@@ -129,9 +142,16 @@
 <section class="hero is-fullheight">
 	<div class="hero-body">
 		<div class="container">
-			<h1 class="title center">
+			<!-- <h1 class="title center">
 				Hi, you don\'t seem to have access to this page. Please login and then try again.
-			</h1>
+			</h1> -->
+			<script>
+				function Redirect(){
+					window.location = "login.php";
+				}
+				document.write("Hi, you don't seem to have access to this page. Please login and then try again.");
+				setTimeout('Redirect()', 4000);
+				</script>
 		</div>
 	</div>
 </section>

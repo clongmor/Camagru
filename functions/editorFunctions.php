@@ -62,4 +62,20 @@ function uploadUserImage(){
 
 }
 
+//not working yet
+function displayImages(){
+	
+	include "../config/database.php";
+	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$userName = $_SESSION['username'];
+
+	$stmnt = $dbh->prepare("SELECT * FROM `image` WHERE (`username`=?) ORDER BY `creationdate` DESC;");
+	$stmnt->execute($userName);
+	$result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+	foreach($result as $image){
+		echo "<img src=\"./gallery/".$image['source']."\">";
+	}
+}
+
 ?>
