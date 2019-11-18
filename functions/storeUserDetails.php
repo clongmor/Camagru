@@ -19,6 +19,7 @@
             echo "ERROR  DB: \n".$e->getMessage()."\nAborting process\n";
             exit(-1);
         }
+
         //Checks whether email is already in use.
         $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `email`=?;");
         $stmt->execute([$email]);
@@ -110,6 +111,16 @@
         include "/homes/hde-vos/Documents/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        //Checks whether email is already in use.
+        $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `email`=?;");
+        $stmt->execute([$newEmail]);
+        if ($stmt->rowCount()) {
+            $_SESSION['error'] = "Email is already in use.";
+            $_SESSION['signup_success'] = FALSE;
+            $stmt = null;
+            return (0);
+        }
 
         $stmt = $dbh->prepare("SELECT `id` FROM `user` WHERE (`username`=?);");
         if ($stmt->execute([$_SESSION['username']])) {
