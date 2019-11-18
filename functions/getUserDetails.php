@@ -1,6 +1,6 @@
 <?php
-    function getUserImages()
-    {
+
+    function getUserImages() {
         include "config/database.php";
         include "functions/comments.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -14,7 +14,8 @@
             $string = $string . "<div class='box'>
                 <img src=\"./gallery/" . $image['source'] . "\" alt=\"error\" class='image is-640x480 center'><br>";
             $string = $string . getComments($image['id']);
-            $string = $string . "</div>";
+            $string = $string."<form action='functions/storeComment.php?userid=".$_SESSION['id']."&imageid=".$image['id']."&username=".$_GET['name']."' method='post'><br>Text: <input type='text' name='text'><input type='submit' value='Post Comment'></form>";
+            $string = $string ."</div>";
         }
         return ($string);
     }
@@ -29,8 +30,10 @@
         $stmnt->execute([$_GET['name']]);
         $result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
 
+        $user['picturesource'] = "defaultprofile.jpg";
+
         foreach ($result as $user) {
-            $string = $string . "<div class='box'><img src=\"./gallery/".$user['picturesource']."\" alt=\"error\" class='image is-640x480 center'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
+            $string = $string . "<div class='box'><img src=\"./gallery/".$user['picturesource']."\" alt=\"error\" class='image is-128x128'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
         }
         return ($string);
     }
