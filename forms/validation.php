@@ -40,7 +40,7 @@
         unset($_SESSION['error']);
         if (!isset($email) || empty($email)) {
             $_SESSION['error'] = "Please insert a email.";
-        } else if (strlen($email) > 255) {
+        } else if (strlen($email) > 100) {
             $_SESSION['error'] = "Maximum length for a email is 100.";
         } else if (strlen($email) < 8) {
             $_SESSION['error'] = "Minimum length for a email is 8.";

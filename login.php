@@ -34,13 +34,13 @@
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username" value="BlueberryPie">
+                                            <input class="input" type="text" name="username" placeholder="Username">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="password" name="password" placeholder="Password" value="12345678">
+                                            <input class="input" type="password" name="password" placeholder="Password">
                                         </div>
                                     </div>
                                     <div class="field">
