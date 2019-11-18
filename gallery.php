@@ -29,15 +29,19 @@ session_start();
 				
 				<div class="gallery-container">
 					<?php
-
+						include "functions/comments.php";
 						$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 						$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 						
 						$stmnt = $dbh->prepare("SELECT * FROM `image` ORDER BY `creationdate` DESC");
 						$stmnt->execute();
 						$result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+
 						foreach($result as $image){
-							echo "<img src=\"./gallery/".$image['source']."\" alt=\"error\">";
+							echo "<div class='box'>
+										<img src=\"./gallery/".$image['source']."\" alt=\"error\" class='image is-640x480 center'>";
+										echo "<hr>".getComments($image['id']);
+							echo "</div><br>";
 						}
 					?>
 				</div>

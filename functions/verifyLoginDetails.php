@@ -16,12 +16,15 @@
 
     function verifyLoginDetails($username, $password) {
         include "../config/database.php";
+        session_start();
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $_SESSION['error'] = NULL;
         //Checks whether username already exists.
-        $stmt = $dbh->prepare("SELECT * FROM `user` WHERE (`username`=? AND `password`=?  AND `verified`=1);");
+        $stmt = $dbh->prepare("SELECT * FROM `user` WHERE (`username`=? AND `password`=?  AND `verified`>0);");
         $stmt->execute([$username, hash('whirlpool', $password)]);
+        $results = $stmt->fetch();
+        $_SESSION['id'] = $results['id'];
         if ($stmt->rowCount() == 1) {
             $stmt = NULL;
             return (1);
@@ -37,5 +40,4 @@
             return (0);
         }
     }
-
 ?>

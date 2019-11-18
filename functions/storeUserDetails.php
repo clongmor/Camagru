@@ -71,7 +71,7 @@
             $id = $result['id'];
         }
 
-        $stmt = $dbh->prepare("UPDATE `user` SET `username`=? WHERE (`id` = ?);");
+        $stmt = $dbh->prepare("UPDATE `user` SET `username`=? WHERE (`id`=?);");
         if ($stmt->execute([$newusername, $id])) {
             $_SESSION['username'] = $newusername;
             $stmt = null;
@@ -104,9 +104,8 @@
             $id = $result['id'];
         }
 
-        $stmt = $dbh->prepare("UPDATE `user` SET `email`=? WHERE (`id` = ?);");
+        $stmt = $dbh->prepare("UPDATE `user` SET `email`=? WHERE (`id`=?);");
         if ($stmt->execute([$newEmail, $id])) {
-            $_SESSION['email'] = $newEmail;
             $stmt = null;
             $stmt = $dbh->prepare("SELECT `email` FROM `user` WHERE (`id`=?);");
             if ($stmt->execute([$id])) {
@@ -120,6 +119,38 @@
             return (1);
         } else {
             $_SESSION['error'] = "Could not update email.";
+            return (0);
+        }
+    }
+
+    function updatePassword($newpassword) {
+        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $dbh->prepare("SELECT `id` FROM `user` WHERE (`username`=?);");
+        if ($stmt->execute([$_SESSION['username']])) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result['id'])
+                $_SESSION['error'] = "Could not find user.";
+            $id = $result['id'];
+        }
+
+        $stmt = $dbh->prepare("UPDATE `user` SET `password`=? WHERE (`id`=?);");
+        if ($stmt->execute([hash("whirlpool", $newpassword), $id])) {
+            $stmt = null;
+            $stmt = $dbh->prepare("SELECT `password` FROM `user` WHERE (`id`=?);");
+            if ($stmt->execute([$id])) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (!$result['password']) {
+                    $_SESSION['error'] = "Could not find user.";
+                    return (0);
+                }
+            }
+            $_SESSION['passwordreset'] = TRUE;
+            return (1);
+        } else {
+            $_SESSION['error'] = "Could not update password].";
             return (0);
         }
     }

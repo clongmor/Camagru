@@ -46,7 +46,7 @@ include "templates/header.php";
 										<?php
 											if ($_SESSION['usernamecheck']) {
 												if (isset($_SESSION['error'])) {
-													echo "Error setting new username: ".$_SESSION['error'];
+													echo "Error setting new username: " . $_SESSION['error'];
 												} else if ($_SESSION['usernamereset']) {
 													echo "Username reset is successful. Please remember to log in with new username after signing out.";
 												}
@@ -54,7 +54,7 @@ include "templates/header.php";
 												unset($_SESSION['error']);
 												$_SESSION['usernamecheck'] = FALSE;
 											}
-										?>
+											?>
 									</form>
 								</div>
 							</div>
@@ -76,17 +76,17 @@ include "templates/header.php";
 											<button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Confirm Email Change</button>
 										</div>
 									</div>
-										<?php
-											if ($_SESSION['emailcheck']) {
-												if (isset($_SESSION['error'])) {
-													echo "Error setting new email: ".$_SESSION['error'];
-												} else if ($_SESSION['emailreset']) {
-													echo "Email reset is successful.";
-												}
-												unset($_SESSION['emailreset']);
-												unset($_SESSION['error']);
-												$_SESSION['emailcheck'] = FALSE;
+									<?php
+										if ($_SESSION['emailcheck']) {
+											if (isset($_SESSION['error'])) {
+												echo "Error setting new email: " . $_SESSION['error'];
+											} else if ($_SESSION['emailreset']) {
+												echo "Email reset is successful.";
 											}
+											unset($_SESSION['emailreset']);
+											unset($_SESSION['error']);
+											$_SESSION['emailcheck'] = FALSE;
+										}
 										?>
 								</form>
 							</div>
@@ -95,7 +95,7 @@ include "templates/header.php";
 					<section class="section">
 						<div class="columns is-centered">
 							<div class="column is-5 is-4-desktop">
-								<form method="post" action="##">
+								<form method="post" action="forms/resetaccountdetails/resetPassword.php">
 									<!-- need to post details to update DB here ^^ -->
 									<div class="field">
 										<div class="control">
@@ -105,7 +105,7 @@ include "templates/header.php";
 									</div>
 									<div class="field">
 										<div class="control">
-											<input class="input" type="password" name="repeatpassword" placeholder="Repeat Password" value="" required>
+											<input class="input" type="password" name="repeatpassword" placeholder="Repeat Password" value="">
 										</div>
 									</div>
 									<div class="field">
@@ -113,47 +113,59 @@ include "templates/header.php";
 											<button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Confirm Password Change</button>
 										</div>
 									</div>
+									<?php
+										if ($_SESSION['passwordcheck']) {
+											if (isset($_SESSION['error'])) {
+												echo "Error setting new password: " . $_SESSION['error'];
+											} else if ($_SESSION['passwordreset']) {
+												echo "Password reset is successful.";
+											}
+											unset($_SESSION['passwordreset']);
+											unset($_SESSION['error']);
+											$_SESSION['passwordcheck'] = FALSE;
+										}
+										?>
 								</form>
 							</div>
 						</div>
 					</section>
 				</div>
-			</section>
-			<section class="section">
-				<div class="columns is-centered">
-                            <div class="column is-5 is-4-desktop">
-								<form method="post" action="##">
-									<div class="field">
-										<h1>Your email notifications are currently set to: </h1>
-										<?php
-										// need to put a field in the user DB for notifications and based on that value - display yes or no here in text
-										?>	
-									</div>
-									<div class="field">
-										<label class="radio">
-      										<input type="radio" name="notif">
-							  				Yes
-										</label>
-										<label class="radio">
-      										<input type="radio" name="notif">
-							  				No
-										</label>
-									</div>
-									<div class="field">
-                                        <div class="control">
-                                            <button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Change my notifications</button>
-                                        </div>
-									</div>
-									<!-- need to post details to update DB here ^^ -->
-								</form>
+		</section>
+		<section class="section">
+			<div class="columns is-centered">
+				<div class="column is-5 is-4-desktop">
+					<form method="post" action="##">
+						<div class="field">
+							<h1>Your email notifications are currently set to: </h1>
+							<?php
+								// need to put a field in the user DB for notifications and based on that value - display yes or no here in text
+								?>
+						</div>
+						<div class="field">
+							<label class="radio">
+								<input type="radio" name="notif">
+								Yes
+							</label>
+							<label class="radio">
+								<input type="radio" name="notif">
+								No
+							</label>
+						</div>
+						<div class="field">
+							<div class="control">
+								<button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Change my notifications</button>
 							</div>
+						</div>
+						<!-- need to post details to update DB here ^^ -->
+					</form>
 				</div>
-			</section>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 			</div>
+		</section>
+		</div>
+		</div>
+		</div>
+		</section>
+		</div>
 		</section>
 	<?php endif; ?>
 	<?php if (!isset($_SESSION['username'])) : ?>
