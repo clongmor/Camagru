@@ -26,13 +26,12 @@
 		}
 		#webcam_box {
 			width: 50%;
-			height: 400px;
+			max-height: 400px;
 			margin-left: 25%;
-			background-color: black;
 		}
 	</style>
 </head>
-<!-- need to make sure a user is logged in when trying to access this page e.g. if they type the web address directly, it should display access denied -->
+<?php if (isset($_SESSION['username'])) : ?>
 <body class="purp_body">
   <section class="hero">
   <div class="hero-body">
@@ -73,7 +72,7 @@
 			<h1 class="subtitle">
 				directly take a picture with your webcam below:
 			</h1>
-			<video autoplay="true" id="webcam_box" class="center">
+			<video autoplay="true" id="webcam_box" class="center has-background-primary">
 
 			</video>
 		</div>
@@ -153,12 +152,10 @@
 		</div>
 	</div>
   </section>
-  <?php
-	include "templates/footer.php";
-?>
   </body>
+<?php endif; ?>
 
-<!-- for xandra to add the "gentle rejection" for unauthorised access -->
+<?php if (!isset($_SESSION['username'])) : ?>
 <body class="purp_body">
 	<section class="hero is-fullheight">
 		<div class="hero-body">
@@ -169,9 +166,10 @@
 			</div>
 		</div>
 	</section>
+</body>
+<?php endif; ?>
 	<?php
 	include "templates/footer.php";
-?>
-</body>
+	?>
 
 </html>

@@ -14,8 +14,7 @@ body {
 }
 .webcam_box {
 	width: 50%;
-	height: 400px;
-	background-color: black;
+	max-height: 400px;
 }
 
 .stat-val {
