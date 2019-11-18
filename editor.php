@@ -24,6 +24,12 @@
 			width: 100%;
 			height: 750px:
 		}
+		#webcam_box {
+			width: 50%;
+			height: 400px;
+			margin-left: 25%;
+			background-color: black;
+		}
 	</style>
 </head>
 <!-- need to make sure a user is logged in when trying to access this page e.g. if they type the web address directly, it should display access denied -->
@@ -39,6 +45,7 @@
 			  </h2>
 		</div>
 		<div class="section has-background-primary">
+		<div class="container">
 			<h1 class="subtitle">
 				Upload an image from your computer or take a picture with your webcam.
 				PRO TIP: make sure you click submit if uploading from your computer!
@@ -56,13 +63,37 @@
 			  <?php
 				// need to store image that is submitted
 			  ?>
+		</div>
+		<div>
 			<h1 class="title center">
 				OR
 			</h1>
+		</div>
+		<div class="container">
 			<h1 class="subtitle">
 				directly take a picture with your webcam below:
 			</h1>
-			insert webcam to take a picture here
+			<video autoplay="true" id="webcam_box" class="center">
+
+			</video>
+		</div>
+		<script>
+			var video = document.querySelector("#webcam_box");
+
+			if (navigator.mediaDevices.getUserMedia)
+			{
+				const stream = navigator.mediaDevices.getUserMedia({video: true})
+				.then(function(stream)
+				{
+					window.stream  = stream;
+					video.srcObject = stream;
+				})
+				.catch(function(err) 
+				{
+					console.log("No Webcam Found!");
+				});
+			}
+		</script>
 		</div>
 		<div class="section has-background-primary">
 			<h1 class="subtitle">
@@ -70,24 +101,24 @@
 			</h1>
 			<div class="field">
   				<div class="control">
-   					<label class="radio">
-      					<input type="radio" name="img_overlay">
+   					<label class="checkbox">
+      					<input type="checkbox" name="img_overlay">
 							  <img src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
     				</label>
-    				<label class="radio">
-      					<input type="radio" name="img_overlay">
+    				<label class="checkbox">
+      					<input type="checkbox" name="img_overlay">
 						  <img src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
 					</label>
-					<label class="radio">
-      					<input type="radio" name="img_overlay">
+					<label class="checkbox">
+      					<input type="checkbox" name="img_overlay">
 						  <img src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
 					</label>    				
-					<label class="radio">
-      					<input type="radio" name="img_overlay">
+					<label class="checkbox">
+      					<input type="checkbox" name="img_overlay">
 						  <img src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
 					</label>
-					<label class="radio">
-      					<input type="radio" name="img_overlay">
+					<label class="checkbox">
+      					<input type="checkbox" name="img_overlay">
 						  <img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
     				</label>
   				</div>
