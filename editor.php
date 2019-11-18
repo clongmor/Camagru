@@ -19,10 +19,12 @@
 			justify-content: center;
 			align-items: center;
 		}
+
 		.overflow_pics {
 			overflow-x: scroll;
 			overflow-y: hidden;
 		}
+
 		.pics_box {
 			width: 100%;
 			height: 750px;
@@ -110,8 +112,15 @@
 			  </form>
 		</div>
 		<div class="section">
+<<<<<<< HEAD
 		
 		</div>
+=======
+			<h1 class="subtitle center">
+				Here\'s your photo:
+			  </h1>
+			  </div>
+>>>>>>> 4d5492dc47bf07d56a4f9042878b7969eade0329
 		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
 			  <div class="field">
@@ -131,7 +140,6 @@
 					  ?>
 					  <!-- need to pull user specific images from database and display them here, I\'m thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
 				</div>
-			  </div>
 			</div>
 		</div>
 	</div>
