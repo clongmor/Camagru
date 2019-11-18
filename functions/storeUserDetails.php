@@ -150,7 +150,40 @@
             $_SESSION['passwordreset'] = TRUE;
             return (1);
         } else {
-            $_SESSION['error'] = "Could not update password].";
+            $_SESSION['error'] = "Could not update password.";
+            return (0);
+        }
+    }
+
+    function updateNotifications($setting) {
+        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $dbh->prepare("SELECT `id` FROM `user` WHERE (`username`=?);");
+        if ($stmt->execute([$_SESSION['username']])) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result['id'])
+                $_SESSION['error'] = "Could not find user.";
+            $id = $result['id'];
+        }
+
+        $stmt = $dbh->prepare("UPDATE `user` SET `verified`=? WHERE (`id`=?);");
+        if ($stmt->execute([$setting, $id])) {
+            $stmt = null;
+            $stmt = $dbh->prepare("SELECT `verified` FROM `user` WHERE (`id`=?);");
+            if ($stmt->execute([$id])) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                var_dump($result);
+                if (!$result['verified']) {
+                    $_SESSION['error'] = "Could not find user.";
+                    return (0);
+                }
+            }
+            $_SESSION['passwordreset'] = TRUE;
+            return (1);
+        } else {
+            $_SESSION['error'] = "Could not update notifications settings.";
             return (0);
         }
     }

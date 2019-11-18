@@ -134,7 +134,7 @@ include "templates/header.php";
 		<section class="section">
 			<div class="columns is-centered">
 				<div class="column is-5 is-4-desktop">
-					<form method="post" action="##">
+					<form method="post" action="forms/resetaccountdetails/resetNotifications.php">
 						<div class="field">
 							<h1>Your email notifications are currently set to: </h1>
 							<?php
@@ -143,12 +143,8 @@ include "templates/header.php";
 						</div>
 						<div class="field">
 							<label class="radio">
-								<input type="radio" name="notif">
+								<input type="checkbox" name="notifications" value="Yes">
 								Yes
-							</label>
-							<label class="radio">
-								<input type="radio" name="notif">
-								No
 							</label>
 						</div>
 						<div class="field">
@@ -157,6 +153,18 @@ include "templates/header.php";
 							</div>
 						</div>
 						<!-- need to post details to update DB here ^^ -->
+						<?php
+							if ($_SESSION['notificationcheck']) {
+								if (isset($_SESSION['error'])) {
+									echo "Error setting new notification settings: " . $_SESSION['error'];
+								} else if ($_SESSION['notificationreset']) {
+									echo "Notification settings are successfully reset.";
+								}
+								unset($_SESSION['notificationreset']);
+								unset($_SESSION['error']);
+								$_SESSION['notificationcheck'] = FALSE;
+							}
+							?>
 					</form>
 				</div>
 			</div>
