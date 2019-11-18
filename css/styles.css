@@ -12,6 +12,10 @@
 body {
     background: #F5F7FA;
 }
+.webcam_box {
+	width: 50%;
+	max-height: 400px;
+}
 
 .stat-val {
     font-size: 3em;
