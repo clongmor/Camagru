@@ -24,7 +24,7 @@ include "templates/header.php";
 
 		.pics_box {
 			width: 100%;
-			height: 750px;
+			height: 500px;
 		}
 		#webcam_box {
 			width: 50%;
@@ -129,23 +129,21 @@ include "templates/header.php";
 		<div class="section has-background-primary">
 			<p>
 				Once you have done both of the above, click on create and watch the magic happen!
-			  </h1>
-			  <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data>
+			  </p>
+			  <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
 			  <div class="field">
 				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Create My Image!</strong></button>
 			 	</div>
 			  </form>
 		</div>
 		<div class="section">
-			<h1 class="subtitle center">
-				Here\'s your photo:
-			  </h1>
+
 			  </div>
 		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
 			  <div class="field">
 			  	<div class="control">
-					  <!-- need to pull user specific images from database and display them here, I\'m thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
+					  <!-- need to pull user specific images from database and display them here, I'm thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
 				</div>
 			</div>
 		</div>
