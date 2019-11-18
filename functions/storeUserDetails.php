@@ -63,6 +63,21 @@
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        //Checks whether username already exists.
+        try {
+            $stmt = $dbh->prepare("SELECT * FROM `user` WHERE `username`=?;");
+            $stmt->execute([$newusername]);
+            if ($stmt->rowCount()) {
+                $_SESSION['error'] = "User already exists.";
+                $_SESSION['signup_success'] = FALSE;
+                $stmt = null;
+                return (0);
+            }
+        } catch (PDOException $e) {
+            echo "ERROR  DB: \n".$e->getMessage()."\nAborting process\n";
+            exit(-1);
+        }
+
         $stmt = $dbh->prepare("SELECT `id` FROM `user` WHERE (`username`=?);");
         if ($stmt->execute([$_SESSION['username']])) {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
