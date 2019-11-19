@@ -36,6 +36,7 @@
         }
 
         // echo $userid." AND ".$imageid;
+        // echo $_POST['username'];
         if (isset($_POST['username']))
             header("Location: ../user.php?name=" . $_POST['username']);
         else

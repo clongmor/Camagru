@@ -33,7 +33,7 @@
         //Inserts details if username and email does not exist.
         $_SESSION['token'] = md5( rand(0,1000) );
         $token = $_SESSION['token'];
-        $stmt = $dbh->prepare("INSERT INTO `user` (`username`, `password`, `email`, `token`, `picture`) VALUES (?, ?, ?, ?);");
+        $stmt = $dbh->prepare("INSERT INTO `user` (`username`, `password`, `email`, `token`, `picturesource`) VALUES (?, ?, ?, ?, ?);");
         if ($stmt->execute([$username, hash('whirlpool', $password), $email, $token, "defaultprofile.jpg"])) {
             $stmt = null;
             return (1);
@@ -60,7 +60,7 @@
     // }
 
     function updateUsername($newusername) {
-        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -150,7 +150,7 @@
     }
 
     function updatePassword($newpassword) {
-        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

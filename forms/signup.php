@@ -4,10 +4,17 @@
     include "../functions/verifyLoginDetails.php";
     session_start();
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $repeatpassword = $_POST['repeatpassword'];
-    $email = $_POST['email'];
+    // $username = $_POST['username'];
+    // $password = $_POST['password'];
+    // $repeatpassword = $_POST['repeatpassword'];
+    // $email = $_POST['email'];
+
+
+    $username = "wdvwdvwdv";
+    $password = "123456789";
+    $repeatpassword = $password;
+    $email = "wdv1@mailinator.com";
+
     $_SESSION['signup_success'] = FALSE;
 
     if (validateUsername($username) == 1) {
