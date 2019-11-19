@@ -2,7 +2,6 @@
 session_start();
 	include "templates/header.php";
 	include_once "./config/database.php";
-	//include "./functions/galleryFunctions.php"
 ?>
 
 <!DOCTYPE html>

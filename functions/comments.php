@@ -1,8 +1,12 @@
 <?php
 
     function getComments($id) {
+<<<<<<< HEAD
         session_start();
         include "/homes/hde-vos/Documents/camagru/config/database.php";
+=======
+        include "/homes/apappas/Applications/MAMP/apache2/htdocs/teamCamagru/config/database.php";
+>>>>>>> 85b68b9b17155670c6ff8209d238634d6128e0a4
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

@@ -12,7 +12,7 @@ function uploadUserImage() {
 	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$file = $_FILES['image'];
+	$file = $_FILES['image'];  
 
 	$fileName = $file["name"];
 	$fileTempName = $file["tmp_name"];
@@ -38,7 +38,7 @@ function uploadUserImage() {
 					$stmnt->execute([$userId, $fileName]);
 					
 					move_uploaded_file($fileTempName, "../gallery/" . $fileName);
-
+					
 					header("Location: ../editor.php?upload=success");
 				}
 			} else {	
@@ -55,5 +55,4 @@ function uploadUserImage() {
 	}
 
 }
-
 ?>

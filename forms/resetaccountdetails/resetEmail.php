@@ -1,6 +1,6 @@
 <?php 
-    include "/homes/hde-vos/Documents/camagru/functions/storeUserDetails.php";
-    include "/homes/hde-vos/Documents/camagru/forms/validation.php";
+    include "../functions/storeUserDetails.php";
+    include "../forms/validation.php";
     session_start();
 
     // $_SESSION['username'] = "Hallocoos";
