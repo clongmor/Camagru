@@ -1,27 +1,30 @@
 <?php
-    session_start();
-    include "templates/header.php";
+session_start();
+include "templates/header.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>User Profile</title>
+	<title>User Profile</title>
 </head>
 
 <body class="purp_body">
 
-<section class="hero is-fullheight">
+	<section class="hero is-fullheight">
 		<div class="hero-body">
 			<div class="container">
-				<section class="section">
-					<div class="container">
-                        <img src="userimgs/defaultusericon" alt="">
-                    </div>
-				</section>
+				<?php
+				include "functions/getUserDetails.php";
+				echo getUserProfile($_GET['name']);
+				echo '<section class="section column"><div class="container">';
+				echo getUserImages($_GET['name']);
+				?>
 			</div>
-		</div>
+	</section>
+	</div>
+	</div>
 	</section>
 
 </body>
