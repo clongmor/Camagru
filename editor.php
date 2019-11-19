@@ -50,13 +50,7 @@
 			  <h2 class="subtitle">
 				Creating your own Madimgz starts here!
 			  </h2>
-			  <div> <canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;"></canvas> </div>
-			  
-			  <script> 
-				getCanvasImage();
 
-				</script>
-			</div>
 		<div class="section has-background-primary">
 		
 
@@ -66,8 +60,8 @@
 				PRO TIP: make sure you click submit if uploading from your computer!
 			  </h1>
 			  
-			  <form action="functions/editorFunctions.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="action" value="uploadUserImage">
+			  <form action="functions/jsFunctions/editorFunctions.js" method="post" enctype="multipart/form-data">
+               <!-- <input type="hidden" name="action" value="uploadUserImage"> -->
 				  <div class="field">
 				  <div class="control">
 					  <input class="input" type="file" name="image">
@@ -149,7 +143,12 @@
 			  </form>
 		</div>
 		<div class="section">
-
+		<div> <canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;"></canvas> </div>
+			  
+			  <script> 
+				// get?Image();
+				</script>
+			</div>
 			  </div>
 		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
