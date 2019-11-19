@@ -20,11 +20,27 @@ include "templates/header.php";
 		.overflow_pics {
 			overflow-x: scroll;
 			overflow-y: hidden;
+			white-space: nowrap;
 		}
 
 		.pics_box {
 			width: 100%;
-			height: 750px;
+			max-height: 400px;
+		}
+		#webcam_box {
+			width: 50%;
+			max-height: 400px;
+			margin-left: 25%;
+		}
+		video {
+  			-webkit-transform: scaleX(-1);
+  			transform: scaleX(-1);
+		}
+		.padding_top {
+			margin-top: 20px;
+		}
+		.padding_bot {
+			margin-bottom: 20px;
 		}
 	</style>
 </head>
@@ -110,28 +126,30 @@ include "templates/header.php";
 						<!-- need to pull user specific images from database and display them here, I\'m thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
-	</section>
+		</div>
+
+	</div>
+  </section>
+  </body>
 <?php endif; ?>
 
 <?php if (!isset($_SESSION['username'])) : ?>
-
-	<body class="purp_body">
-		<section class="hero is-fullheight">
-			<div class="hero-body">
-				<div class="container">
-					<h1 class="title center">
-						Hi, you don't seem to have access to this page. Please login and then try again.<br>
-						Please go to the<a href="login.php">Login Page</a>.
-					</h1>
-				</div>
+<body class="purp_body">
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title center">
+					Hi, you don't seem to have access to this page. Please login and then try again.
+				</h1>
 			</div>
-		</section>
-	<?php endif; ?>
+		</div>
+	</section>
+</body>
+<?php endif; ?>
 	<?php
 	include "templates/footer.php";
 	?>
-	</body>
 
 </html>
