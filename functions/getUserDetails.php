@@ -14,7 +14,7 @@
         foreach ($result as $image) {
             $string = $string . "<div class='box'>
                 <img src=\"./gallery/" . $image['source'] . "\" alt=\"error\" class='image is-640x480 center'><form action='forms/likes.php' method='post'><input type='hidden' name='imageid' value='"
-                .$image['id']."'><input type='hidden' name='userid' value='".$image['userid']."'></input><input type='hidden' name='username' value='".$image['username']."'></input><button type='submit'><p>Likes: ";
+                .$image['id']."'><input type='hidden' name='userid' value='".$_SESSION['id']."'></input><input type='hidden' name='username' value='".$image['username']."'></input><button type='submit'><p>Likes: ";
             $string = $string . getLikeCount($image['id']);
             $string = $string . "</p></button></form><br>";
             $string = $string . getComments($image['id']);

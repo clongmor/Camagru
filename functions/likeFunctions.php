@@ -6,7 +6,7 @@
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $dbh->prepare("INSERT INTO `like` (`userid`, `imageid`) VALUES (?, ?);");
-        $stmt->execute([$imageid, $userid]);
+        $stmt->execute([$userid, $imageid]);
         return ;
     }
 
@@ -16,7 +16,7 @@
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $dbh->prepare("DELETE FROM `like` WHERE (`userid`=? AND `imageid`=?);");
-        $stmt->execute([$imageid, $userid]);
+        $stmt->execute([$userid, $imageid]);
         return ;
     }
 
@@ -26,7 +26,7 @@
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $dbh->prepare("SELECT * FROM `like` WHERE (`userid`=? AND `imageid`=?);");
-        $stmt->execute([$imageid, $userid]);
+        $stmt->execute([$userid, $imageid]);
         $count = $stmt->rowCount();
 
         if ($count == 0) {
@@ -35,6 +35,7 @@
             removeLike($userid, $imageid);
         }
 
+        // echo $userid." AND ".$imageid;
         if (isset($_POST['username']))
             header("Location: ../user.php?name=" . $_POST['username']);
         else
@@ -48,11 +49,11 @@
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $dbh->prepare("SELECT * FROM `like` WHERE (`imageid`=?);");
+        $stmt = $dbh->prepare("SELECT COUNT(*) as `count` FROM `like` WHERE (`imageid`=?);");
         $stmt->execute([$imageid]);
-        $count = $stmt->rowCount();
+        $count = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        return ($count);
+        return ($count['count']);
     }
 
     // echo "<!>".getLikeCount(5);
