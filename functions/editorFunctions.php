@@ -6,7 +6,7 @@ if ($_POST['action'] == 'uploadUserImage')
 	uploadUserImage();
 }
 
-function uploadUserImage(){
+function uploadUserImage() {
 	session_start();
 	include "../config/database.php";
 	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -21,12 +21,9 @@ function uploadUserImage(){
 	$fileExt = strtolower(end(explode('.', $fileName)));
 	$allowedExt = array("jpg", "jpeg", "png");
 	
-	
-	if (in_array($fileExt, $allowedExt)){
-		if($fileError === 0){
-			if ($fileSize < 200000){
-				
-				
+	if (in_array($fileExt, $allowedExt)) {
+		if ($fileError === 0) {
+			if ($fileSize < 200000) {
 				if (empty($fileName) || empty($fileSize)) {
 					header("Location ../editor.php?upload=empty");
 					exit();
@@ -43,23 +40,19 @@ function uploadUserImage(){
 					move_uploaded_file($fileTempName, "../gallery/" . $fileName);
 					
 					header("Location: ../editor.php?upload=success");
-
 				}
-			}
-			else{	
-			echo "File is too large";
+			} else {	
+				echo "File is too large";
 				exit();
 			}
-		}
-		else{
+		} else {
 			echo "There was an error uploading the file";
 			exit();
 		}
+	} else {
+		echo "Please upload a jpeg or png file";
+		exit();
 	}
-		else{
-			echo "Please upload a jpeg or png file";
-			exit();
-		}
 
 }
 ?>
