@@ -35,7 +35,7 @@
 
     try {
         $stmt = $dbh->prepare("INSERT INTO `comment` (`userid`, `imageid`, `text`) VALUES (?,?,?);");
-        $stmt->execute([$_GET['userid'], $_GET['imageid'], $_POST['text']]);
+        $stmt->execute([$_GET['userid'], $_GET['imageid'], htmlspecialchars($_POST['text'])]);
         commentEmail($_SESSION['username'], $_GET['imageid'], $_POST['text']);
     } catch (PDOException $e) {
         echo "ERROR  DB: \n" . $e->getMessage() . "\nAborting process\n";

@@ -13,6 +13,8 @@
 </head>
 <body>
     <?php
+        unset($_SESSION['username']);
+        session_unset();
         session_destroy();
         header("Location: home_page.php");
         include "templates/footer.php";
