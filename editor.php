@@ -20,16 +20,27 @@ include "templates/header.php";
 		.overflow_pics {
 			overflow-x: scroll;
 			overflow-y: hidden;
+			white-space: nowrap;
 		}
 
 		.pics_box {
 			width: 100%;
-			height: 500px;
+			max-height: 400px;
 		}
 		#webcam_box {
 			width: 50%;
 			max-height: 400px;
 			margin-left: 25%;
+		}
+		video {
+  			-webkit-transform: scaleX(-1);
+  			transform: scaleX(-1);
+		}
+		.padding_top {
+			margin-top: 20px;
+		}
+		.padding_bot {
+			margin-bottom: 20px;
 		}
 	</style>
 </head>
@@ -139,13 +150,59 @@ include "templates/header.php";
 		<div class="section">
 
 			  </div>
-		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
+		<div class="section has-background-primary has-text-centered pics_box">
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
-			  <div class="field">
-			  	<div class="control">
-					  <!-- need to pull user specific images from database and display them here, I'm thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
+			<form action="## where to go?" method="post" enctype="multipart/form-data">
+			<!-- need to change action for deleting images here -->
+			  	<div class="field is-grouped overflow_pics">
+			  		<div class="control">
+					  	<figure>
+							<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+							<figcaption>
+							<button type="submit" class="button purp_body padding_top padding_bot" value="Submit" href="## where to go here?"><strong>Delete</strong></button>
+						  <!-- need to display images from DB here in these (just placeholder pictures) -->
+						</figcaption>
+						</figure>
+					</div>
+					<div class="control">
+					  	<figure>
+							<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+							<figcaption>
+							<button type="submit" class="button purp_body padding_top padding_bot" value="Submit" href="## where to go here?"><strong>Delete</strong></button>
+						  <!-- need to display images from DB here in these (just placeholder pictures) -->
+						</figcaption>
+						</figure>
+					</div>
+					<div class="control">
+					  	<figure>
+							<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+							<figcaption>
+							<button type="submit" class="button purp_body padding_top padding_bot" value="Submit" href="## where to go here?"><strong>Delete</strong></button>
+						  <!-- need to display images from DB here in these (just placeholder pictures) -->
+						</figcaption>
+						</figure>
+					</div>
+					<div class="control">
+					  	<figure>
+							<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+							<figcaption>
+							<button type="submit" class="button purp_body padding_top padding_bot" value="Submit" href="## where to go here?"><strong>Delete</strong></button>
+						  <!-- need to display images from DB here in these (just placeholder pictures) -->
+						</figcaption>
+						</figure>
+					</div>
+					<div class="control">
+					  	<figure>
+							<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+							<figcaption>
+							<button type="submit" class="button purp_body padding_top padding_bot" value="Submit" href="## where to go here?"><strong>Delete</strong></button>
+						  <!-- need to display images from DB here in these (just placeholder pictures) -->
+						</figcaption>
+						</figure>
+					</div>
 				</div>
-			</div>
+			</form>
+		</div>
 		</div>
 	</div>
   </section>
