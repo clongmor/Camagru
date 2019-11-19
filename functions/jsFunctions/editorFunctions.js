@@ -1,4 +1,3 @@
-
 function getCanvasImage(){
 let myCanvas = document.getElementById("my_canvas");
 let MyContext = myCanvas.getContext("2d");

@@ -136,10 +136,7 @@ include "templates/header.php";
 				<div class="column is-5 is-4-desktop">
 					<form method="post" action="forms/resetaccountdetails/resetNotifications.php">
 						<div class="field">
-							<h1>Your email notifications are currently set to: </h1>
-							<?php
-								// need to put a field in the user DB for notifications and based on that value - display yes or no here in text
-								?>
+							<h1>Do you want to receive email notifications for comments and likes on your uploaded images? </h1>
 						</div>
 						<div class="field">
 							<label class="radio">
@@ -152,7 +149,6 @@ include "templates/header.php";
 								<button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Change my notifications</button>
 							</div>
 						</div>
-						<!-- need to post details to update DB here ^^ -->
 						<?php
 							if ($_SESSION['notificationcheck']) {
 								if (isset($_SESSION['error'])) {
@@ -179,13 +175,16 @@ include "templates/header.php";
 	<?php if (!isset($_SESSION['username'])) : ?>
 		<section class="hero is-fullheight">
 			<div class="hero-body">
-				<div class="container">
-					<h1 class="title has-text-centered"> Want to change your details?</h1>
-					<h1 class="subtitle has-text-centered">You've come to the right place!</h1>
 					<section class="section">
 						<h1 class="title center">
 							Hi, you don't seem to have access to this page. Please login and try again.
 						</h1>
+						<script>
+				function Redirect(){
+  				window.location = "login.php";
+				}
+				setTimeout('Redirect()', 4000);
+			</script>
 					</section>
 				</div>
 			</div>
