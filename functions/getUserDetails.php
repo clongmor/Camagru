@@ -3,6 +3,7 @@
     function getUserImages() {
         include "config/database.php";
         include "functions/comments.php";
+        include "likeFunctions.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -13,7 +14,9 @@
         foreach ($result as $image) {
             $string = $string . "<div class='box'>
                 <img src=\"./gallery/" . $image['source'] . "\" alt=\"error\" class='image is-640x480 center'><form action='forms/likes.php' method='post'><input type='hidden' name='imageid' value='"
-                .$image['id']."'><input type='hidden' name='userid' value='".$image['userid']."'></input><input type='hidden' name='username' value='".$image['username']."'></input><button type='submit'>Like! <?php include 'likeFunctions.php'; getLikeCount(".$image['id'].");?></button></form><br>";
+                .$image['id']."'><input type='hidden' name='userid' value='".$image['userid']."'></input><input type='hidden' name='username' value='".$image['username']."'></input><button type='submit'><p>Likes: ";
+            $string = $string . getLikeCount($image['id']);
+            $string = $string . "</p></button></form><br>";
             $string = $string . getComments($image['id']);
             $string = $string."<form action='functions/storeComment.php?userid=".$_SESSION['id']."&imageid=".$image['id']."&username=".$_GET['name']."' method='post'><br>Text: <input type='text' name='text'><input type='submit' value='Post Comment'></form>";
             $string = $string ."</div>";
