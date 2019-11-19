@@ -75,7 +75,7 @@ include "./functions/editorFunctions.php";
 								Upload an image from your computer or take a picture with your webcam.
 								PRO TIP: make sure you click submit if uploading from your computer!
 							</h1>
-								<form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+								<form action="functions/editorFunctions.php" method="post" enctype="multipart/form-data">
 									<input type="hidden" name="action" value="uploadUserImage">
 									<div class="field">
 										<div class="control">
@@ -160,7 +160,7 @@ include "./functions/editorFunctions.php";
 						<div> <canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;"></canvas> </div>
 
 						<script>
-							// get?Image();
+							 getUploadedImage();
 						</script>
 					</div>
 				</div>
