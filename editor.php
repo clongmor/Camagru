@@ -83,7 +83,7 @@ include "./functions/editorFunctions.php";
 										</div>
 									</div>
 									<div class="field">
-										<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Upload My Image!</strong></button>
+										<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="editor.php"><strong>Upload My Image!</strong></button>
 									</div>
 								</form>
 						</div>
@@ -105,7 +105,8 @@ include "./functions/editorFunctions.php";
 
 							if (navigator.mediaDevices.getUserMedia) {
 								const stream = navigator.mediaDevices.getUserMedia({
-										video: true
+										video: true,
+										audio: false
 									})
 									.then(function(stream) {
 										window.stream = stream;
@@ -116,6 +117,7 @@ include "./functions/editorFunctions.php";
 									});
 							}
 						</script>
+						<button id="snap">Take Picture</button>
 					</div>
 					<div class="section has-background-primary">
 						<h1 class="subtitle">
@@ -160,7 +162,7 @@ include "./functions/editorFunctions.php";
 						<div> <canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;"></canvas> </div>
 
 						<script>
-							 getUploadedImage();
+							 
 						</script>
 					</div>
 				</div>
