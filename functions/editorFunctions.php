@@ -12,7 +12,7 @@ function uploadUserImage(){
 	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$file = $_FILES['image'];
+	$file = $_FILES['image'];  
 
 	$fileName = $file["name"];
 	$fileTempName = $file["tmp_name"];
@@ -21,10 +21,11 @@ function uploadUserImage(){
 	$fileExt = strtolower(end(explode('.', $fileName)));
 	$allowedExt = array("jpg", "jpeg", "png");
 	
+	
 	if (in_array($fileExt, $allowedExt)){
 		if($fileError === 0){
 			if ($fileSize < 200000){
-		
+				
 				
 				if (empty($fileName) || empty($fileSize)) {
 					header("Location ../editor.php?upload=empty");
@@ -40,7 +41,7 @@ function uploadUserImage(){
 					$stmnt->execute([$userId, $fileName]);
 					
 					move_uploaded_file($fileTempName, "../gallery/" . $fileName);
-
+					
 					header("Location: ../editor.php?upload=success");
 
 				}
@@ -61,21 +62,4 @@ function uploadUserImage(){
 		}
 
 }
-
-//not working yet
-function displayImages(){
-	
-	include "../config/database.php";
-	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$userName = $_SESSION['username'];
-
-	$stmnt = $dbh->prepare("SELECT * FROM `image` WHERE (`username`=?) ORDER BY `creationdate` DESC;");
-	$stmnt->execute($userName);
-	$result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
-	foreach($result as $image){
-		echo "<img src=\"./gallery/".$image['source']."\">";
-	}
-}
-
 ?>

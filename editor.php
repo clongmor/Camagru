@@ -60,7 +60,7 @@
 			  </h1>
 			  
 			  
-			 <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+			 <form action="functions/editorFunctions.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="uploadUserImage">
 				  <div class="field">
 				  <div class="control">
@@ -112,33 +112,29 @@
 			  </form>
 		</div>
 		<div class="section">
-<<<<<<< HEAD
 		
 		</div>
-=======
-			<h1 class="subtitle center">
-				Here\'s your photo:
-			  </h1>
-			  </div>
->>>>>>> 4d5492dc47bf07d56a4f9042878b7969eade0329
 		<div class="section has-background-primary has-text-centered overflow_pics pics_box">
 			<div class="subtitle"> Here are your previously uploaded pictures:</div>
 			  <div class="field">
 			  	<div class="control">
 					  <?php
-	
-						include "../config/database.php";
+
 						$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 						$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					
-						$stmnt = $dbh->prepare("SELECT * FROM `image` ORDER BY `creationdate` DESC");
-						$stmnt->execute();
+
+						$userId =  $_SESSION['id']; 
+
+						$stmnt = $dbh->prepare("SELECT `source` FROM `image` WHERE `userid`=?");
+						$stmnt->execute([$userId]);
 						$result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+
 						foreach($result as $image){
 							echo "<img src=\"./gallery/".$image['source']."\">";
 						}
+
 					  ?>
-					  <!-- need to pull user specific images from database and display them here, I\'m thinking a horizontal scroll bar to display them all. potentially with check boxes and a delete button below them too, but thats for later. -->
+					  
 				</div>
 			</div>
 		</div>
@@ -150,9 +146,6 @@
 <section class="hero is-fullheight">
 	<div class="hero-body">
 		<div class="container">
-			<!-- <h1 class="title center">
-				Hi, you don\'t seem to have access to this page. Please login and then try again.
-			</h1> -->
 			<script>
 				function Redirect(){
 					window.location = "login.php";

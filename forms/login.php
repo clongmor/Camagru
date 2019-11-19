@@ -13,6 +13,8 @@
     $_SESSION['login_success'] = NULL;
     $_SESSION['error'] = NULL;
 
+
+
     if (empty($username)) {
         $_SESSION['error'] = "Please insert a username.";
         header("Location: ../login.php");
@@ -24,6 +26,7 @@
             $_SESSION['username'] = $username;
             $_SESSION['password'] = FALSE;
             $_SESSION['login_success'] = TRUE;
+
             // echo ("Location: ../home_page.php");
             header("Location: ../home_page.php");
         } else {
