@@ -44,6 +44,54 @@ include "templates/header.php";
 		}
 	</style>
 </head>
+<?php if (isset($_SESSION['username'])) : ?>
+<body class="purp_body">
+  <section class="hero">
+  <div class="hero-body">
+    	<div class="section">
+			<h1 class="title">
+				Editor
+			  </h1>
+			  <h2 class="subtitle">
+				Creating your own Madimgz starts here!
+			  </h2>
+		</div>
+		<div class="section has-background-primary">
+		<div class="container">
+			<h1 class="subtitle">
+				Upload an image from your computer or take a picture with your webcam.
+				PRO TIP: make sure you click submit if uploading from your computer!
+              </h1>
+                <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="uploadUserImage">
+				  <div class="field">
+				  <div class="control">
+					  <input class="input" type="file" name="image">`	
+				  </div>
+			  	</div>
+			  	<div class="field">
+				  <button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Upload My Image!</strong></button>
+			 	</div>
+			  </form>
+			  <?php
+				// need to store image that is submitted
+			  ?>
+		</div>
+		<div>
+			<h1 class="title center">
+				OR
+			</h1>
+		</div>
+		<div class="container">
+			<h1 class="subtitle">
+				directly take a picture with your webcam below:
+			</h1>
+			<video autoplay="true" id="webcam_box" class="center has-background-primary">
+
+			</video>
+		</div>
+		<script>
+			var video = document.querySelector("#webcam_box");
 
 <body class="purp_body">
 	<section class="hero">
@@ -129,27 +177,16 @@ include "templates/header.php";
 			</form>
 		</div>
 		</div>
-
 	</div>
   </section>
-  </body>
 <?php endif; ?>
 
-<?php if (!isset($_SESSION['username'])) : ?>
-<body class="purp_body">
-	<section class="hero is-fullheight">
-		<div class="hero-body">
-			<div class="container">
-				<h1 class="title center">
-					Hi, you don't seem to have access to this page. Please login and then try again.
-				</h1>
-			</div>
-		</div>
-	</section>
-</body>
+	</div>
+</section>
 <?php endif; ?>
-	<?php
-	include "templates/footer.php";
-	?>
+<?php
+include "templates/footer.php";
+?>
+</body>
 
 </html>
