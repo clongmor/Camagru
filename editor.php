@@ -119,7 +119,8 @@ include "templates/header.php";
 	<div class="hero-body">
 		<div class="container">
 			<h1 class="title center">
-				Hi, you don't seem to have access to this page. Please login and then try again.
+				Hi, you don't seem to have access to this page. Please login and then try again.<br>
+				Please go to the<a href="login.php">Login Page</a>.
 			</h1>
 		</div>
 	</div>
