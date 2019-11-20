@@ -14,6 +14,19 @@
         exit(-1);
     }
 
+    // SET FOREIGN KEY CHECKS
+    try {
+        // Connect to Mysql server
+        $dbh = new PDO($DB_DSN_LIGHT, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SET GLOBAL FOREIGN_KEY_CHECKS=0;";
+        $dbh->exec($sql);
+        echo "Database foreign key checks set\n";
+    } catch (PDOException $e) {
+        echo "ERROR CREATING DB: \n".$e->getMessage()."\nAborting process\n";
+        exit(-1);
+    }
+
     // CREATE TABLE USER
     try {
         // Connect to DATABASE previously created
@@ -44,7 +57,7 @@
             `userid` INT NOT NULL,
             `source` VARCHAR(255) NOT NULL,
             `creationdate` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-            FOREIGN KEY (userid) REFERENCES user(id) ON DELETE CASCADE
+            FOREIGN KEY (userid) REFERENCES user(id)
             )";
         $dbh->exec($sql);
         echo "Table gallery created successfully\n";
@@ -92,8 +105,8 @@
             `userid` INT NOT NULL,
             `imageid` INT NOT NULL,
             `text` VARCHAR(255) NOT NULL,
-            FOREIGN KEY (userid) REFERENCES user(id) ON DELETE CASCADE,
-            FOREIGN KEY (imageid) REFERENCES image(id) ON DELETE CASCADE
+            FOREIGN KEY (userid) REFERENCES user(id),
+            FOREIGN KEY (imageid) REFERENCES image(id)
             )";
         $dbh->exec($sql);
         echo "Table comment created successfully\n";

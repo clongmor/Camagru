@@ -19,10 +19,10 @@
             $string = $string . "<img src=\"./gallery/" . $image['source'] . "\" alt=\"error\" class='image is-640x480 center'>";
             if (isset($_SESSION['username']))
                 $string = $string . "<form action='forms/likes.php' method='post'><input type='hidden' name='imageid' value='"
-            .$image['id']."'><input type='hidden' name='userid' value='".$_SESSION['id']."'></input><input type='hidden' name='username' value='".$image['username']."'></input><button type='submit'>";
-            $string = $string . "<p>Likes: " . getLikeCount($image['id']);
+            .$image['imageid']."'><input type='hidden' name='userid' value='".$_SESSION['id']."'></input><input type='hidden' name='username' value='".$image['username']."'></input><button type='submit'>";
+            $string = $string . "<p>Likes: " . getLikeCount($image['imageid']);
             $string = $string . "</p></button></form><br>";
-            $string = $string . getComments($image['id']);
+            $string = $string . getComments($image['imageid']);
             if (isset($_SESSION['username']))
                 $string = $string."<form action='functions/storeComment.php?userid=".$_SESSION['id']."&imageid=".$image['id']."&username=".$_GET['name']."' method='post'><br>Text: <input type='text' name='text'><input type='submit' value='Post Comment'></form>";
             $string = $string ."</div>";
