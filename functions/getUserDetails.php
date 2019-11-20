@@ -62,7 +62,6 @@
         } catch (PDOException $e) {
             echo "ERROR  DB: \n" . $e->getMessage() . "\nAborting process\n";
         }
-        // header("Location: ".$_SERVER['REQUEST_URI']);
         header("Location: ../gallery.php");
     }
 
