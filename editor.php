@@ -9,7 +9,7 @@ include "./functions/editorFunctions.php";
 <html>
 
 <head>
-	<script src="functions/jsFunctions/editorFunctions.js"> </script>
+	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Madimgz - Editor</title>
@@ -75,17 +75,17 @@ include "./functions/editorFunctions.php";
 								Upload an image from your computer or take a picture with your webcam.
 								PRO TIP: make sure you click submit if uploading from your computer!
 							</h1>
-								<form action="functions/editorFunctions.php" method="post" enctype="multipart/form-data">
-									<input type="hidden" name="action" value="uploadUserImage">
-									<div class="field">
-										<div class="control">
-											<input class="input" type="file" name="image">`
-										</div>
+							<form action="functions/editorFunctions.php" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="action" value="uploadUserImage">
+								<div class="field">
+									<div class="control">
+										<input class="input" type="file" name="image">`
 									</div>
-									<div class="field">
-										<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="editor.php"><strong>Upload My Image!</strong></button>
-									</div>
-								</form>
+								</div>
+								<div class="field">
+									<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="editor.php"><strong>Upload My Image!</strong></button>
+								</div>
+							</form>
 						</div>
 						<div>
 							<h1 class="title center">
@@ -100,24 +100,10 @@ include "./functions/editorFunctions.php";
 
 							</video>
 						</div>
-						<script>
-							var video = document.querySelector("#webcam_box");
+							<button id="stream" onclick="getWebcamStream()">Use Webcam</button>
+						
+							<button id="snap" onclick="getWebcamImage()">Take Picture</button>
 
-							if (navigator.mediaDevices.getUserMedia) {
-								const stream = navigator.mediaDevices.getUserMedia({
-										video: true,
-										audio: false
-									})
-									.then(function(stream) {
-										window.stream = stream;
-										video.srcObject = stream;
-									})
-									.catch(function(err) {
-										console.log("No Webcam Found!");
-									});
-							}
-						</script>
-						<button id="snap">Take Picture</button>
 					</div>
 					<div class="section has-background-primary">
 						<h1 class="subtitle">
@@ -127,42 +113,30 @@ include "./functions/editorFunctions.php";
 							<div class="control">
 								<label class="checkbox">
 									<input type="checkbox" name="img_overlay">
-									<img src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
-								</label>
-								<label class="checkbox">
-									<input type="checkbox" name="img_overlay">
-									<img src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
-								</label>
-								<label class="checkbox">
-									<input type="checkbox" name="img_overlay">
-									<img src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
-								</label>
-								<label class="checkbox">
-									<input type="checkbox" name="img_overlay">
-									<img src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
-								</label>
-								<label class="checkbox">
-									<input type="checkbox" name="img_overlay">
-									<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
-								</label>
-							</div>
-						</div>
-					</div>
-					<div class="section has-background-primary">
-						<p>
-							Once you have done both of the above, click on create and watch the magic happen!
-						</p>
-						<form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
-							<div class="field">
-								<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?"><strong>Create My Image!</strong></button>
-							</div>
-						</form>
-					</div>
-					<div class="section">
-						<div> <canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;"></canvas> </div>
-						<script>
-							 
-						</script>
+										<img src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
+											</label> <label class="checkbox">
+												<input type="checkbox" name="img_overlay">
+													<img src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
+														</label> <label class="checkbox">
+															<input type="checkbox" name="img_overlay">
+																<img src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
+																	</label> <label class="checkbox">
+																		<input type="checkbox" name="img_overlay">
+																			<img src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
+																				</label> <label class="checkbox">
+																					<input type="checkbox" name="img_overlay">
+																						<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+																							</label> </div> </div> </div> <div class="section has-background-primary">
+																								<p>
+																									Once you have done both of the above, click on create and watch the magic happen!
+																									</p> <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+																										<div class="field">
+																											<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?">
+																												<strong> Create My Image! </strong> </button> </div> </form> </div> <div class="section">
+																														<div>
+																															<canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;">
+																																</canvas> </div> <script>
+																																	</script>
 					</div>
 				</div>
 				<div class="section has-background-primary has-text-centered pics_box">
@@ -171,9 +145,9 @@ include "./functions/editorFunctions.php";
 						<div class="control">
 							<div class="field is-grouped overflow_pics">
 								<div class="control">
-										<?php
-											include "functions/getUserDetails.php";
-											echo getEditorImages();
+									<?php
+										include "functions/getUserDetails.php";
+										echo getEditorImages();
 										?>
 								</div>
 							</div>
@@ -181,31 +155,31 @@ include "./functions/editorFunctions.php";
 					</div>
 				</div>
 		</section>
-	<?php endif; ?> 
+	<?php endif; ?>
 
 	<?php if (!isset($_SESSION['username'])) : ?>
+
 		<body class="purp_body">
 			<section class="hero is-fullheight">
 				<div class="hero-body">
 					<div class="container">
 						<script>
-							
 							function Redirect() {
 								window.location = "login.php";
 							}
 
 							document.write("Hi, you don't seem to have access to this page. Please login and then try again.");
 							setTimeout('Redirect()', 4000);
-
 						</script>
 					</div>
 				</div>
-			</section> 
-			<?php endif; ?> 
-			<?php
-				include "templates/footer.php";
-			?>
 			</section>
+		<?php endif; ?>
+		<?php
+		include "templates/footer.php";
+		?>
+		</section>
+		<script src="functions/jsFunctions/editorFunctions.js"> </script>
 		</body>
 
 </html>
