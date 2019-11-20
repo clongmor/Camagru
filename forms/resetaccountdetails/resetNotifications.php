@@ -1,4 +1,4 @@
-<?php 
+<?php
     include "../../functions/storeUserDetails.php";
     include "../validation.php";
     session_start();

@@ -158,7 +158,6 @@ include "./functions/editorFunctions.php";
 					</div>
 					<div class="section">
 						<div> <canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;"></canvas> </div>
-
 						<script>
 							 getUploadedImage();
 						</script>
@@ -168,34 +167,12 @@ include "./functions/editorFunctions.php";
 					<div class="subtitle"> Here are your previously uploaded pictures:</div>
 					<div class="field">
 						<div class="control">
-
-
-							<!-- need to change action for deleting images here -->
 							<div class="field is-grouped overflow_pics">
 								<div class="control">
-									<figure>
-										<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
-										<figcaption>
-											<button type="submit" class="button purp_body padding_top padding_bot" value="Submit" href="## where to go here?"><strong>Delete</strong></button>
-											<!-- need to display images from DB here in these (just placeholder pictures) -->
-											<?php
-
-													$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-													$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-													$userId =  $_SESSION['id'];
-
-													$stmnt = $dbh->prepare("SELECT `source` FROM `image` WHERE `userid`=?");
-													$stmnt->execute([$userId]);
-													$result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
-
-													foreach ($result as $image) {
-														echo "<img src=\"./gallery/" . $image['source'] . "\">";
-													}
-
-													?>
-										</figcaption>
-									</figure>
+										<?php
+											include "functions/getUserDetails.php";
+											echo getEditorImages();
+										?>
 								</div>
 							</div>
 						</div>
