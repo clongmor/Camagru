@@ -6,7 +6,7 @@
         // Connect to Mysql server
         $dbh = new PDO($DB_DSN_LIGHT, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE DATABASE `".$DB_NAME."`";
+        $sql = "CREATE DATABASE `".$DB_NAME."`;";
         $dbh->exec($sql);
         echo "Database created successfully\n";
     } catch (PDOException $e) {
@@ -44,10 +44,22 @@
             `userid` INT NOT NULL,
             `source` VARCHAR(255) NOT NULL,
             `creationdate` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-            FOREIGN KEY (userid) REFERENCES user(id)
+            FOREIGN KEY (userid) REFERENCES user(id) ON DELETE CASCADE
             )";
         $dbh->exec($sql);
         echo "Table gallery created successfully\n";
+    } catch (PDOException $e) {
+        echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
+    }
+
+    // ALTER TABLE IMAGE
+    try {
+        // Connect to DATABASE previously created
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "ALTER TABLE `image` DROP FOREIGN KEY `image_ibfk_1`";
+        $dbh->exec($sql);
+        echo "Table image successfully altered\n";
     } catch (PDOException $e) {
         echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
     }
@@ -80,8 +92,8 @@
             `userid` INT NOT NULL,
             `imageid` INT NOT NULL,
             `text` VARCHAR(255) NOT NULL,
-            FOREIGN KEY (userid) REFERENCES user(id),
-            FOREIGN KEY (imageid) REFERENCES image(id)
+            FOREIGN KEY (userid) REFERENCES user(id) ON DELETE CASCADE,
+            FOREIGN KEY (imageid) REFERENCES image(id) ON DELETE CASCADE
             )";
         $dbh->exec($sql);
         echo "Table comment created successfully\n";
