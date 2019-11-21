@@ -34,9 +34,7 @@
             echo "ERROR  DB: \n" . $e->getMessage() . "\nAborting process\n";
         }
         
-        if ($_GET['username'])
-            header("Location: ../user.php?name=" . $_GET['username']);
-        header("Location: ../gallery.php");
+        header("Location: " . $_SESSION['URI']);
     }
 
 ?>

@@ -17,6 +17,7 @@ include "templates/header.php";
 			<div class="container">
 				<?php
 				include "functions/getUserDetails.php";
+				$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
 				echo getUserProfile($_GET['name']);
 				echo '<section class="section column"><div class="container">';
 				echo getUserImages($_GET['name']);
