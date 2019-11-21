@@ -1,13 +1,13 @@
 <?php
 
-	function displayImages() {
+	function displayImages($page) {
         include "config/database.php";
         include "comments.php";
         include "likeFunctions.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmnt = $dbh->prepare("SELECT * FROM user INNER JOIN image ON user.id = image.userid;");
+        $stmnt = $dbh->prepare("SELECT * FROM user INNER JOIN image ON user.id = image.userid LIMIT ".htmlspecialchars($page * 5 - 5).", 5;");
         $stmnt->execute();
         $result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
         $string = "";
@@ -29,6 +29,8 @@
                 <input type='hidden' name='username' value='".$_GET['name']."'></input></form>";
             $string = $string ."</div>";
         }
+        $string = $string ."<form action='functions/pagination.php' method='get'><button type='submit' name='next' value='".$_GET['page']."'>Next</button></form>";
+        $string = $string ."<form action='functions/pagination.php' method='get'><button type='submit' name='previous' value='".$_GET['page']."'>Previous</button></form>";
         return ($string);
 	}
 ?>
