@@ -179,6 +179,12 @@ include "templates/header.php";
 						<h1 class="title center">
 							Hi, you don't seem to have access to this page. Please login and try again.
 						</h1>
+						<script>
+				function Redirect(){
+  				window.location = "login.php";
+				}
+				setTimeout('Redirect()', 4000);
+			</script>
 					</section>
 				</div>
 			</div>

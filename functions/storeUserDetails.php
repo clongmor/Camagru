@@ -33,8 +33,8 @@
         //Inserts details if username and email does not exist.
         $_SESSION['token'] = md5( rand(0,1000) );
         $token = $_SESSION['token'];
-        $stmt = $dbh->prepare("INSERT INTO `user` (`username`, `password`, `email`, `token`) VALUES (?, ?, ?, ?);");
-        if ($stmt->execute([$username, hash('whirlpool', $password), $email, $token])) {
+        $stmt = $dbh->prepare("INSERT INTO `user` (`username`, `password`, `email`, `token`, `picturesource`) VALUES (?, ?, ?, ?, ?);");
+        if ($stmt->execute([$username, hash('whirlpool', $password), $email, $token, "defaultprofile.jpg"])) {
             $stmt = null;
             return (1);
         } else {
@@ -100,6 +100,7 @@
                 }
             }
             $_SESSION['usernamereset'] = TRUE;
+            $_SESSION['username'] = $newusername;
             return (1);
         } else {
             $_SESSION['error'] = "Could not update username.";

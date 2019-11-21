@@ -1,7 +1,8 @@
-<?php 
-    include "/homes/hde-vos/Documents/camagru/functions/storeUserDetails.php";
-    include "/homes/hde-vos/Documents/camagru/forms/validation.php";
+<?php
+    include "../../functions/storeUserDetails.php";
+    include "../validation.php";
     session_start();
+    // ini_set('display_errors',1);
 
     // $_SESSION['username'] = "Hallocoos";
     // $_POST['username'] = "Hallocoos";

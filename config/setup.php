@@ -6,9 +6,22 @@
         // Connect to Mysql server
         $dbh = new PDO($DB_DSN_LIGHT, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE DATABASE `".$DB_NAME."`";
+        $sql = "CREATE DATABASE `".$DB_NAME."`;";
         $dbh->exec($sql);
         echo "Database created successfully\n";
+    } catch (PDOException $e) {
+        echo "ERROR CREATING DB: \n".$e->getMessage()."\nAborting process\n";
+        exit(-1);
+    }
+
+    // SET FOREIGN KEY CHECKS
+    try {
+        // Connect to Mysql server
+        $dbh = new PDO($DB_DSN_LIGHT, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SET GLOBAL FOREIGN_KEY_CHECKS=0;";
+        $dbh->exec($sql);
+        echo "Database foreign key checks set\n";
     } catch (PDOException $e) {
         echo "ERROR CREATING DB: \n".$e->getMessage()."\nAborting process\n";
         exit(-1);
@@ -48,6 +61,18 @@
             )";
         $dbh->exec($sql);
         echo "Table gallery created successfully\n";
+    } catch (PDOException $e) {
+        echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
+    }
+
+    // ALTER TABLE IMAGE
+    try {
+        // Connect to DATABASE previously created
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "ALTER TABLE `image` DROP FOREIGN KEY `image_ibfk_1`";
+        $dbh->exec($sql);
+        echo "Table image successfully altered\n";
     } catch (PDOException $e) {
         echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
     }

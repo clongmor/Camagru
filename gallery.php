@@ -2,7 +2,6 @@
 session_start();
 	include "templates/header.php";
 	include_once "./config/database.php";
-	//include "./functions/galleryFunctions.php"
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +29,8 @@ session_start();
 				<div class="gallery-container">
 					<?php
 						include "functions/galleryFunctions.php";
+						$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
+						// echo $_SESSION['URI'];
 						echo displayImages();
 					?>
 				</div>

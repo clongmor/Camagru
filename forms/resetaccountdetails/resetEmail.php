@@ -1,10 +1,10 @@
 <?php 
-    include "/homes/hde-vos/Documents/camagru/functions/storeUserDetails.php";
-    include "/homes/hde-vos/Documents/camagru/forms/validation.php";
+    include "../../functions/storeUserDetails.php";
+    include "../validation.php";
     session_start();
 
-    // $_SESSION['username'] = "Hallocoos";
-    // $_POST['email'] = "wdv@live.co.za";
+    // $_SESSION['username'] = "wouterdevos";
+    // $_POST['email'] = "wdv2@mailinator.com";
     // echo $_SESSION['username'];
     // echo $_POST['email'];
     $_SESSION['emailcheck'] = TRUE;

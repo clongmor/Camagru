@@ -32,15 +32,15 @@ include "templates/header.php";
 								<img class="center" src="./imgs/logo_sq.png" style="max-height:400px;" alt="">
 							</div>
 							<div class="column is-6">
-								<form>
+								<form action="forms/contactus.php" method="post">
 									<div class="field">
 										<div class="control">
-											<input class="input" type="email" placeholder="Email">
+											<input class="input" name="email" type="email" placeholder="Email">
 										</div>
 									</div>
 									<div class="field">
 										<div class="control">
-											<textarea class="textarea" rows="11" placeholder="Write something..."></textarea>
+											<textarea class="textarea" name="text" rows="11" placeholder="Write something..."></textarea>
 										</div>
 									</div>
 									<div class="field">
@@ -50,6 +50,10 @@ include "templates/header.php";
 										<!-- this should potentially store the comment in the database with email address so it can be replied to -->
 									</div>
 								</form>
+								<?php
+									echo $_SESSION['success'];
+									$_SESSION['success'] = NULL;
+								?>
 							</div>
 						</div>
 					</div>

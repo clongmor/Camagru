@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "/homes/hde-vos/Documents/camagru/config/database.php";
+    include "../config/database.php";
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
@@ -17,7 +17,7 @@
     $message = 'Welcome '.$username.'
     Please click on the link below to reset your password:
     http://localhost:8081/camagru/passwordreset.php?username='.$username.'&token='.$token;
-    $headers = 'From: lady.xerena@gmail.com';
+    $headers = 'From: admin@magimgz.com';
     mail($to, $subject, $message, $headers);
     $_SESSION['emailpasswordreset_success'] = "<p>The link to reset your password has been sent. Please check your email.</p>";
 
