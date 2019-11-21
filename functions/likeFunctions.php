@@ -45,7 +45,7 @@
 
     function getLikeCount($imageid) {
         // echo $imageid;
-        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        include "config/database.php";
         // include "config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

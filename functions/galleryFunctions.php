@@ -1,6 +1,6 @@
 <?php
 
-	function displayImages() {
+	function displayImages(){
         include "config/database.php";
         include "comments.php";
         include "likeFunctions.php";
