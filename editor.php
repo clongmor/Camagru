@@ -106,7 +106,11 @@ include "./functions/editorFunctions.php";
 							<button id="snap" onclick="getWebcamImage()">Take Picture</button>
 
 							<div>
-		<canvas id="my_canvas" width="500" height="500" style="border:1px solid #000000;">
+				<canvas id="my_canvas" width="500" height="500" style="border:1px solid #000000;">
+			</canvas>
+			<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:1px solid #000000;">
+			</canvas> 
+			<canvas id="sticker_canvas2" width="500" height="500" style="position:absolute; border:1px solid #000000">
 			</canvas> 
 
 					</div>

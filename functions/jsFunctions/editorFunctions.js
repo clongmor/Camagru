@@ -40,3 +40,13 @@ function getWebcamImage(){
   
 
 }
+
+function getSticker(){
+let sCanvas = document.getElementById("sticker_canvas1");
+let sContext = sCanvas.getContext("2d");
+let img = new Image();
+sticker.src = "./gallery/42.png";
+sticker.onload = () => {
+  sContext.drawImage(img, 0, 0);
+  }
+}
