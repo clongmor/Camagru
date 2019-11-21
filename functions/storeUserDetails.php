@@ -100,6 +100,7 @@
                 }
             }
             $_SESSION['usernamereset'] = TRUE;
+            $_SESSION['username'] = $newusername;
             return (1);
         } else {
             $_SESSION['error'] = "Could not update username.";
