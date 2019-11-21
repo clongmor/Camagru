@@ -33,7 +33,7 @@ include "./functions/editorFunctions.php";
 
 		#webcam_box {
 			width: 50%;
-			max-height: 400px;
+			max-height: 500px;
 			margin-left: 25%;
 		}
 
@@ -57,8 +57,6 @@ include "./functions/editorFunctions.php";
 
 		<section class="hero">
 			<div class="hero-body">
-
-
 				<div class="section">
 					<h1 class="title">
 						Editor
@@ -68,9 +66,7 @@ include "./functions/editorFunctions.php";
 					</h2>
 
 					<div class="section has-background-primary">
-
-
-						<div class="container">
+						<div class="section">
 							<h1 class="subtitle">
 								Upload an image from your computer or take a picture with your webcam.
 								PRO TIP: make sure you click submit if uploading from your computer!
@@ -87,12 +83,12 @@ include "./functions/editorFunctions.php";
 								</div>
 							</form>
 						</div>
-						<div>
+						<div class="padding_top">
 							<h1 class="title center">
 								OR
 							</h1>
 						</div>
-						<div class="container">
+						<div class="section">
 							<h1 class="subtitle">
 								directly take a picture with your webcam below:
 							</h1>
@@ -100,16 +96,16 @@ include "./functions/editorFunctions.php";
 
 							</video>
 						</div>
-							<button id="stream" onclick="getWebcamStream()">Use Webcam</button>	
-
-						
+						<div class="container center">
+							<button id="stream" onclick="getWebcamStream()">Switch On Webcam</button>
+						</div>
+						<div class="container center padding_top">
+							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
+							</canvas>
+						</div>
+						<div class="center">	
 							<button id="snap" onclick="getWebcamImage()">Take Picture</button>
-
-							<div>
-		<canvas id="my_canvas" width="500" height="500" style="border:1px solid #000000;">
-			</canvas> 
-
-					</div>
+						</div>
 					<div class="section has-background-primary">
 						<h1 class="subtitle">
 							Select an image from the provided images to decorate your chosen photo with:
@@ -153,14 +149,13 @@ Once you have done both of the above, click on create and watch the magic happen
 </div> 
 <div class="section">
 			</div> 
-																															
 					</div>
 				</div>
-				<div class="section has-background-primary has-text-centered pics_box">
+				<div class="section has-background-primary has-text-centered pics_box overflow_pics">
 					<div class="subtitle"> Here are your previously uploaded pictures:</div>
 					<div class="field">
 						<div class="control">
-							<div class="field is-grouped overflow_pics">
+							<div class="field is-grouped ">
 									<?php
 										include "functions/getUserDetails.php";
 										$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
