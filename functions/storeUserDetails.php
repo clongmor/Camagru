@@ -60,7 +60,7 @@
     // }
 
     function updateUsername($newusername) {
-        include "../config/database.php";
+        include "/homes/hde-vos/Documents/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -109,7 +109,7 @@
     }
 
     function updateEmail($newEmail) {
-        include "..config/database.php";
+        include "/homes/hde-vos/Documents/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -151,7 +151,7 @@
     }
 
     function updatePassword($newpassword) {
-        include "..config/database.php";
+        include "/homes/hde-vos/Documents/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -183,7 +183,7 @@
     }
 
     function updateNotifications($setting) {
-        include "..config/database.php";
+        include "/homes/hde-vos/Documents/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
