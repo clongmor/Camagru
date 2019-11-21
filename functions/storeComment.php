@@ -1,5 +1,6 @@
 <?php
     function commentEmail($commenter, $imageid, $text) {
+        ini_set("display_errors", 1);
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

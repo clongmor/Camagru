@@ -1,7 +1,7 @@
 <?php
 session_start();
 	include "templates/header.php";
-	include_once "./config/database.php";
+    include_once "./config/database.php";
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ session_start();
 					<?php
 						include "functions/galleryFunctions.php";
 						$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
-						// echo $_SESSION['URI'];
+                        // echo $_SESSION['URI'];
 						echo displayImages($_GET['page']);
 					?>
 				</div>
