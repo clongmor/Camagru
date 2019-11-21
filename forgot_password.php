@@ -36,12 +36,12 @@
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username" value="Hallocoos">
+                                            <input class="input" type="text" name="username" placeholder="Username" value="">
 										</div>
 										<br>
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="text" name="email" placeholder="Email" value="wdv@live.co.za">
+                                            <input class="input" type="text" name="email" placeholder="Email" value="">
                                         </div>
 									</div>
                                     <div class="field">
