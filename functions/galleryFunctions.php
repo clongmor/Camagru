@@ -1,7 +1,6 @@
 <?php
 
-	function displayImages() {
-        ini_set('display_errors',1);
+	function displayImages(){
         include "config/database.php";
         include "comments.php";
         include "likeFunctions.php";
@@ -22,7 +21,7 @@
             $string = $string . "</p></button></form><br>";
             $string = $string . getComments($image['id']);
             if (isset($_SESSION['username']))
-                $string = $string."<form action='functions/storeComment.php?userid=".$_SESSION['id']."&imageid=".$image['id']."&username=".$_GET['name']."' method='post'><br>Text: <input type='text' name='text'><input type='submit' value='Post Comment'></form>";
+                $string = $string."<form action='functions/storeComment.php?userid=".$_SESSION['id']."&imageid=".$image['id']."&username=".$_GET['name']." method='post'><br>Text: <input type='text' name='text'><input type='submit' value='Post Comment'></form>";
             $string = $string ."</div>";
         }
         return ($string);
