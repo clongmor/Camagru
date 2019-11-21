@@ -42,17 +42,14 @@ function uploadUserImage() {
 					
 					header("Location: ../editor.php?upload=success");
 				}
-			} else {	
-				echo "File is too large";
+			} else {
+				echo "There was an error uploading the file";
 				exit();
 			}
 		} else {
-			echo "There was an error uploading the file";
+			echo "Please upload a jpeg or png file";
 			exit();
 		}
-	} else {
-		echo "Please upload a jpeg or png file";
-		exit();
 	}
 
 }

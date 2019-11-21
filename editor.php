@@ -161,12 +161,12 @@ Once you have done both of the above, click on create and watch the magic happen
 					<div class="field">
 						<div class="control">
 							<div class="field is-grouped overflow_pics">
-								<div class="control">
 									<?php
 										include "functions/getUserDetails.php";
+										$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
+										// echo $_SESSION['URI'];
 										echo getEditorImages();
-										?>
-								</div>
+									?>
 							</div>
 						</div>
 					</div>

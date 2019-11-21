@@ -21,7 +21,12 @@
             $string = $string . "</p></button></form><br>";
             $string = $string . getComments($image['id']);
             if (isset($_SESSION['username']))
-                $string = $string."<form action='functions/storeComment.php?userid=".$_SESSION['id']."&imageid=".$image['id']."&username=".$_GET['name']." method='post'><br>Text: <input type='text' name='text'><input type='submit' value='Post Comment'></form>";
+                $string = $string."<form action='functions/storeComment.php' method='post'><br>Text: 
+                <input type='text' name='text'></input>
+                <input type='submit' value='Post Comment'></input>
+                <input type='hidden' name='userid' value='".$_SESSION['id']."'></input>
+                <input type='hidden' name='imageid' value='".$image['id']."'></input>
+                <input type='hidden' name='username' value='".$_GET['name']."'></input></form>";
             $string = $string ."</div>";
         }
         return ($string);
