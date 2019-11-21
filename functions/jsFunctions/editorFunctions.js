@@ -13,7 +13,7 @@ var video = document.querySelector("#webcam_box");
 
 if (navigator.mediaDevices.getUserMedia) {
   const stream = navigator.mediaDevices.getUserMedia({
-      video: true,
+      video: {width: 500, height: 500},
       audio: false
     })
     .then(function(stream) {
@@ -31,8 +31,12 @@ function getWebcamImage(){
   let myVideo = document.getElementById("webcam_box");
   let myCanvas = document.getElementById("my_canvas");
   let myContext = myCanvas.getContext("2d");
+
+  myContext.save();
+  myContext.translate(500, 0);
+  myContext.scale(-1, 1);
+  myContext.drawImage(myVideo, 0, 0);
+  myContext.restore();
   
-  snap.addEventListener("click", function() {
-    myContext.drawImage(myVideo, videowidth, videoheight);
-});
+
 }

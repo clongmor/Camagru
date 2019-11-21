@@ -100,9 +100,14 @@ include "./functions/editorFunctions.php";
 
 							</video>
 						</div>
-							<button id="stream" onclick="getWebcamStream()">Use Webcam</button>
+							<button id="stream" onclick="getWebcamStream()">Use Webcam</button>	
+
 						
 							<button id="snap" onclick="getWebcamImage()">Take Picture</button>
+
+							<div>
+		<canvas id="my_canvas" width="500" height="500" style="border:1px solid #000000;">
+			</canvas> 
 
 					</div>
 					<div class="section has-background-primary">
@@ -112,31 +117,43 @@ include "./functions/editorFunctions.php";
 						<div class="field">
 							<div class="control">
 								<label class="checkbox">
-									<input type="checkbox" name="img_overlay">
-										<img src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
-											</label> <label class="checkbox">
-												<input type="checkbox" name="img_overlay">
-													<img src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
-														</label> <label class="checkbox">
-															<input type="checkbox" name="img_overlay">
-																<img src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
-																	</label> <label class="checkbox">
-																		<input type="checkbox" name="img_overlay">
-																			<img src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
-																				</label> <label class="checkbox">
-																					<input type="checkbox" name="img_overlay">
-																						<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
-																							</label> </div> </div> </div> <div class="section has-background-primary">
-																								<p>
-																									Once you have done both of the above, click on create and watch the magic happen!
-																									</p> <form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
-																										<div class="field">
-																											<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?">
-																												<strong> Create My Image! </strong> </button> </div> </form> </div> <div class="section">
-																														<div>
-																															<canvas id="my_canvas" style="height: 500px; max-width:500px; border:1px solid #000000;">
-																																</canvas> </div> <script>
-																																	</script>
+			<input type="checkbox" name="img_overlay">
+	<img src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
+	</label> 
+	<label class="checkbox">
+	<input type="checkbox" name="img_overlay">
+	<img src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
+	</label> 
+	<label class="checkbox">
+	<input type="checkbox" name="img_overlay">
+<img src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
+</label> 
+<label class="checkbox">
+	<input type="checkbox" name="img_overlay">
+<img src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
+	</label> 
+	<label class="checkbox">
+	<input type="checkbox" name="img_overlay">
+	<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">  
+</label> 
+</div> 
+</div> 
+</div> 
+<div class="section has-background-primary">
+<p>
+Once you have done both of the above, click on create and watch the magic happen!
+</p> 
+<form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+<div class="field">
+<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?">
+		<strong> Create My Image! </strong> 
+	</button> 
+</div> 
+</form> 
+</div> 
+<div class="section">
+			</div> 
+																															
 					</div>
 				</div>
 				<div class="section has-background-primary has-text-centered pics_box">

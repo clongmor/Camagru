@@ -1,6 +1,7 @@
 <?php
 
 	function displayImages() {
+        ini_set('display_errors',1);
         include "config/database.php";
         include "comments.php";
         include "likeFunctions.php";
@@ -10,6 +11,7 @@
         $stmnt = $dbh->prepare("SELECT * FROM user INNER JOIN image ON user.id = image.userid;");
         $stmnt->execute();
         $result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+        $string = "";
 
         foreach ($result as $image) {
             $string = $string . "<div class='box'><img src=\"./gallery/" . $image['source'] . "\" alt=\"error\" class='image is-640x480 center'><br>";

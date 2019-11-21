@@ -1,7 +1,7 @@
 <?php
 
     function getUserImages() {
-        include "config/database.php";
+        include "../config/database.php";
         include "comments.php";
         include "likeFunctions.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -32,7 +32,7 @@
 
     function getUserProfile()
     {
-        include "config/database.php";
+        include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
