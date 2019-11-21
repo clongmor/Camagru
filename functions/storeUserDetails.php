@@ -60,7 +60,7 @@
     // }
 
     function updateUsername($newusername) {
-        include "../config/database.php";
+        include "/goinfre/clongmor/Applications/mamp/apache2/htdocs/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -109,7 +109,7 @@
     }
 
     function updateEmail($newEmail) {
-        include "..config/database.php";
+        include "/goinfre/clongmor/Applications/mamp/apache2/htdocs/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -151,7 +151,7 @@
     }
 
     function updatePassword($newpassword) {
-        include "..config/database.php";
+        include "/goinfre/clongmor/Applications/mamp/apache2/htdocs/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -183,10 +183,11 @@
     }
 
     function updateNotifications($setting) {
-        include "..config/database.php";
+        // ini_set("display_errors", 1);
+        include "/goinfre/clongmor/Applications/mamp/apache2/htdocs/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+        
         $stmt = $dbh->prepare("SELECT `id` FROM `user` WHERE (`username`=?);");
         if ($stmt->execute([$_SESSION['username']])) {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -204,13 +205,13 @@
                 var_dump($result);
                 if (!$result['verified']) {
                     $_SESSION['error'] = "Could not find user.";
-                    return (0);
+                    // return (0);
                 }
             }
             $_SESSION['passwordreset'] = TRUE;
-            return (1);
+            // return (1);
         } else {
             $_SESSION['error'] = "Could not update notifications settings.";
-            return (0);
+            // return (0);
         }
     }
