@@ -31,9 +31,14 @@
                 $string = $string ."</div>";
             }
             if ($count > 0) {
-            $string = $string ."<form action='functions/pagination.php' method='get'><button type='submit' name='next' value='".$_GET['page']."'>Next</button></form>";
-            $string = $string ."<form action='functions/pagination.php' method='get'><button type='submit' name='previous' value='".$_GET['page']."'>Previous</button></form>";
+                $string = $string ."<form action='functions/pagination.php' method='get'><button type='submit' name='next' value='".$_GET['page']."'>Next</button></form>";
+                $string = $string ."<form action='functions/pagination.php' method='get'><button type='submit' name='previous' value='".$_GET['page']."'>Previous</button></form>";
             }
-        return ($string);
-	}
+            if ($count > 4)
+                $_SESSION['pagesleft'] = TRUE;
+            else
+                $_SESSION['pagesleft'] = FALSE;
+                return ($string);
+                // ."<br>Pages Left: ".$_SESSION['pagesleft']." Count: ".$count
+            }
 ?>
