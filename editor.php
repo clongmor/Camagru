@@ -168,12 +168,12 @@ include "./functions/editorFunctions.php";
 					<div class="field">
 						<div class="control">
 							<div class="field is-grouped overflow_pics">
-								<div class="control">
-										<?php
-											include "functions/getUserDetails.php";
-											echo getEditorImages();
-										?>
-								</div>
+									<?php
+										include "functions/getUserDetails.php";
+										$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
+										// echo $_SESSION['URI'];
+										echo getEditorImages();
+									?>
 							</div>
 						</div>
 					</div>

@@ -29,6 +29,7 @@ session_start();
 				<div class="gallery-container">
 					<?php
 						include "functions/galleryFunctions.php";
+						// echo $_SESSION['URI'];
 						echo displayImages();
 					?>
 				</div>

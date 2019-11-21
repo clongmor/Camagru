@@ -48,7 +48,7 @@
     }
 
     function deleteImage($id) {
-        session_start();
+		ini_set('display_errors', 1);
 
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -62,33 +62,31 @@
         } catch (PDOException $e) {
             echo "ERROR  DB: \n" . $e->getMessage() . "\nAborting process\n";
         }
-        header("Location: ../gallery.php");
+        header("Location: ".$_SESSION['URI']);
     }
 
-    function getEditorImages() {
-        ini_set('display_errors',1);
-        include "config/database.php";
-        include "comments.php";
-        include "likeFunctions.php";
-        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	function getEditorImages() {
+		// ini_set('display_errors', 1);
+		session_start();
+		include "config/database.php";
+		include "comments.php";
+		include "likeFunctions.php";
+		$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmnt = $dbh->prepare("SELECT user.username AS username, user.id AS userid, image.source, image.id AS imageid FROM user INNER JOIN image ON user.id = image.userid WHERE user.username = ?;");
-        $stmnt->execute([$_SESSION['username']]);
-        $result = $stmnt->fetchAll();
-        $string = "";
+		$stmnt = $dbh->prepare("SELECT user.username AS username, user.id AS userid, image.source, image.id AS imageid FROM user INNER JOIN image ON user.id = image.userid WHERE user.username = ?;");
+		$stmnt->execute([$_SESSION['username']]);
+		$result = $stmnt->fetchAll();
+		$string = "";
 
-        foreach ($result as $image) {
-            $string = $string .
-                "<figure><img src='./gallery/".$image['source']."' alt='tongue_face' style='max-height: 100px; max-width:100px;''>
-                    <figcaption>
-                        <form action='functions/deleteImage.php' method='post'>
-                            <button type='submit' class='button purp_body padding_top padding_bot' value='Submit'><strong>Delete</strong></button>
-                            <input type='hidden' value='".$image['imageid']."' name='imageid'></input>
-                        </form>
-                    </figcaption>
-                </figure>";
-        }
-        return ($string);
-    }
+		foreach ($result as $image) {
+			$string = $string .
+				"<img src='./gallery/" . $image['source'] . "' alt='tongue_face' style='max-height: 100px; max-width:100px;''>
+					<form action='functions/deleteImage.php' method='post'>
+						<button type='submit' class='button purp_body padding_top padding_bot' value='Submit'><strong>Delete</strong></button>
+						<input type='hidden' value='" . $image['imageid'] . "' name='imageid'></input>
+					</form>";
+		}
+		return ($string);
+	}
 ?>
