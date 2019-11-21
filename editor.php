@@ -9,7 +9,7 @@ include "./functions/editorFunctions.php";
 <html>
 
 <head>
-	
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Madimgz - Editor</title>
@@ -102,79 +102,73 @@ include "./functions/editorFunctions.php";
 						<div class="container center padding_top">
 							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
 							</canvas>
+					<!--		<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
+							</canvas>
+							<canvas id="sticker_canvas2" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
+							</canvas> -->
 						</div>
-						<div class="center">	
+						<div class="center">
 							<button id="snap" onclick="getWebcamImage()">Take Picture</button>
-
-							<div>
-				<canvas id="my_canvas" width="500" height="500" style="border:1px solid #000000;">
-			</canvas>
-			<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:1px solid #000000;">
-			</canvas> 
-			<canvas id="sticker_canvas2" width="500" height="500" style="position:absolute; border:1px solid #000000">
-			</canvas> 
-
+							<div class="section has-background-primary">
+								<h1 class="subtitle">
+									Select an image from the provided images to decorate your chosen photo with:
+								</h1>
+								<div class="field">
+									<div class="control">
+										<label class="checkbox">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('h_hat'))">
+											<img id="h_hat" src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
+										</label>
+										<label class="checkbox">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('grateful'))">
+											<img id="grateful" src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
+										</label>
+										<label class="checkbox">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('heart'))">
+											<img id="heart" src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
+										</label>
+										<label class="checkbox">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('pony'))">
+											<img id="pony" src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
+										</label>
+										<label class="checkbox">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('tongue_face'))">
+											<img id="tongue_face" src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="section has-background-primary">
+								<p>
+									Once you have done both of the above, click on create and watch the magic happen!
+								</p>
+								<form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+									<div class="field">
+										<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?">
+											<strong> Create My Image! </strong>
+										</button>
+									</div>
+								</form>
+							</div>
+							<div class="section">
+							</div>
+						</div>
 					</div>
-					<div class="section has-background-primary">
-						<h1 class="subtitle">
-							Select an image from the provided images to decorate your chosen photo with:
-						</h1>
+					<div class="section has-background-primary has-text-centered pics_box overflow_pics">
+						<div class="subtitle"> Here are your previously uploaded pictures:</div>
 						<div class="field">
 							<div class="control">
-								<label class="checkbox">
-			<input type="checkbox" name="img_overlay">
-	<img src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
-	</label> 
-	<label class="checkbox">
-	<input type="checkbox" name="img_overlay">
-	<img src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
-	</label> 
-	<label class="checkbox">
-	<input type="checkbox" name="img_overlay">
-<img src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
-</label> 
-<label class="checkbox">
-	<input type="checkbox" name="img_overlay">
-<img src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
-	</label> 
-	<label class="checkbox">
-	<input type="checkbox" name="img_overlay">
-	<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">  
-</label> 
-</div> 
-</div> 
-</div> 
-<div class="section has-background-primary">
-<p>
-Once you have done both of the above, click on create and watch the magic happen!
-</p> 
-<form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
-<div class="field">
-<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?">
-		<strong> Create My Image! </strong> 
-	</button> 
-</div> 
-</form> 
-</div> 
-<div class="section">
-			</div> 
-					</div>
-				</div>
-				<div class="section has-background-primary has-text-centered pics_box overflow_pics">
-					<div class="subtitle"> Here are your previously uploaded pictures:</div>
-					<div class="field">
-						<div class="control">
-							<div class="field is-grouped ">
+								<div class="field is-grouped ">
 									<?php
 										include "functions/getUserDetails.php";
 										$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
 										// echo $_SESSION['URI'];
 										echo getEditorImages();
-									?>
+										?>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 		</section>
 	<?php endif; ?>
 

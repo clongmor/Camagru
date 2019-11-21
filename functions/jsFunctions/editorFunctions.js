@@ -41,11 +41,11 @@ function getWebcamImage(){
 
 }
 
-function getSticker(){
+function getSticker($data){
 let sCanvas = document.getElementById("sticker_canvas1");
 let sContext = sCanvas.getContext("2d");
 let img = new Image();
-sticker.src = "./gallery/42.png";
+sticker.src = $data;
 sticker.onload = () => {
   sContext.drawImage(img, 0, 0);
   }
