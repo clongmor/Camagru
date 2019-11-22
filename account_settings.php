@@ -129,47 +129,42 @@ include "templates/header.php";
 							</div>
 						</div>
 					</section>
-				</div>
-		</section>
-		<section class="section">
-			<div class="columns is-centered">
-				<div class="column is-5 is-4-desktop">
-					<form method="post" action="forms/resetaccountdetails/resetNotifications.php">
-						<div class="field">
-							<h1>Do you want to receive email notifications for comments and likes on your uploaded images? </h1>
-						</div>
-						<div class="field">
-							<label class="radio">
-								<input type="checkbox" name="notifications" value="Yes">
-								Yes
-							</label>
-						</div>
-						<div class="field">
-							<div class="control">
-								<button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Change my notifications</button>
+					<section class="section">
+						<div class="columns is-centered">
+							<div class="column is-5 is-4-desktop">
+								<form method="post" action="forms/resetaccountdetails/resetNotifications.php">
+								<div class="field">
+									<h1>Do you want to receive email notifications for comments and likes on your uploaded images? </h1>
+								</div>
+								<div class="field">
+									<label class="radio">
+									<input type="checkbox" name="notifications" value="Yes">
+									Yes
+									</label>
+								</div>
+								<div class="field">
+									<div class="control">
+										<button type="submit" value="Submit" class="button is-primary is-fullwidth has-text-grey">Change my notifications</button>
+									</div>
+								</div>
+								<?php
+									if ($_SESSION['notificationcheck']) {
+										if (isset($_SESSION['error'])) {
+											echo "Error setting new notification settings: " . $_SESSION['error'];
+										} else if ($_SESSION['notificationreset']) {
+										echo "Notification settings are successfully reset.";
+										}
+										unset($_SESSION['notificationreset']);
+										unset($_SESSION['error']);
+										$_SESSION['notificationcheck'] = FALSE;
+									}
+								?>
+								</form>
 							</div>
 						</div>
-						<?php
-							if ($_SESSION['notificationcheck']) {
-								if (isset($_SESSION['error'])) {
-									echo "Error setting new notification settings: " . $_SESSION['error'];
-								} else if ($_SESSION['notificationreset']) {
-									echo "Notification settings are successfully reset.";
-								}
-								unset($_SESSION['notificationreset']);
-								unset($_SESSION['error']);
-								$_SESSION['notificationcheck'] = FALSE;
-							}
-							?>
-					</form>
+					</section>
 				</div>
 			</div>
-		</section>
-		</div>
-		</div>
-		</div>
-		</section>
-		</div>
 		</section>
 	<?php endif; ?>
 	<?php if (!isset($_SESSION['username'])) : ?>

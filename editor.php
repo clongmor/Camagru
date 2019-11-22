@@ -9,7 +9,7 @@ include "./functions/editorFunctions.php";
 <html>
 
 <head>
-	
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Madimgz - Editor</title>
@@ -33,7 +33,7 @@ include "./functions/editorFunctions.php";
 
 		#webcam_box {
 			width: 50%;
-			max-height: 400px;
+			max-height: 500px;
 			margin-left: 25%;
 		}
 
@@ -49,6 +49,9 @@ include "./functions/editorFunctions.php";
 		.padding_bot {
 			margin-bottom: 20px;
 		}
+		.padding_left {
+			margin-left: 10px;
+		}
 	</style>
 </head>
 <?php if (isset($_SESSION['username'])) : ?>
@@ -57,8 +60,6 @@ include "./functions/editorFunctions.php";
 
 		<section class="hero">
 			<div class="hero-body">
-
-
 				<div class="section">
 					<h1 class="title">
 						Editor
@@ -68,9 +69,7 @@ include "./functions/editorFunctions.php";
 					</h2>
 
 					<div class="section has-background-primary">
-
-
-						<div class="container">
+						<div class="section">
 							<h1 class="subtitle">
 								Upload an image from your computer or take a picture with your webcam.
 								PRO TIP: make sure you click submit if uploading from your computer!
@@ -87,12 +86,12 @@ include "./functions/editorFunctions.php";
 								</div>
 							</form>
 						</div>
-						<div>
+						<div class="padding_top">
 							<h1 class="title center">
 								OR
 							</h1>
 						</div>
-						<div class="container">
+						<div class="section">
 							<h1 class="subtitle">
 								directly take a picture with your webcam below:
 							</h1>
@@ -100,72 +99,72 @@ include "./functions/editorFunctions.php";
 
 							</video>
 						</div>
-							<button id="stream" onclick="getWebcamStream()">Use Webcam</button>	
-
-						
-							<button id="snap" onclick="getWebcamImage()">Take Picture</button>
-
-							<div>
-		<canvas id="my_canvas" width="500" height="500" style="border:1px solid #000000;">
-			</canvas> 
-
-					</div>
-					<div class="section has-background-primary">
-						<h1 class="subtitle">
-							Select an image from the provided images to decorate your chosen photo with:
-						</h1>
-						<div class="field">
-							<div class="control">
-								<label class="checkbox">
-			<input type="checkbox" name="img_overlay">
-	<img src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
-	</label> 
-	<label class="checkbox">
-	<input type="checkbox" name="img_overlay">
-	<img src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
-	</label> 
-	<label class="checkbox">
-	<input type="checkbox" name="img_overlay">
-<img src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
-</label> 
-<label class="checkbox">
-	<input type="checkbox" name="img_overlay">
-<img src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
-	</label> 
-	<label class="checkbox">
-	<input type="checkbox" name="img_overlay">
-	<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">  
-</label> 
-</div> 
-</div> 
-</div> 
-<div class="section has-background-primary">
-<p>
-Once you have done both of the above, click on create and watch the magic happen!
-</p> 
-<form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
-<div class="field">
-<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?">
-		<strong> Create My Image! </strong> 
-	</button> 
-</div> 
-</form> 
-</div> 
-<div class="section">
-			</div> 
-																															
+						<div class="container center">
+							<button id="stream" class="button padding_bot purp_body" onclick="getWebcamStream()">Switch On Webcam</button>
+						</div>
+						<div class="container center padding_top">
+							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
+							</canvas>
+						</div>
+						<div class="center">
+							<button id="snap" class="button padding_top purp_body" onclick="getWebcamImage()">Take Picture</button>
+							<button id="restart" class="button padding_top padding_left purp_body" type="submit" onclick="window.location.reload();">Restart</button>
+						</div>
+						<div class="section has-background-primary">
+							<h1 class="subtitle">
+								Select an image from the provided images to decorate your chosen photo with:
+							</h1>
+							<div class="field">
+								<div class="control">
+									<label class="checkbox">
+										<input type="checkbox" name="img_overlay">
+										<img src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="img_overlay">
+										<img src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="img_overlay">
+										<img src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="img_overlay">
+										<img src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="img_overlay">
+										<img src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="section has-background-primary">
+							<p>
+								Once you have done both of the above, click on create and watch the magic happen!
+							</p>
+							<form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+								<div class="field">
+									<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?">
+										<strong> Create My Image! </strong>
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="section">
+						</div>
 					</div>
 				</div>
-				<div class="section has-background-primary has-text-centered pics_box">
+				<div class="section has-background-primary has-text-centered pics_box overflow_pics">
 					<div class="subtitle"> Here are your previously uploaded pictures:</div>
 					<div class="field">
 						<div class="control">
-							<div class="field is-grouped overflow_pics">
-									<?php
-										include "functions/getUserDetails.php";
-										$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
-										// echo $_SESSION['URI'];
-										echo getEditorImages();
+							<div class="field is-grouped ">
+								<?php
+									include "functions/getUserDetails.php";
+									$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
+									// echo $_SESSION['URI'];
+									echo getEditorImages();
 									?>
 							</div>
 						</div>
