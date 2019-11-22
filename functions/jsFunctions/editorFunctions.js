@@ -44,9 +44,9 @@ function getWebcamImage(){
 function getSticker($data){
 let sCanvas = document.getElementById("sticker_canvas1");
 let sContext = sCanvas.getContext("2d");
-let img = new Image();
+let sticker = new Image();
 sticker.src = $data;
 sticker.onload = () => {
-  sContext.drawImage(img, 0, 0);
+  sContext.drawImage(sticker, 0, 0);
   }
 }

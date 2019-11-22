@@ -105,10 +105,10 @@ include "./functions/editorFunctions.php";
 						<div class="container center padding_top">
 							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
 							</canvas>
-					<!--		<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
+							<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
 							</canvas>
 							<canvas id="sticker_canvas2" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
-							</canvas> -->
+							</canvas> 
 						</div>
 						<div class="center">
 						<button id="snap" class="button padding_top purp_body" onclick="getWebcamImage()">Take Picture</button>
