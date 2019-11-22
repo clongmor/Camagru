@@ -49,6 +49,9 @@ include "./functions/editorFunctions.php";
 		.padding_bot {
 			margin-bottom: 20px;
 		}
+		.padding_left {
+			margin-left: 10px;
+		}
 	</style>
 </head>
 <?php if (isset($_SESSION['username'])) : ?>
@@ -97,14 +100,15 @@ include "./functions/editorFunctions.php";
 							</video>
 						</div>
 						<div class="container center">
-							<button id="stream" onclick="getWebcamStream()">Switch On Webcam</button>
+							<button id="stream" class="button padding_bot purp_body" onclick="getWebcamStream()">Switch On Webcam</button>
 						</div>
 						<div class="container center padding_top">
 							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
 							</canvas>
 						</div>
 						<div class="center">
-							<button id="snap" onclick="getWebcamImage()">Take Picture</button>
+							<button id="snap" class="button padding_top purp_body" onclick="getWebcamImage()">Take Picture</button>
+							<button id="restart" class="button padding_top padding_left purp_body" type="submit" onclick="window.location.reload();">Restart</button>
 						</div>
 						<div class="section has-background-primary">
 							<h1 class="subtitle">
