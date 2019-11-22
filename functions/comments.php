@@ -5,7 +5,7 @@
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $dbh->prepare("SELECT `user`.`username`, `comment`.`text`, `comment`.`id` FROM `comment` INNER JOIN `user` ON `user`.`id` = `comment`.`userid` WHERE `imageid` = ?;");
+        $stmt = $dbh->prepare("SELECT `user`.`username`, `comment`.`text`, `comment`.`id` FROM `comment` INNER JOIN `user` ON `user`.`id` = `comment`.`userid` WHERE `imageid` = ? ORDER BY id;");
         $stmt->execute([$id]);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $string = "";
