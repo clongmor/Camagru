@@ -16,11 +16,12 @@ include "templates/header.php";
 		<div class="hero-body">
 			<div class="container">
 				<?php
+				ini_set("display_errors", 1);
 				include "functions/getUserDetails.php";
 				$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
-				echo getUserProfile($_GET['name']);
+				echo getUserProfile();
 				echo '<section class="section column"><div class="container">';
-				echo getUserImages($_GET['name']);
+				echo getUserImages();
 				?>
 			</div>
 	</section>

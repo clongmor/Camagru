@@ -8,13 +8,13 @@ if ($_POST['action'] == 'uploadUserImage')
 }
 
 function uploadUserImage() {
-	
+	// ini_set("display_errors", 1);
 	session_start();
 	include "../config/database.php";
 	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	
-	$file = $_FILES['image'];  
+
+	$file = $_FILES['image'];
 	
 	$fileName = $file["name"];
 	$fileTempName = $file["tmp_name"];

@@ -1,7 +1,7 @@
 <?php
 
     function getUserImages() {
-        include "../config/database.php";
+        include "config/database.php";
         include "comments.php";
         include "likeFunctions.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -37,14 +37,14 @@
 
     function getUserProfile()
     {
-        include "../config/database.php";
+        include "config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmnt = $dbh->prepare("SELECT * FROM `user` WHERE (`username`=?);");
         $stmnt->execute([$_GET['name']]);
         $result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
-
+        $string = "";
 
         foreach ($result as $user) {
             $string = $string . "<div class='box'><img src=\"./gallery/".$user['picturesource']."\" alt=\"error\" class='image is-128x128'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
