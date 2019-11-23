@@ -121,24 +121,24 @@ include "./functions/editorFunctions.php";
 								<div class="field">
 									<div class="control">
 										<label class="checkbox">
-											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('h_hat'))">
-											<img id="h_hat" src="./imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('h_hat').src)">	
+											<img id="h_hat" src="imgs/halloween_hat.png" alt="h_hat" style="max-height: 100px; max-width:100px;">
 										</label>
 										<label class="checkbox">
-											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('grateful'))">
-											<img id="grateful" src="./imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('grateful').src)">
+											<img id="grateful" src="imgs/grateful_neon.png" alt="grateful" style="max-height: 100px; max-width:100px;">
 										</label>
 										<label class="checkbox">
-											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('heart'))">
-											<img id="heart" src="./imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('heart').src)">
+											<img id="heart" src="imgs/heart.png" alt="heart" style="max-height: 100px; max-width:100px;">
 										</label>
 										<label class="checkbox">
-											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('pony'))">
-											<img id="pony" src="./imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('pony').src)">
+											<img id="pony" src="imgs/pony.png" alt="pony" style="max-height: 100px; max-width:100px;">
 										</label>
 										<label class="checkbox">
-											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('tongue_face'))">
-											<img id="tongue_face" src="./imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
+											<input type="checkbox" name="img_overlay" onclick="getSticker(document.getElementById('tongue_face').src)">
+											<img id="tongue_face" src="imgs/tongue_face.png" alt="tongue_face" style="max-height: 100px; max-width:100px;">
 										</label>
 									</div>
 								</div>
