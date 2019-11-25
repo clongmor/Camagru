@@ -16,7 +16,7 @@ include "templates/header.php";
 		<div class="hero-body">
 			<div class="container">
 				<?php
-				ini_set("display_errors", 1);
+				// ini_set("display_errors", 1);
 				include "functions/getUserDetails.php";
 				$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
 				echo getUserProfile();

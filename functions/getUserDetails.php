@@ -16,7 +16,7 @@
             $string = $string . "<div class='box'>";
             if ($_SESSION['username'] == $_GET['name'])
                 $string = $string . "<form action='functions/deleteImage.php' method='post'><input name='imageid' type='hidden' value='".$image['imageid']."'></input><button type='submit'>Delete Image</button></form>"; 
-            $string = $string . "<img src=\"./gallery/" . $image['source'] . "\" alt=\"error\" class='image is-640x480 center'>";
+            $string = $string . "<img src='data:image;base64, " . $image['source'] . "' alt='error' class='image is-640x480 center'>";
             if (isset($_SESSION['username']))
                 $string = $string . "<form action='forms/likes.php' method='post'><input type='hidden' name='imageid' value='"
             .$image['imageid']."'><input type='hidden' name='userid' value='".$_SESSION['id']."'></input><input type='hidden' name='username' value='".$image['username']."'></input><button type='submit'>";
@@ -47,13 +47,13 @@
         $string = "";
 
         foreach ($result as $user) {
-            $string = $string . "<div class='box'><img src=\"./gallery/".$user['picturesource']."\" alt=\"error\" class='image is-128x128'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
+            $string = $string . "<div class='box'><img src='data:image;base64, ".$user['picturesource']."' alt='error' class='image is-128x128'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
         }
         return ($string);
     }
 
     function deleteImage($id) {
-		ini_set('display_errors', 1);
+		// ini_set('display_errors', 1);
 
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -86,7 +86,7 @@
 
 		foreach ($result as $image) {
 			$string = $string .
-				"<img src='./gallery/" . $image['source'] . "' alt='tongue_face' style='max-height: 100px; max-width:100px;''>
+				"<img src='data:image;base64, " . $image['source'] . "' alt='tongue_face' style='max-height: 100px; max-width:100px;''>
 					<form action='functions/deleteImage.php' method='post'>
 						<button type='submit' class='button purp_body padding_top padding_bot' value='Submit'><strong>Delete</strong></button>
 						<input type='hidden' value='" . $image['imageid'] . "' name='imageid'></input>
