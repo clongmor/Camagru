@@ -1,6 +1,8 @@
 <?php
 
     function storeUserDetails($username, $password, $email) {
+        ini_set("display_errors", 1);
+        $defaultimage = base64_encode(file_get_contents("../imgs/defaultprofile.jpg"));
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -34,7 +36,7 @@
         $_SESSION['token'] = md5( rand(0,1000) );
         $token = $_SESSION['token'];
         $stmt = $dbh->prepare("INSERT INTO `user` (`username`, `password`, `email`, `token`, `picturesource`) VALUES (?, ?, ?, ?, ?);");
-        if ($stmt->execute([$username, hash('whirlpool', $password), $email, $token, "defaultprofile.jpg"])) {
+        if ($stmt->execute([$username, hash('whirlpool', $password), $email, $token, $defaultimage])) {
             $stmt = null;
             return (1);
         } else {
