@@ -53,7 +53,7 @@
     }
 
     function deleteImage($id) {
-		ini_set('display_errors', 1);
+		// ini_set('display_errors', 1);
 
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
