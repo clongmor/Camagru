@@ -26,7 +26,7 @@
             `email` VARCHAR(100) NOT NULL,
             `token` VARCHAR(32) NOT NULL,
             `verified` INT(1) NOT NULL DEFAULT 0,
-            `picturesource` VARCHAR(255)
+            `picturesource` LONGTEXT
             )";
         $dbh->exec($sql);
         echo "Table user created successfully\n";

@@ -15,7 +15,7 @@
         $string = "";
         
         foreach ($result as $image) {
-            $string = $string . "<div class='box'><img src=\"./gallery/" . $image['source'] . "\" alt=\"error\" class='image is-640x480 center'><br>";
+            $string = $string . "<div class='box'><img src='data:image;base64, " . $image['source'] . "' alt='error' class='image is-640x480 center'><br>";
             if (isset($_SESSION['username']))
                 $string = $string . "<form action='forms/likes.php' method='post'><input type='hidden' name='imageid' value='".$image['id']
                     ."'><input type='hidden' name='userid' value='".$_SESSION['id']."'></input><button type='submit'>";
