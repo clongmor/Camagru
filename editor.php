@@ -74,7 +74,7 @@ include "./functions/editorFunctions.php";
 								Upload an image from your computer or take a picture with your webcam.
 								PRO TIP: make sure you click submit if uploading from your computer!
 							</h1>
-							<form action="functions/editorFunctions.php" method="post" enctype="multipart/form-data">
+							<form method="post" enctype="multipart/form-data">
 								<input type="hidden" name="action" value="uploadUserImage">
 								<div class="field">
 									<div class="control">
@@ -82,7 +82,7 @@ include "./functions/editorFunctions.php";
 									</div>
 								</div>
 								<div class="field">
-									<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="editor.php"><strong>Upload My Image!</strong></button>
+									<button type="submit" onclick="getUploadedImage()"class="button purp_body is-fullwidth" value="Submit" href="editor.php"><strong>Upload My Image!</strong></button>
 								</div>
 							</form>
 						</div>

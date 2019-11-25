@@ -1,8 +1,9 @@
 function getUploadedImage(){
 let myCanvas = document.getElementById("my_canvas");
 let myContext = myCanvas.getContext("2d");
+let $source = $_FILES['image'];
 let img = new Image();
-img.src = "./gallery/42.png";
+img.src = $source;
 img.onload = () => {
   myContext.drawImage(img, 0, 0);
   }
