@@ -99,11 +99,11 @@
 				</div>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['username'])) : ?>
-                    <form action="signout.php">
+                    <form>
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="buttons">
-                                    <a class="button is-primary" href="signout.php">
+                                    <a class="button is-primary" href="forms/signout.php">
                                         <strong>Sign Out</strong>
                                     </a>
                                 </div>

@@ -100,7 +100,7 @@
     }
     
     function uploadProfileImage() {
-        ini_set("display_errors", 1);
+        // ini_set("display_errors", 1);
         session_start();
         include "../../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
