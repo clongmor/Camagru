@@ -53,17 +53,17 @@
                             </a>
                         </div>
                     </div>
-                    <form action="##" method="post" enctype="multipart/form-data">
-                    <div class="navbar-item field has-addons center">
-                        <div class="control ">
-                        <input class="input" type="search" placeholder="Find a user Profile">
+                    <form action="forms/findUserProfile.php" method="post">
+                        <div class="navbar-item field has-addons center">
+                            <div class="control">
+                                <input class="input" type="text" name="username" placeholder="Find a user Profile">
+                            </div>
+                            <div class="control">
+                                <button class="button is-primary" type="submit" value="Submit">
+                                    Search
+                                </button>
+                            </div>
                         </div>
-                        <div class="control">
-                            <a type="submit" class="button is-primary" value="submit" href="##where to go here??">
-                            Search
-                            </a>
-                        </div>
-                    </div>
                     </form>
                 </div>
                 <?php if (!isset($_SESSION['username'])) : ?>

@@ -34,7 +34,6 @@ include "templates/header.php";
 							<div class="columns is-centered">
 								<div class="column is-5 is-4-desktop">
 									<form method="post" action="forms/resetaccountdetails/resetUsername.php">
-										<!-- need to post details to update DB here ^^ -->
 										<div class="field">
 											<div class="control">
 												Change your username:
@@ -67,7 +66,6 @@ include "templates/header.php";
 						<div class="columns is-centered">
 							<div class="column is-5 is-4-desktop">
 								<form method="post" action="forms/resetaccountdetails/resetEmail.php">
-									<!-- need to post details to update DB here ^^ -->
 									<div class="field">
 										<div class="control">
 											Change your email:
@@ -99,7 +97,6 @@ include "templates/header.php";
 						<div class="columns is-centered">
 							<div class="column is-5 is-4-desktop">
 								<form method="post" action="forms/resetaccountdetails/resetPassword.php">
-									<!-- need to post details to update DB here ^^ -->
 									<div class="field">
 										<div class="control">
 											Change your password:
