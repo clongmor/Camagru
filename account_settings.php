@@ -21,6 +21,9 @@ include "templates/header.php";
 
 <body class="purp_body">
 	<?php if (isset($_SESSION['username'])) : ?>
+	<?php
+		$_SESSION['URI'] = $_SERVER['REQUEST_URI'];
+	?>
 		<section class="hero is-fullheight">
 			<div class="hero-body">
 				<div class="container">
@@ -31,7 +34,6 @@ include "templates/header.php";
 							<div class="columns is-centered">
 								<div class="column is-5 is-4-desktop">
 									<form method="post" action="forms/resetaccountdetails/resetUsername.php">
-										<!-- need to post details to update DB here ^^ -->
 										<div class="field">
 											<div class="control">
 												Change your username:
@@ -64,7 +66,6 @@ include "templates/header.php";
 						<div class="columns is-centered">
 							<div class="column is-5 is-4-desktop">
 								<form method="post" action="forms/resetaccountdetails/resetEmail.php">
-									<!-- need to post details to update DB here ^^ -->
 									<div class="field">
 										<div class="control">
 											Change your email:
@@ -96,7 +97,6 @@ include "templates/header.php";
 						<div class="columns is-centered">
 							<div class="column is-5 is-4-desktop">
 								<form method="post" action="forms/resetaccountdetails/resetPassword.php">
-									<!-- need to post details to update DB here ^^ -->
 									<div class="field">
 										<div class="control">
 											Change your password:
@@ -126,6 +126,28 @@ include "templates/header.php";
 										}
 										?>
 								</form>
+							</div>
+						</div>
+					</section>
+					<section class="section">
+						<div class="columns is-centered">
+							<div class="column is-5 is-4-desktop">
+							<form action="forms/resetaccountdetails/resetProfileImage.php" method="post" enctype="multipart/form-data">
+								<div class="field">
+									<h1>Change your Profile Picture! </h1>
+								</div>
+								<input type="hidden" name="action" value="uploadUserImage">
+								<div class="field">
+									<div class="control">
+										<input class="input" type="file" name="image">`
+									</div>
+								</div>
+								<div class="field">
+									<div class="control">
+										<button type="submit" class="button is-primary is-fullwidth has-text-grey" value="Submit">Upload New Profile Picture!</button>
+									</div>
+								</div>
+							</form>
 							</div>
 						</div>
 					</section>

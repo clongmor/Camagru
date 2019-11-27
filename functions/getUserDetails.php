@@ -46,8 +46,12 @@
         $result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
         $string = "";
 
-        foreach ($result as $user) {
-            $string = $string . "<div class='box'><img src='data:image;base64, ".$user['picturesource']."' alt='error' class='image is-128x128'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
+        if ($stmnt->rowCount() == 0) {
+            return "<strong>This user does not exist.</strong>";
+        } else {
+                foreach ($result as $user) {
+                $string = $string . "<div class='box'><img src='data:image;base64, ".$user['picturesource']."' alt='error' class='image is-128x128'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
+            }
         }
         return ($string);
     }
@@ -93,5 +97,49 @@
 					</form>";
 		}
 		return ($string);
-	}
+    }
+    
+    function uploadProfileImage() {
+        // ini_set("display_errors", 1);
+        session_start();
+        include "../../config/database.php";
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+        $file = $_FILES['image'];
+        
+        $fileName = $file["name"];
+        $fileTempName = $file["tmp_name"];
+        $fileError = $file["error"];
+        $fileSize = $file["size"];
+        $fileExt = strtolower(end(explode('.', $fileName)));
+        $allowedExt = array("jpg", "jpeg", "png");
+        
+        if (in_array($fileExt, $allowedExt)) {
+            if ($fileError === 0) {
+                if ($fileSize < 10000000) {
+                    if (empty($fileName) || empty($fileSize)) {
+                        header("Location: ".$_SESSION['URI']);
+                        exit();
+                    } else {
+                        $userId = $_SESSION['id'];
+                        
+                        $data = file_get_contents($fileTempName);
+                        $encImage = base64_encode($data);
+        
+                        $stmnt = $dbh->prepare("UPDATE `user` SET `picturesource`=? WHERE (`id`=?);");
+                        $stmnt->execute([$encImage, $userId]);
+                        
+                        header("Location: ".$_SESSION['URI']);
+                    }
+                } else {
+                    echo "There was an error uploading the file";
+                    exit();
+                }
+            } else {
+                echo "Please upload a jpeg or png file";
+                exit();
+            }
+        }
+    }
 ?>
