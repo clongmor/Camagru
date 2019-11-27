@@ -1,7 +1,7 @@
 function getUploadedImage(){
 let myCanvas = document.getElementById("my_canvas");
 let myContext = myCanvas.getContext("2d");
-let $source = $_FILES['image'];
+let $source = this.files[0];
 let img = new Image();
 img.src = $source;
 img.onload = () => {
