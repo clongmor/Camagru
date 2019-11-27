@@ -82,7 +82,7 @@ include "./functions/editorFunctions.php";
 									</div>
 								</div>
 								<div class="field">
-									<button type="submit" onclick="getUploadedImage()"class="button purp_body is-fullwidth" value="Submit" href="editor.php"><strong>Upload My Image!</strong></button>
+									<button type="submit" onclick="getUploadedImage()"class="button purp_body is-fullwidth" value="Submit"><strong>Upload My Image!</strong></button>
 								</div>
 							</form>
 						</div>
