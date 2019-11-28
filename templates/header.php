@@ -53,6 +53,18 @@
                             </a>
                         </div>
                     </div>
+                    <form action="forms/findUserProfile.php" method="post">
+                        <div class="navbar-item field has-addons center">
+                            <div class="control">
+                                <input class="input" type="text" name="username" placeholder="Find a user Profile">
+                            </div>
+                            <div class="control">
+                                <button class="button is-primary" type="submit" value="Submit">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <?php if (!isset($_SESSION['username'])) : ?>
                     <div class="navbar-end">
@@ -80,15 +92,18 @@
                             <a class="navbar-item" href="./editor.php">
                                 Create An Image
                             </a>
+                            <a class="navbar-item" href="./user.php?name=<?php echo $_SESSION['username']?>">
+                                View My Profile
+                            </a>
 						</div>
 				</div>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['username'])) : ?>
-                    <form action="signout.php">
+                    <form>
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="buttons">
-                                    <a class="button is-primary" href="signout.php">
+                                    <a class="button is-primary" href="forms/signout.php">
                                         <strong>Sign Out</strong>
                                     </a>
                                 </div>

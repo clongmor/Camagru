@@ -106,9 +106,6 @@ include "./functions/editorFunctions.php";
 							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
 							</canvas>
 							<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
-							</canvas>
-							<canvas id="sticker_canvas2" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
-							</canvas> 
 						</div>
 						<div class="center">
 						<button id="snap" class="button padding_top purp_body" onclick="getWebcamImage()">Take Picture</button>
@@ -147,9 +144,9 @@ include "./functions/editorFunctions.php";
 								<p>
 									Once you have done both of the above, click on create and watch the magic happen!
 								</p>
-								<form action="functions/galleryFunctions.php" method="post" enctype="multipart/form-data">
+								<form method="post" enctype="multipart/form-data">
 									<div class="field">
-										<button type="submit" class="button purp_body is-fullwidth" value="Submit" href="## where to go here?">
+										<button type="submit" class="button purp_body is-fullwidth" value="Submit" onclick="getImageDataUrl();">
 											<strong> Create My Image! </strong>
 										</button>
 									</div>

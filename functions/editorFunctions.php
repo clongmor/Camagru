@@ -8,7 +8,7 @@
 //}
 
 function uploadUserImage() {
-	// ini_set("display_errors", 1);
+	ini_set("display_errors", 1);
 	session_start();
 	include "../config/database.php";
 	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -54,7 +54,24 @@ function uploadUserImage() {
 
 }
 
-function imageMerge(){
+if ($_POST['action'] == 'uploadMergedImage')
+{
+	saveMergedImage();
+}
+
+function saveMergedImage(){
+	
+	session_start();
+	include "../config/database.php";
+
+	$mergedImage = $_POST['image_data_url'];
+	$userId = $_SESSION['id'];
+
+	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	$stmnt = $dbh->prepare("INSERT INTO `image` (`userid`, `source`) VALUES (?, ?);");
+	$stmnt->execute([$userId, $mergedImage]);
 
 }
 

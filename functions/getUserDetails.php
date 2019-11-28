@@ -46,8 +46,12 @@
         $result = $stmnt->fetchAll(PDO::FETCH_ASSOC);
         $string = "";
 
-        foreach ($result as $user) {
-            $string = $string . "<div class='box'><img src='data:image;base64, ".$user['picturesource']."' alt='error' class='image is-128x128'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
+        if ($stmnt->rowCount() == 0) {
+            return "<strong>This user does not exist.</strong>";
+        } else {
+                foreach ($result as $user) {
+                $string = $string . "<div class='box'><img src='data:image;base64, ".$user['picturesource']."' alt='error' class='image is-128x128'>".$user['username']."'s Profile<br>Contact Details: ".$user['email']."</div><br>";
+            }
         }
         return ($string);
     }
@@ -96,7 +100,7 @@
     }
     
     function uploadProfileImage() {
-        ini_set("display_errors", 1);
+        // ini_set("display_errors", 1);
         session_start();
         include "../../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
