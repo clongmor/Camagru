@@ -1,8 +1,9 @@
 function getUploadedImage(){
 let myCanvas = document.getElementById("my_canvas");
 let myContext = myCanvas.getContext("2d");
+let $source = $_FILES['image'];
 let img = new Image();
-img.src = "./gallery/42.png";
+img.src = $source;
 img.onload = () => {
   myContext.drawImage(img, 0, 0);
   }
@@ -39,4 +40,14 @@ function getWebcamImage(){
   myContext.restore();
   
 
+}
+
+function getSticker($data){
+let sCanvas = document.getElementById("sticker_canvas1");
+let sContext = sCanvas.getContext("2d");
+let sticker = new Image();
+sticker.src = $data;
+sticker.onload = () => {
+  sContext.drawImage(sticker, 0, 0);
+  }
 }

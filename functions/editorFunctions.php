@@ -1,11 +1,11 @@
 
 <?php
 
-if ($_POST['action'] == 'uploadUserImage')
-{
+//if ($_POST['action'] == 'uploadUserImage')
+//{
 	
-	uploadUserImage();
-}
+	//uploadUserImage();
+//}
 
 function uploadUserImage() {
 	ini_set("display_errors", 1);
@@ -51,6 +51,10 @@ function uploadUserImage() {
 			exit();
 		}
 	}
+
+}
+
+function imageMerge(){
 
 }
 
