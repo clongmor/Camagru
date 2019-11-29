@@ -43,7 +43,7 @@ function getWebcamImage(){
 }
 
 function getSticker($data){
-let sCanvas = document.getElementById("my_canvas");
+let sCanvas = document.getElementById("sticker_canvas1");
 let sContext = sCanvas.getContext("2d");
 let sticker = new Image();
 sticker.src = $data;
@@ -55,6 +55,11 @@ sticker.onload = () => {
 function getImageDataUrl(){
   let myCanvas = document.getElementById("my_canvas");
   let imageDataUrl = myCanvas.toDataURL();
-  $_POST['image_data_url'] = imageDataUrl;
-  console.log(dataUrl);
+  console.log(imageDataUrl);
+ 
+
+  let sCanvas = document.getElementById("sticker_canvas1");
+  let stickerDataUrl = sCanvas.toDataURL();
+  console.log(stickerDataUrl);
+  
 }
