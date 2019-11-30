@@ -1,4 +1,4 @@
-function getUploadedImage(){
+function getUploadedImage(){  
 let myCanvas = document.getElementById("my_canvas");
 let myContext = myCanvas.getContext("2d");
 let $source = this.files[0];
@@ -61,5 +61,9 @@ function getImageDataUrl(){
   let sCanvas = document.getElementById("sticker_canvas1");
   let stickerDataUrl = sCanvas.toDataURL();
   console.log(stickerDataUrl);
+
+  let ajax = new XMLHttpRequest();
+  ajax.open('POST', 'functions/editorfunctions.php');
+  ajax.send("img_data=" + imageDataUrl + "sticker_data=" + stickerDataUrl);
   
 }
