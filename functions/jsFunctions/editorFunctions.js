@@ -54,16 +54,34 @@ sticker.onload = () => {
 
 function getImageDataUrl(){
   let myCanvas = document.getElementById("my_canvas");
-  let imageDataUrl = myCanvas.toDataURL();
-  console.log(imageDataUrl);
+  let imageDataUrl = encodeURIComponent(myCanvas.toDataURL());
  
-
   let sCanvas = document.getElementById("sticker_canvas1");
-  let stickerDataUrl = sCanvas.toDataURL();
-  console.log(stickerDataUrl);
+  let stickerDataUrl = encodeURIComponent(sCanvas.toDataURL());
 
+  let url = "img_data=" + imageDataUrl + "&sticker_data=" + stickerDataUrl;
+  console.log(url);
   let ajax = new XMLHttpRequest();
-  ajax.open('POST', 'functions/editorfunctions.php');
-  ajax.send("img_data=" + imageDataUrl + "sticker_data=" + stickerDataUrl);
+  ajax.open('POST', 'functions/editorFunctions.php');
+  ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+  ajax.onreadystatechange = function() {
+    console.log(ajax.responseText);
+  }
+
+  ajax.send(url);
   
+ 
+    // Process our return data
+    console.log(ajax.status);
+	if (ajax.status >= 200 && ajax.status < 300) {
+		// What do when the request is successful
+		console.log('success!', ajax);
+	} else {
+		// What do when the request fails
+		console.log('The request failed!');
+	}
+
+	// Code that should run regardless of the request status
+	console.log('This always runs...');
 }

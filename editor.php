@@ -149,7 +149,7 @@ include "./functions/editorFunctions.php";
 								<p>
 									Once you have done both of the above, click on create and watch the magic happen!
 								</p>
-										<button id="submit_image" type="submit" class="button purp_body is-fullwidth" value="Submit" onclick="getImageDataUrl()">
+										<button id="submit_image" type="button" class="button purp_body is-fullwidth" onclick="getImageDataUrl()">
 										<strong> Create My Image! </strong>
 										</button>
 									</div>
