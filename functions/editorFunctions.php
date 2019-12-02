@@ -55,18 +55,21 @@
 }
 */
 
-if (isset($_POST['image_data']) && isset($_POST['sticker_data'])){
-/*{
+if (isset($_POST['image_data']) && isset($_POST['sticker_data']))
+{
 	ini_set("display_errors", 1);
 	saveMergedImage();
 }
+else
+var_dump($_POST);
+
 
 function saveMergedImage(){
-*/	ini_set("display_errors", 1);
-	//session_start();
+	ini_set("display_errors", 1);
+	session_start();
 	include "../config/database.php";
 
-	$userId = $_SESSION['userid'];
+	$userId = $_SESSION['id'];
 	$base = $_POST['image_data'];
 	$sticker = $_POST['sticker_data'];
 	
@@ -89,5 +92,4 @@ function saveMergedImage(){
 
 	header("Location: ../editor.php?test=test");
 }
-//}
 ?>

@@ -59,7 +59,7 @@ function getImageDataUrl(){
   let sCanvas = document.getElementById("sticker_canvas1");
   let stickerDataUrl = encodeURIComponent(sCanvas.toDataURL());
 
-  let url = "img_data=" + imageDataUrl + "&sticker_data=" + stickerDataUrl;
+  let url = "image_data=" + imageDataUrl + "&sticker_data=" + stickerDataUrl;
   console.log(url);
   let ajax = new XMLHttpRequest();
   ajax.open('POST', 'functions/editorFunctions.php');
