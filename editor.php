@@ -75,17 +75,15 @@ include "./functions/editorFunctions.php";
 								PRO TIP: make sure you click submit if uploading from your computer!
 							</h1>
 							<!-- User image upload -->
-							<form method="post" enctype="multipart/form-data">
-								<input type="hidden" name="action" value="uploadUserImage">
+
 								<div class="field">
 									<div class="control">
-										<input class="input" type="file" name="image">`
+										<input class="input" id="upload_base" type="file" name="image" onchange="getUploadedImage(e)">
 									</div>
 								</div>
 								<div class="field">
-									<button type="submit" onclick="getUploadedImage()"class="button purp_body is-fullwidth" value="Submit"><strong>Upload My Image!</strong></button>
+									<button type="button" onclick="getUploadedImage()"class="button purp_body is-fullwidth" value="Submit"><strong>Upload My Image!</strong></button>
 								</div>
-							</form>
 						</div>
 						<div class="padding_top">
 							<h1 class="title center">
