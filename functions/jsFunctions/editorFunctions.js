@@ -1,12 +1,14 @@
-function getUploadedImage(form){  
-let uCanvas = document.getElementById("my_canvas");
-let uContext = uCanvas.getContext("2d");
-let $source = form.image;
+function getUploadedImage(){  
+let myCanvas = document.getElementById("my_canvas");
+let myContext = myCanvas.getContext("2d");
+
+
 let img = new Image();
-img.src = $source;
+img.src = URL.createObjectURL(this.files[0]);
 img.onload = () => {
   uContext.drawImage(img, 0, 0);
   }
+
 }
 
 function getWebcamStream(){

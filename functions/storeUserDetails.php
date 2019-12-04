@@ -2,7 +2,7 @@
 
     function storeUserDetails($username, $password, $email) {
         ini_set("display_errors", 1);
-        $defaultimage = base64_encode(file_get_contents("../imgs/defaultprofile.jpg"));
+        $defaultimage = "data:image;base64, " +base64_encode(file_get_contents("../imgs/defaultprofile.jpg"));
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

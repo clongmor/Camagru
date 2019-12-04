@@ -1,7 +1,6 @@
 
 <?php
 session_start();
-
 //if ($_POST['action'] == 'uploadUserImage')
 //{
 	
@@ -63,7 +62,6 @@ if (isset($_POST['imagedata']) && isset($_POST['stickerdata']))
 }
 
 function saveMergedImage(){
-	//ini_set("display_errors", 1);
 	include "../config/database.php";
 
 	$userId = $_SESSION['id'];

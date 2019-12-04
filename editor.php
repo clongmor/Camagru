@@ -78,13 +78,12 @@ include "./functions/editorFunctions.php";
 							<form method="post" enctype="multipart/form-data">
 								<div class="field">
 									<div class="control">
-										<input class="input" type="file" name="image">`
+										<input class="input" id="upload_base" type="file" name="image" onchange="getUploadedImage(e)">
 									</div>
 								</div>
 								<div class="field">
 									<button type="submit" onsubmit="getUploadedImage(this.form)"class="button purp_body is-fullwidth" value="Submit"><strong>Upload My Image!</strong></button>
 								</div>
-							</form>
 						</div>
 						<div class="padding_top">
 							<h1 class="title center">
