@@ -1,12 +1,14 @@
-function getUploadedImage(){  
+function userBaseImage(files){  
 let myCanvas = document.getElementById("my_canvas");
 let myContext = myCanvas.getContext("2d");
 
+const file = files;
+console.log(file);
 
 let img = new Image();
-img.src = URL.createObjectURL(this.files[0]);
+img.src = window.URL.createObjectURL(file);
 img.onload = () => {
-  myContext.drawImage(img, 0, 0);
+  myContext.drawImage(img, 0, 0, img.width, img.height, 0, 0, myCanvas.width, myCanvas.height);
   }
 
 }

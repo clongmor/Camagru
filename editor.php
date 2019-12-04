@@ -78,12 +78,22 @@ include "./functions/editorFunctions.php";
 
 								<div class="field">
 									<div class="control">
-										<input class="input" id="upload_base" type="file" name="image" onchange="getUploadedImage(e)">
+										<input class="input" id="upload_base" type="file" accept="image/*" style="display:none" onchange="userBaseImage(this.files[0])">
 									</div>
 								</div>
 								<div class="field">
-									<button type="button" onclick="getUploadedImage()"class="button purp_body is-fullwidth" value="Submit"><strong>Upload My Image!</strong></button>
+									<button type="button" id="file_select" class="button purp_body is-fullwidth" ><strong>Upload My Image!</strong></button>
 								</div>
+								<script>
+								const fileSelect = document.getElementById("file_select");
+								fileElem = document.getElementById("upload_base");
+
+								fileSelect.addEventListener("click", function(e) {
+									if (fileElem){
+										fileElem.click();
+									}
+								}, false);
+								</script>
 						</div>
 						<div class="padding_top">
 							<h1 class="title center">
