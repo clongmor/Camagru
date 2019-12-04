@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 
 //if ($_POST['action'] == 'uploadUserImage')
 //{
@@ -55,26 +56,23 @@
 }
 */
 
-if (isset($_POST['image_data']) && isset($_POST['sticker_data']))
+if (isset($_POST['imagedata']) && isset($_POST['stickerdata']))
 {
-	ini_set("display_errors", 1);
+	//ini_set("display_errors", 1);
 	saveMergedImage();
 }
-else
-var_dump($_POST);
-
 
 function saveMergedImage(){
-	ini_set("display_errors", 1);
-	session_start();
+	//ini_set("display_errors", 1);
 	include "../config/database.php";
 
 	$userId = $_SESSION['id'];
-	$base = $_POST['image_data'];
-	$sticker = $_POST['sticker_data'];
+	$base = $_POST['imagedata'];
+
+	$sticker = $_POST['stickerdata'];
 	
-		$src = imagecreatefromstring(base64_decode(substr($base, 22)));
-		$dst = imagecreatefromstring(base64_decode(substr($sticker, 22)));
+		$dst = imagecreatefromstring(base64_decode(substr($base, 22)));
+		$src = imagecreatefromstring(base64_decode(substr($sticker, 22)));
 			
 		imagecopyresampled($dst, $src, 0, 0, 0, 0, 640, 480, 640, 480);
 		ob_start();
@@ -82,14 +80,13 @@ function saveMergedImage(){
 			$source =  ob_get_contents();
 		ob_end_clean();
 
-		$mergedImage = ($source);
+		$mergedImage = $source;
 
 	$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	$stmnt = $dbh->prepare("INSERT INTO `image` (`userid`, `source`) VALUES (?, ?);");
-	$stmnt->execute([$userId, $mergedImage]);
+	$stmnt->execute([$userId, "data:image/png;base64," . base64_encode($mergedImage)]);
 
-	header("Location: ../editor.php?test=test");
 }
 ?>

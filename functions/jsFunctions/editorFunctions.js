@@ -1,11 +1,11 @@
-function getUploadedImage(){  
-let myCanvas = document.getElementById("my_canvas");
-let myContext = myCanvas.getContext("2d");
-let $source = this.files[0];
+function getUploadedImage(form){  
+let uCanvas = document.getElementById("my_canvas");
+let uContext = uCanvas.getContext("2d");
+let $source = form.image;
 let img = new Image();
 img.src = $source;
 img.onload = () => {
-  myContext.drawImage(img, 0, 0);
+  uContext.drawImage(img, 0, 0);
   }
 }
 
@@ -59,22 +59,21 @@ function getImageDataUrl(){
   let sCanvas = document.getElementById("sticker_canvas1");
   let stickerDataUrl = encodeURIComponent(sCanvas.toDataURL());
 
-  let url = "image_data=" + imageDataUrl + "&sticker_data=" + stickerDataUrl;
-  console.log(url);
+  let url = "imagedata=" + imageDataUrl + "&stickerdata=" + stickerDataUrl;
   let ajax = new XMLHttpRequest();
   ajax.open('POST', 'functions/editorFunctions.php');
   ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
   ajax.onreadystatechange = function() {
     console.log(ajax.responseText);
-  }
+ }
 
   ajax.send(url);
   
  
     // Process our return data
     console.log(ajax.status);
-	if (ajax.status >= 200 && ajax.status < 300) {
+	if (ajax.status < 300) {
 		// What do when the request is successful
 		console.log('success!', ajax);
 	} else {

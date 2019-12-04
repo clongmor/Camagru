@@ -90,7 +90,7 @@
 
 		foreach ($result as $image) {
 			$string = $string .
-				"<img src='data:image;base64, " . $image['source'] . "' alt='tongue_face' style='max-height: 100px; max-width:100px;''>
+				"<img src='" . $image['source'] . "' alt='tongue_face' style='max-height: 100px; max-width:100px;''>
 					<form action='functions/deleteImage.php' method='post'>
 						<button type='submit' class='button purp_body padding_top padding_bot' value='Submit'><strong>Delete</strong></button>
 						<input type='hidden' value='" . $image['imageid'] . "' name='imageid'></input>

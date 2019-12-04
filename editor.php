@@ -76,14 +76,13 @@ include "./functions/editorFunctions.php";
 							</h1>
 							<!-- User image upload -->
 							<form method="post" enctype="multipart/form-data">
-								<input type="hidden" name="action" value="uploadUserImage">
 								<div class="field">
 									<div class="control">
 										<input class="input" type="file" name="image">`
 									</div>
 								</div>
 								<div class="field">
-									<button type="submit" onclick="getUploadedImage()"class="button purp_body is-fullwidth" value="Submit"><strong>Upload My Image!</strong></button>
+									<button type="submit" onsubmit="getUploadedImage(this.form)"class="button purp_body is-fullwidth" value="Submit"><strong>Upload My Image!</strong></button>
 								</div>
 							</form>
 						</div>
@@ -105,6 +104,7 @@ include "./functions/editorFunctions.php";
 							<button id="stream" class="button padding_bot purp_body" onclick="getWebcamStream()">Switch On Webcam</button>
 						</div>
 						<!-- Canvases -->
+						
 						<div class="container center padding_top">
 							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
 							</canvas>
@@ -119,6 +119,7 @@ include "./functions/editorFunctions.php";
 									Select an image from the provided images to decorate your chosen photo with:
 								</h1>
 								<!--Stickers -->
+								
 								<div class="field">
 									<div class="control">
 										<label class="checkbox">
@@ -145,6 +146,7 @@ include "./functions/editorFunctions.php";
 								</div>
 							</div>
 							<!-- Submit form -->
+							
 							<div class="section has-background-primary">
 								<p>
 									Once you have done both of the above, click on create and watch the magic happen!
@@ -159,6 +161,7 @@ include "./functions/editorFunctions.php";
 						</div>
 					</div>
 					<!-- User Images -->
+					
 					<div class="section has-background-primary has-text-centered pics_box overflow_pics">
 						<div class="subtitle"> Here are your previously uploaded pictures:</div>
 						<div class="field">
