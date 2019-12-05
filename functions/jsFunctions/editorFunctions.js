@@ -64,7 +64,6 @@ function getImageDataUrl(){
   let stickerDataUrl = encodeURIComponent(sCanvas.toDataURL());
 
   let url = "imagedata=" + imageDataUrl + "&stickerdata=" + stickerDataUrl;
-  //console.log(url);
   let ajax = new XMLHttpRequest();
   ajax.open('POST', 'functions/editorFunctions.php');
   ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

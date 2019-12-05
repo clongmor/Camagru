@@ -52,6 +52,10 @@ include "./functions/editorFunctions.php";
 		.padding_left {
 			margin-left: 10px;
 		}
+
+		canvas {
+			max-width: 90%;
+		}
 	</style>
 </head>
 <?php if (isset($_SESSION['username'])) : ?>
@@ -75,7 +79,7 @@ include "./functions/editorFunctions.php";
 								PRO TIP: make sure you click submit if uploading from your computer!
 							</h1>
 							<!-- User image upload -->
-
+							
 								<div class="field">
 									<div class="control">
 										<input class="input" id="upload_base" type="file" accept="image/*" style="display:none" onchange="userBaseImage(this.files[0])">
@@ -113,10 +117,12 @@ include "./functions/editorFunctions.php";
 							<button id="stream" class="button padding_bot purp_body" onclick="getWebcamStream()">Switch On Webcam</button>
 						</div>
 						<!-- Canvases -->
+						
 						<div class="container center padding_top">
 							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
 							</canvas>
 							<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
+							</canvas>
 						</div>
 						<div class="center">
 						<button id="snap" class="button padding_top purp_body" onclick="getWebcamImage()">Take Picture</button>
@@ -126,7 +132,12 @@ include "./functions/editorFunctions.php";
 								<h1 class="subtitle">
 									Select an image from the provided images to decorate your chosen photo with:
 								</h1>
+
+								<script>
+
+								</script>
 								<!--Stickers -->
+								
 								<div class="field">
 									<div class="control">
 										<label class="checkbox">
@@ -153,6 +164,7 @@ include "./functions/editorFunctions.php";
 								</div>
 							</div>
 							<!-- Submit form -->
+							
 							<div class="section has-background-primary">
 								<p>
 									Once you have done both of the above, click on create and watch the magic happen!
@@ -167,6 +179,7 @@ include "./functions/editorFunctions.php";
 						</div>
 					</div>
 					<!-- User Images -->
+					
 					<div class="section has-background-primary has-text-centered pics_box overflow_pics">
 						<div class="subtitle"> Here are your previously uploaded pictures:</div>
 						<div class="field">

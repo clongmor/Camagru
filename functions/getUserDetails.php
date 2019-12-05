@@ -1,7 +1,7 @@
 <?php
 
     function getUserImages() {
-        include "config/database.php";
+        include "../database.phpdatabase.php";
         include "comments.php";
         include "likeFunctions.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
