@@ -2,7 +2,7 @@
 
     function storeUserDetails($username, $password, $email) {
         ini_set("display_errors", 1);
-        $defaultimage = "data:image;base64, " +base64_encode(file_get_contents("../imgs/defaultprofile.jpg"));
+        $defaultimage = base64_encode(file_get_contents("../imgs/defaultprofile.jpg"));
         include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -62,7 +62,7 @@
     // }
 
     function updateUsername($newusername) {
-        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -111,7 +111,7 @@
     }
 
     function updateEmail($newEmail) {
-        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -153,7 +153,7 @@
     }
 
     function updatePassword($newpassword) {
-        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -186,7 +186,7 @@
 
     function updateNotifications($setting) {
         // ini_set("display_errors", 1);
-        include "/homes/hde-vos/Documents/camagru/config/database.php";
+        include "../config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         

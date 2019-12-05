@@ -79,7 +79,7 @@ include "./functions/editorFunctions.php";
 								PRO TIP: make sure you click submit if uploading from your computer!
 							</h1>
 							<!-- User image upload -->
-							<form method="post" enctype="multipart/form-data">
+							
 								<div class="field">
 									<div class="control">
 										<input class="input" id="upload_base" type="file" name="image" onchange="getUploadedImage(e)">
@@ -112,6 +112,7 @@ include "./functions/editorFunctions.php";
 							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
 							</canvas>
 							<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
+							</canvas>
 						</div>
 						<div class="center">
 						<button id="snap" class="button padding_top purp_body" onclick="getWebcamImage()">Take Picture</button>
