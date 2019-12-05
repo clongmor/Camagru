@@ -52,6 +52,10 @@ include "./functions/editorFunctions.php";
 		.padding_left {
 			margin-left: 10px;
 		}
+
+		canvas {
+			max-width: 90%;
+		}
 	</style>
 </head>
 <?php if (isset($_SESSION['username'])) : ?>
@@ -117,6 +121,10 @@ include "./functions/editorFunctions.php";
 								<h1 class="subtitle">
 									Select an image from the provided images to decorate your chosen photo with:
 								</h1>
+
+								<script>
+
+								</script>
 								<!--Stickers -->
 								
 								<div class="field">
