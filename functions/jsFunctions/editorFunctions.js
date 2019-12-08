@@ -52,7 +52,7 @@ let sContext = sCanvas.getContext("2d");
 let sticker = new Image();
 sticker.src = $data;
 sticker.onload = () => {
-  sContext.drawImage(sticker, 0, 0);
+  sContext.drawImage(sticker, 0, 0, sCanvas.width, sCanvas.height);
   }
 }
 
