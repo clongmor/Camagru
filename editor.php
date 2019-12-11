@@ -121,7 +121,7 @@ include "./functions/editorFunctions.php";
 						<div class="container center padding_top">
 							<canvas id="my_canvas" width="500" height="500" style="border:5px solid rgb(189, 114, 224);">
 							</canvas>
-							<canvas id="sticker_canvas1" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
+							<canvas id="sticker_canvas" width="500" height="500" style="position:absolute; border:5px solid rgb(189, 114, 224);">
 							</canvas>
 						</div>
 						<div class="center">
@@ -165,11 +165,11 @@ include "./functions/editorFunctions.php";
 							</div>
 							<!-- Submit form -->
 							
-							<div class="section has-background-primary">
+							<div class="section has-background-primary" onmouseenter="checkCanvas()">
 								<p>
 									Once you have done both of the above, click on create and watch the magic happen!
 								</p>
-										<button id="submit_image" type="button" class="button purp_body is-fullwidth" onclick="getImageDataUrl()">
+										<button disabled id="submit_image" type="button" class="button purp_body is-fullwidth" onclick="getImageDataUrl()">
 										<strong> Create My Image! </strong>
 										</button>
 									</div>

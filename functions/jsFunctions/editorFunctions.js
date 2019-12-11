@@ -46,21 +46,50 @@ function getWebcamImage(){
 
 }
 
-function getSticker($data){
-let sCanvas = document.getElementById("sticker_canvas1");
+function getSticker(data){
+let sCanvas = document.getElementById("sticker_canvas");
 let sContext = sCanvas.getContext("2d");
 let sticker = new Image();
-sticker.src = $data;
+sticker.src = data;
 sticker.onload = () => {
   sContext.drawImage(sticker, 0, 0, sCanvas.width, sCanvas.height);
   }
+}
+
+//compare canvas dataurl to blank canvas dataurl
+
+function isCanvasBlank(canvas) {
+  const blank = document.createElement('canvas');
+
+  blank.width = canvas.width;
+  blank.height = canvas.height;
+
+  return canvas.toDataURL() === blank.toDataURL();
+}
+
+//undisable button if both canvases have content
+
+function checkCanvas(){
+
+  let canvas = document.getElementById('my_canvas');
+  let scanvas = document.getElementById('sticker_canvas');
+
+  if (isCanvasBlank(canvas) || isCanvasBlank(scanvas))
+  {
+    return 0;
+  }
+
+  else{
+    document.getElementById("submit_image").disabled = false;
+  }
+
 }
 
 function getImageDataUrl(){
   let myCanvas = document.getElementById("my_canvas");
   let imageDataUrl = encodeURIComponent(myCanvas.toDataURL());
  
-  let sCanvas = document.getElementById("sticker_canvas1");
+  let sCanvas = document.getElementById("sticker_canvas");
   let stickerDataUrl = encodeURIComponent(sCanvas.toDataURL());
 
   let url = "imagedata=" + imageDataUrl + "&stickerdata=" + stickerDataUrl;
