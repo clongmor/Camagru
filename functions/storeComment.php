@@ -12,7 +12,7 @@
         if ($results['verified'] == 2) {
         $to = $results['email'];
         $subject = 'Madimgz - Comment on Post';
-        $message = $commenter.' has commented on your post.<br>They said the following: '.$text.'<br>Go to the following link to reply: http://localhost:8080/camagru/user.php?name='.$results['username'];
+        $message = $commenter.' has commented on your post.<br>They said the following: '.$text.'<br>Go to the following link to reply: http://localhost:8081/camagru/user.php?name='.$results['username'];
         
         $headers = 'From: admin@madimgz.com';
 

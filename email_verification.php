@@ -53,7 +53,18 @@ if ($search->rowCount() == 1) {
 </body>';
 } else {
 	// No match -> invalid url or account has already been activated.
-	echo '<div class="statusmsg">The url is either invalid or you have already activated your account.</div>';
+	echo '<body class="purp_body">
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+			<div class="statusmsg">The url is either invalid or you have already activated your account.</div>
+			</div>
+		</div>
+	</section>
+	<?php
+		include "templates/footer.php";
+	?>
+	</body>';
 }
 }
 ?>

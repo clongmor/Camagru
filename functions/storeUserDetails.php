@@ -62,7 +62,7 @@
     // }
 
     function updateUsername($newusername) {
-        include "../config/database.php";
+        include "/goinfre/clongmor/Applications/mamp/apache2/htdocs/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -111,7 +111,7 @@
     }
 
     function updateEmail($newEmail) {
-        include "../config/database.php";
+        include "/goinfre/clongmor/Applications/mamp/apache2/htdocs/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -153,7 +153,7 @@
     }
 
     function updatePassword($newpassword) {
-        include "../config/database.php";
+        include "/goinfre/clongmor/Applications/mamp/apache2/htdocs/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -186,7 +186,7 @@
 
     function updateNotifications($setting) {
         // ini_set("display_errors", 1);
-        include "../config/database.php";
+        include "/goinfre/clongmor/Applications/mamp/apache2/htdocs/camagru/config/database.php";
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         

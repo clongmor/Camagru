@@ -28,13 +28,13 @@
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="text" name="password" placeholder="Password" value="123456789">
+                                            <input class="input" type="password" name="password" placeholder="Password" value="">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
                                             <!-- Remove the value="" -->
-                                            <input class="input" type="text" name="repeatpassword" placeholder="Repeat Password" value="123456789">
+                                            <input class="input" type="password" name="repeatpassword" placeholder="Repeat Password" value="">
                                         </div>
                                     </div>
                                     <div class="field">

@@ -40,7 +40,7 @@
         if (isset($_POST['username']))
             header("Location: ../user.php?name=" . $_POST['username']);
         else
-            header("Location: ../gallery.php?page=1");
+            header("Location: " . $_SESSION['URI']);
     }
 
     function getLikeCount($imageid) {

@@ -72,7 +72,7 @@ function saveMergedImage(){
 		$dst = imagecreatefromstring(base64_decode(substr($base, 22)));
 		$src = imagecreatefromstring(base64_decode(substr($sticker, 22)));
 			
-		imagecopyresampled($dst, $src, 0, 0, 0, 0, 640, 480, 640, 480);
+		imagecopyresampled($dst, $src, 0, 0, 0, 0, 640, 500, 640, 500);
 		ob_start();
 			imagepng($dst);
 			$source =  ob_get_contents();
