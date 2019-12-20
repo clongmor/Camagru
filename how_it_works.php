@@ -41,34 +41,40 @@
 			  <h2 class="subtitle">
 				make sure you confirm your email before you try to login!
 			  </h2>
-			<img class="border" src="./imgs/sign_up.jpg" alt="Sign_up" style="max-height: 200px; max-width:500px;">
-			<img class="border right" src="./imgs/sign_up_submit.jpg" alt="Sign_up_submit" style="max-height: 197px; max-width:500px;">
+			<img class="border right" src="imgs/sign_up_submit.jpg" alt="Sign_up_submit" style="max-height: 197px; max-width:500px;">
 		</div>
 		<div class="section">
 			<h1 class="title">
-				Step 2: login and go to the Editor page
+				Step 2: login and go to the Create an Image page
 			  </h1>
+			  <img class="border" src="imgs/create_img_page.png" alt="Sign_up_submit" style="max-height: 197px; max-width:500px;">
 		</div>
 		<div class="section has-text-white has-background-primary">
 			<h1 class="title">
-				Step 3: select the image(s) that you want to add to your photo.
+				Step 3: Switch on the webcam and take a photo or upload an image.
 			  </h1>
 			  <h2 class="subtitle">
-				choose from a range of supplied images that you can decorate your photo with.
+			  make sure to click the upload button if you choose not to use the webcam
 			  </h2>
+			  <img class="border" src="imgs/switch_on_webcam.png" alt="Sign_up_submit" style="max-height: 197px; max-width:500px;">
 		</div>
 		<div class="section">
 			<h1 class="title">
-				Step 4: take a photo with your webcam/upload an image from your computer
+				Step 4: select the image(s) that you want to add to your photo.
 			  </h1>
 			  <h2 class="subtitle">
-				and watch the magic happen!
+			  choose from a range of supplied images that you can decorate your photo with.
 			  </h2>
+			  <img class="border" src="imgs/choose_sticker.png" alt="Sign_up_submit" style="max-height: 197px; max-width:400px;">
 		</div>
 		<div class="section has-text-white has-background-primary">
 			<h1 class="title">
-				Step 5: choose to upload to the gallery or delete and start over
+				Step 5: click the create my image button to upload to the gallery
 			  </h1>
+			  <h2 class="subtitle">
+			  	or restart if you don't like what you see.
+			</h2>
+			<img class="border" src="imgs/create_img_button.png" alt="Sign_up_submit" style="max-height: 197px; max-width:400px;">
 		</div>
 	</div>
   </section>

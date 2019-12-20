@@ -3,7 +3,6 @@ let myCanvas = document.getElementById("my_canvas");
 let myContext = myCanvas.getContext("2d");
 
 const file = files;
-console.log(file);
 
 let img = new Image();
 img.src = window.URL.createObjectURL(file);
@@ -52,7 +51,7 @@ let sContext = sCanvas.getContext("2d");
 let sticker = new Image();
 sticker.src = data;
 sticker.onload = () => {
-  sContext.drawImage(sticker, 0, 0, sCanvas.width, sCanvas.height);
+  sContext.drawImage(sticker, 0, 0, sCanvas.width/2, sCanvas.height/2);
   }
 }
 
@@ -97,23 +96,14 @@ function getImageDataUrl(){
   ajax.open('POST', 'functions/editorFunctions.php');
   ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-  ajax.onreadystatechange = function() {
-    console.log(ajax.responseText);
- }
-
   ajax.send(url);
-  
- 
-    // Process our return data
-    console.log(ajax.status);
+
 	if (ajax.status < 300) {
 		// What do when the request is successful
-		console.log('success!', ajax);
+		console.log('success!');
 	} else {
 		// What do when the request fails
-		console.log('The request failed!');
+    console.log('Something went wrong!');
 	}
-
-	// Code that should run regardless of the request status
-	console.log('This always runs...');
+window.location.reload();
 }
