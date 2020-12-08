@@ -16,7 +16,7 @@
     $subject = 'Madimgz Password Reset';
     $message = 'Welcome '.$username.'
     Please click on the link below to reset your password:
-    http://localhost:8081/camagru/passwordreset.php?username='.$username.'&token='.$token;
+    http://localhost:80/camagru/passwordreset.php?username='.$username.'&token='.$token;
     $headers = 'From: admin@madimgz.co.za';
     mail($to, $subject, $message, $headers);
     $_SESSION['emailpasswordreset_success'] = "<p>The link to reset your password has been sent. Please check your email.</p>";

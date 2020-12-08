@@ -8,8 +8,6 @@
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    // $username = "Hallocoos";
-    // $password = "12345678";
     $_SESSION['login_success'] = NULL;
     $_SESSION['error'] = NULL;
 
