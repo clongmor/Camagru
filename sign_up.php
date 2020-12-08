@@ -62,7 +62,6 @@
                                             echo " Signup failed. " . $_SESSION['error'];
                                             $_SESSION['error'] = NULL;
                                         }
-                                        echo "Message: " . $_SESSION['message']
                                         ?>
                                     </span>
                                 </form>

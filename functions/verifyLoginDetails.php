@@ -9,10 +9,8 @@
         http://localhost:80/camagru/email_verification.php?email='.$email.'&token='.$_SESSION['token'].'';
         
         $headers = 'From: admin@madimgz.com';
-        $_SESSION['message'] = $message;
 
-        if (!mail($to, $subject, $message, $headers))
-            $_SESSION['message'] = "email failed to send";
+        mail($to, $subject, $message, $headers);
         return (0);
     }
 
