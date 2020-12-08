@@ -29,26 +29,22 @@
                                 <form method="post" action="forms/signup.php">
                                     <div class="field">
                                         <div class="control">
-                                            <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="username" placeholder="Username">
+                                            <input class="input" type="text" name="username" placeholder="Username" value="Hallocoos">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <!-- REMOVE THE value="" -->
-                                            <input class="input" type="text" name="email" placeholder="Email">
+                                            <input class="input" type="text" name="email" placeholder="Email" value="wdv@mailinator.com">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <!-- REMOVE THE value="" -->
-                                            <input class="input" type="password" name="password" placeholder="Password">
+                                            <input class="input" type="password" name="password" placeholder="Password" value="q1w2e3Q!W@E#">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <!-- REMOVE THE value="" -->
-                                            <input class="input" type="password" name="repeatpassword" placeholder="Repeat Password">
+                                            <input class="input" type="password" name="repeatpassword" placeholder="Repeat Password" value="q1w2e3Q!W@E#">
                                         </div>
                                     </div>
                                     <div class="field is-grouped">
@@ -66,6 +62,7 @@
                                             echo " Signup failed. " . $_SESSION['error'];
                                             $_SESSION['error'] = NULL;
                                         }
+                                        echo "Message: " . $_SESSION['message']
                                         ?>
                                     </span>
                                 </form>

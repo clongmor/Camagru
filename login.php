@@ -33,13 +33,11 @@
                                 <form method="post" action="forms/login.php">
                                     <div class="field">
                                         <div class="control">
-                                            <!-- Remove the value="" -->
                                             <input class="input" type="text" name="username" placeholder="Username">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <!-- Remove the value="" -->
                                             <input class="input" type="password" name="password" placeholder="Password">
                                         </div>
                                     </div>
