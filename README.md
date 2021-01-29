@@ -1,5 +1,5 @@
 # Camagru
-First solo web project for the web based semester at WeThinkCode_ using PHP, HTML and CSS. You can find the project instructions brief here: instructions.
+First solo web project for the web based semester at WeThinkCode_ using PHP, HTML and CSS. You can find the project instructions brief here: [instructions](https://github.com/clongmor/Camagru/blob/master/camagru.en.pdf).
 This web project is challenging you to create a small web application allowing you to make basic photo and video editing using your webcam (or uploading an image) and some predefined stickers, to create a fun combined image. It's design is influenced by social media sites, mainly instagram and snapchat and is a fun image sharing site.
 
 Users can view the public gallery of images on the site even without an account, and get a preview of what they will be able to create once they sign up for an account via the about page. After signing up and verfiying their account, users can create images themselves, as well as add comments to, or "like" images in the public gallery. Users can also edit their profile information and remove images they have created if they wish.
@@ -50,4 +50,4 @@ contains the images that the site istelf uses for the front end, non user upload
 
 - userimgs: images that the users have in their profile e.g. default profile picture
 
-for testing the programme, see the testing pdf linked here: tests, and you can make use of the shell scripts for resetting the database and restarting mysql, sendmail and teh apache server.
+for testing the programme, see the testing pdf linked here: [tests](https://github.com/clongmor/Camagru/blob/master/camagru.markingsheet.pdf), and you can make use of the shell scripts for resetting the database and restarting mysql, sendmail and teh apache server.
