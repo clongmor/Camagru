@@ -104,6 +104,7 @@ function getImageDataUrl(){
 	} else {
 		// What do when the request fails
     console.log('Something went wrong!');
-	}
+  }
+  console.log();
 window.location.reload();
 }
